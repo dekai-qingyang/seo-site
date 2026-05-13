@@ -2,6 +2,14 @@
 
 import { useMemo, useState } from "react"
 
+import {
+  PieChart,
+  Pie,
+  Cell,
+  ResponsiveContainer,
+  Tooltip,
+} from "recharts"
+
 export default function RefinanceCalculator() {
 
   const [currentBalance, setCurrentBalance] = useState(350000)
@@ -14,32 +22,68 @@ export default function RefinanceCalculator() {
 
   const [closingCosts, setClosingCosts] = useState(5000)
 
-  const currentMonthlyRate = currentRate / 100 / 12
+  const currentMonthlyRate =
+    currentRate / 100 / 12
 
-  const newMonthlyRate = newRate / 100 / 12
+  const newMonthlyRate =
+    newRate / 100 / 12
 
-  const totalPayments = remainingTerm * 12
+  const totalPayments =
+    remainingTerm * 12
 
   const currentPayment =
     currentBalance *
-    (currentMonthlyRate *
-      Math.pow(1 + currentMonthlyRate, totalPayments)) /
-    (Math.pow(1 + currentMonthlyRate, totalPayments) - 1)
+    (
+      currentMonthlyRate *
+      Math.pow(
+        1 + currentMonthlyRate,
+        totalPayments
+      )
+    ) /
+    (
+      Math.pow(
+        1 + currentMonthlyRate,
+        totalPayments
+      ) - 1
+    )
 
   const newPayment =
     currentBalance *
-    (newMonthlyRate *
-      Math.pow(1 + newMonthlyRate, totalPayments)) /
-    (Math.pow(1 + newMonthlyRate, totalPayments) - 1)
+    (
+      newMonthlyRate *
+      Math.pow(
+        1 + newMonthlyRate,
+        totalPayments
+      )
+    ) /
+    (
+      Math.pow(
+        1 + newMonthlyRate,
+        totalPayments
+      ) - 1
+    )
 
   const monthlySavings =
     currentPayment - newPayment
 
   const lifetimeSavings =
-    monthlySavings * totalPayments - closingCosts
+    monthlySavings *
+    totalPayments -
+    closingCosts
 
   const breakEvenMonths =
     closingCosts / monthlySavings
+
+  const chartData = [
+    {
+      name: "Current Payment",
+      value: currentPayment,
+    },
+    {
+      name: "New Payment",
+      value: newPayment,
+    },
+  ]
 
   const refinanceReport = useMemo(() => {
 
@@ -49,9 +93,11 @@ export default function RefinanceCalculator() {
 
     for (let i = 1; i <= totalPayments; i++) {
 
-      const interest = balance * newMonthlyRate
+      const interest =
+        balance * newMonthlyRate
 
-      const principal = newPayment - interest
+      const principal =
+        newPayment - interest
 
       balance -= principal
 
@@ -59,7 +105,8 @@ export default function RefinanceCalculator() {
         payment: i,
         interest,
         principal,
-        balance: balance > 0 ? balance : 0,
+        balance:
+          balance > 0 ? balance : 0,
       })
     }
 
@@ -73,13 +120,14 @@ export default function RefinanceCalculator() {
   ])
 
   return (
+
     <main className="min-h-screen bg-slate-100 py-4 lg:py-10 px-2 lg:px-4">
 
       <div className="max-w-7xl mx-auto">
 
-        <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200">
+        {/* HERO */}
 
-          {/* HERO */}
+        <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200">
 
           <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-6 lg:p-8">
 
@@ -88,8 +136,9 @@ export default function RefinanceCalculator() {
             </h1>
 
             <p className="text-blue-100 text-sm lg:text-lg leading-7">
-              Estimate refinancing savings, monthly payments,
-              break-even points, and long-term mortgage costs.
+              Estimate mortgage refinancing savings,
+              break-even points,
+              and long-term payment reductions.
             </p>
 
           </div>
@@ -215,78 +264,7 @@ export default function RefinanceCalculator() {
 
                 </div>
 
-                {/* MOBILE */}
-
-                <div className="block lg:hidden divide-y divide-slate-200">
-
-                  {refinanceReport.slice(0, 12).map((row, index) => (
-
-                    <div
-                      key={index}
-                      className="p-4"
-                    >
-
-                      <div className="flex justify-between items-center mb-3">
-
-                        <div className="font-bold text-lg">
-                          Payment {index + 1}
-                        </div>
-
-                        <div className="text-sm text-slate-500">
-                          Month
-                        </div>
-
-                      </div>
-
-                      <div className="grid grid-cols-2 gap-3 text-sm">
-
-                        <div className="bg-slate-50 rounded-2xl p-3">
-
-                          <div className="text-slate-500 mb-1">
-                            Interest
-                          </div>
-
-                          <div className="font-bold">
-                            ${row.interest.toFixed(0)}
-                          </div>
-
-                        </div>
-
-                        <div className="bg-slate-50 rounded-2xl p-3">
-
-                          <div className="text-slate-500 mb-1">
-                            Principal
-                          </div>
-
-                          <div className="font-bold">
-                            ${row.principal.toFixed(0)}
-                          </div>
-
-                        </div>
-
-                        <div className="bg-blue-50 rounded-2xl p-3 col-span-2">
-
-                          <div className="text-slate-500 mb-1">
-                            Remaining Balance
-                          </div>
-
-                          <div className="font-black text-lg">
-                            ${row.balance.toFixed(0)}
-                          </div>
-
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                  ))}
-
-                </div>
-
-                {/* DESKTOP */}
-
-                <div className="hidden lg:block overflow-x-auto">
+                <div className="overflow-x-auto">
 
                   <table className="w-full text-left">
 
@@ -316,7 +294,9 @@ export default function RefinanceCalculator() {
 
                     <tbody>
 
-                      {refinanceReport.slice(0, 12).map((row, index) => (
+                      {refinanceReport
+                        .slice(0, 12)
+                        .map((row, index) => (
 
                         <tr
                           key={index}
@@ -357,98 +337,94 @@ export default function RefinanceCalculator() {
 
         </div>
 
-        {/* ARTICLE */}
+        {/* EXPLANATION */}
 
-        <section className="bg-white rounded-3xl shadow-xl border border-slate-200 p-5 lg:p-10 mt-6 lg:mt-10">
+        <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 lg:p-8 mt-6">
 
-          <h2 className="text-3xl lg:text-4xl font-black mb-6">
-            Understanding Mortgage Refinancing
+          <h2 className="text-3xl font-black mb-5">
+            Refinance Explanation
           </h2>
 
-          <div className="space-y-6 text-slate-700 leading-8 text-base lg:text-lg">
+          <p className="text-slate-700 leading-8 text-lg">
 
-            <p>
-              Mortgage refinancing replaces an existing home loan
-              with a new mortgage that usually offers a lower
-              interest rate or improved loan terms.
-            </p>
+            Refinancing from
+            <strong> {currentRate}%</strong>
+            to
+            <strong> {newRate}%</strong>
+            could reduce monthly payments by
+            <strong> ${monthlySavings.toFixed(2)}</strong>
+            and potentially save
+            <strong> ${lifetimeSavings.toFixed(0)}</strong>
+            over the life of the loan.
 
-            <div>
+          </p>
 
-              <h3 className="text-2xl font-bold mb-3 text-black">
-                Why Refinance a Mortgage?
-              </h3>
+        </div>
 
-              <p>
-                Homeowners refinance to reduce monthly payments,
-                lower total interest costs, shorten loan terms,
-                or access home equity.
-              </p>
+        {/* CHART */}
+
+        <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 lg:p-8 mt-6">
+
+          <h2 className="text-3xl font-black mb-6">
+            Payment Comparison
+          </h2>
+
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+
+            <div className="h-[300px]">
+
+              <ResponsiveContainer
+                width="100%"
+                height="100%"
+              >
+
+                <PieChart>
+
+                  <Pie
+                    data={chartData}
+                    cx="50%"
+                    cy="50%"
+                    outerRadius={100}
+                    dataKey="value"
+                    label
+                  >
+
+                    <Cell fill="#2563eb" />
+
+                    <Cell fill="#93c5fd" />
+
+                  </Pie>
+
+                  <Tooltip />
+
+                </PieChart>
+
+              </ResponsiveContainer>
 
             </div>
 
-            <div>
+            <div className="space-y-4">
 
-              <h3 className="text-2xl font-bold mb-3 text-black">
-                How Refinance Savings Work
-              </h3>
+              <div className="bg-blue-50 rounded-2xl p-5">
 
-              <p>
-                Lower interest rates can reduce monthly mortgage
-                payments and save thousands of dollars over the
-                life of the loan.
-              </p>
-
-            </div>
-
-            <div>
-
-              <h3 className="text-2xl font-bold mb-3 text-black">
-                Break-even Point
-              </h3>
-
-              <p>
-                The refinance break-even point measures how long
-                it takes for monthly savings to recover refinancing
-                closing costs.
-              </p>
-
-            </div>
-
-            <div>
-
-              <h3 className="text-2xl font-bold mb-3 text-black">
-                Frequently Asked Questions
-              </h3>
-
-              <div className="space-y-5">
-
-                <div>
-
-                  <h4 className="font-bold text-xl mb-2 text-black">
-                    Is refinancing worth it?
-                  </h4>
-
-                  <p>
-                    Refinancing may be worthwhile if savings exceed
-                    closing costs and homeowners plan to stay long enough
-                    to reach the break-even point.
-                  </p>
-
+                <div className="text-slate-500 mb-1">
+                  Current Mortgage
                 </div>
 
-                <div>
+                <div className="text-2xl font-black">
+                  ${currentPayment.toFixed(0)}
+                </div>
 
-                  <h4 className="font-bold text-xl mb-2 text-black">
-                    Does refinancing hurt credit scores?
-                  </h4>
+              </div>
 
-                  <p>
-                    Refinancing may temporarily lower credit scores
-                    due to hard credit inquiries, but long-term impacts
-                    are usually minimal.
-                  </p>
+              <div className="bg-slate-100 rounded-2xl p-5">
 
+                <div className="text-slate-500 mb-1">
+                  Refinanced Mortgage
+                </div>
+
+                <div className="text-2xl font-black">
+                  ${newPayment.toFixed(0)}
                 </div>
 
               </div>
@@ -457,7 +433,128 @@ export default function RefinanceCalculator() {
 
           </div>
 
-        </section>
+        </div>
+
+        {/* FORMULA */}
+
+        <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 lg:p-8 mt-6">
+
+          <h2 className="text-3xl font-black mb-5">
+            Refinance Formula
+          </h2>
+
+          <div className="bg-slate-100 rounded-2xl p-5 overflow-x-auto">
+
+            <p className="text-lg font-mono">
+              Monthly Savings = Current Payment − New Payment
+            </p>
+
+          </div>
+
+        </div>
+
+        {/* EXAMPLE */}
+
+        <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 lg:p-8 mt-6">
+
+          <h2 className="text-3xl font-black mb-5">
+            Refinance Example
+          </h2>
+
+          <p className="text-slate-700 leading-8 text-lg">
+
+            Refinancing a $350,000 mortgage
+            from 7.2% to 5.8%
+            could save approximately
+            <strong> ${monthlySavings.toFixed(2)}</strong>
+            per month.
+
+          </p>
+
+        </div>
+
+        {/* FAQ */}
+
+        <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 lg:p-8 mt-6">
+
+          <h2 className="text-3xl font-black mb-6">
+            Refinance FAQ
+          </h2>
+
+          <div className="space-y-6">
+
+            <div>
+
+              <h3 className="font-bold text-xl mb-2">
+                Is refinancing worth it?
+              </h3>
+
+              <p className="text-slate-700 leading-8">
+                Refinancing may be worthwhile if
+                long-term savings exceed closing costs.
+              </p>
+
+            </div>
+
+            <div>
+
+              <h3 className="font-bold text-xl mb-2">
+                What is a refinance break-even point?
+              </h3>
+
+              <p className="text-slate-700 leading-8">
+                The break-even point measures how long
+                it takes to recover refinancing costs
+                through monthly savings.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* RELATED */}
+
+        <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 lg:p-8 mt-6 mb-10">
+
+          <h2 className="text-3xl font-black mb-6">
+            Related Calculators
+          </h2>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+            <a
+              href="/mortgage-calculator"
+              className="bg-slate-100 hover:bg-blue-50 rounded-2xl p-5 font-bold"
+            >
+              Mortgage Calculator
+            </a>
+
+            <a
+              href="/loan-calculator"
+              className="bg-slate-100 hover:bg-blue-50 rounded-2xl p-5 font-bold"
+            >
+              Loan Calculator
+            </a>
+
+            <a
+              href="/auto-loan-calculator"
+              className="bg-slate-100 hover:bg-blue-50 rounded-2xl p-5 font-bold"
+            >
+              Auto Loan Calculator
+            </a>
+
+            <a
+              href="/affordability-calculator"
+              className="bg-slate-100 hover:bg-blue-50 rounded-2xl p-5 font-bold"
+            >
+              Affordability Calculator
+            </a>
+
+          </div>
+
+        </div>
 
       </div>
 
@@ -478,7 +575,9 @@ function InputField({
   prefix?: string
   suffix?: string
 }) {
+
   return (
+
     <div>
 
       <label className="block text-sm font-semibold mb-2 text-slate-700">
@@ -496,7 +595,9 @@ function InputField({
         <input
           type="number"
           value={value}
-          onChange={(e) => setValue(Number(e.target.value))}
+          onChange={(e) =>
+            setValue(Number(e.target.value))
+          }
           className={`w-full border border-slate-200 rounded-2xl py-3 px-4 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
             prefix ? "pl-9" : ""
           } ${
@@ -513,18 +614,20 @@ function InputField({
       </div>
 
     </div>
+
   )
 }
 
 function SummaryRow({
   label,
   value,
- suffix,
+  suffix,
 }: {
   label: string
   value: number
   suffix?: string
 }) {
+
   return (
 
     <div className="px-4 lg:px-6 py-4">

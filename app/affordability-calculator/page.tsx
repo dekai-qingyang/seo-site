@@ -1,6 +1,3 @@
-# app/affordability-calculator/page.tsx
-
-```tsx
 "use client"
 
 import { useMemo, useState } from "react"
@@ -13,13 +10,11 @@ import {
   Tooltip,
 } from "recharts"
 
-export default function AffordabilityCalculator() {
+export default function MortgageCalculator() {
 
-  const [annualIncome, setAnnualIncome] = useState(120000)
+  const [homePrice, setHomePrice] = useState(500000)
 
-  const [monthlyDebt, setMonthlyDebt] = useState(1200)
-
-  const [downPayment, setDownPayment] = useState(50000)
+  const [downPaymentPercent, setDownPaymentPercent] = useState(20)
 
   const [interestRate, setInterestRate] = useState(6.5)
 
@@ -29,61 +24,63 @@ export default function AffordabilityCalculator() {
 
   const [insurance, setInsurance] = useState(120)
 
-  const monthlyIncome = annualIncome / 12
+  const actualDownPayment =
+    homePrice * (downPaymentPercent / 100)
 
-  const maxHousingBudget =
-    monthlyIncome * 0.28 - monthlyDebt
+  const loanAmount =
+    homePrice - actualDownPayment
 
   const monthlyInterest =
     interestRate / 100 / 12
 
-  const totalPayments = loanTerm * 12
+  const totalPayments =
+    loanTerm * 12
 
-  const estimatedLoan =
-    maxHousingBudget *
-    ((Math.pow(1 + monthlyInterest, totalPayments) - 1) /
-      (monthlyInterest *
-        Math.pow(1 + monthlyInterest, totalPayments)))
+  const monthlyPayment =
+    loanAmount *
+    (
+      monthlyInterest *
+      Math.pow(1 + monthlyInterest, totalPayments)
+    ) /
+    (
+      Math.pow(1 + monthlyInterest, totalPayments) - 1
+    )
 
-  const affordableHomePrice =
-    estimatedLoan + downPayment
+  const totalCost =
+    monthlyPayment * totalPayments
 
-  const estimatedPayment =
-    maxHousingBudget -
-    propertyTax -
+  const totalInterest =
+    totalCost - loanAmount
+
+  const totalMonthlyPayment =
+    monthlyPayment +
+    propertyTax +
     insurance
-
-  const totalHousingCapacity =
-    affordableHomePrice - downPayment
 
   const chartData = [
     {
-      name: "Loan Capacity",
-      value: totalHousingCapacity,
+      name: "Principal",
+      value: loanAmount,
     },
     {
-      name: "Down Payment",
-      value: downPayment,
+      name: "Interest",
+      value: totalInterest,
     },
   ]
 
-  const affordabilityReport = useMemo(() => {
+  const amortizationSchedule = useMemo(() => {
 
     const rows = []
 
-    let balance = estimatedLoan
-
-    const payment =
-      estimatedLoan *
-      (monthlyInterest *
-        Math.pow(1 + monthlyInterest, totalPayments)) /
-      (Math.pow(1 + monthlyInterest, totalPayments) - 1)
+    let balance = loanAmount
 
     for (let i = 1; i <= totalPayments; i++) {
 
-      const interest = balance * monthlyInterest
+      const interest =
+        balance * monthlyInterest
 
-      const principal = payment - interest
+      const principal =
+        monthlyPayment - interest
 
       balance -= principal
 
@@ -98,12 +95,14 @@ export default function AffordabilityCalculator() {
     return rows
 
   }, [
-    estimatedLoan,
+    loanAmount,
     monthlyInterest,
+    monthlyPayment,
     totalPayments,
   ])
 
   return (
+
     <main className="min-h-screen bg-slate-100 py-4 lg:py-10 px-2 lg:px-4">
 
       <div className="max-w-7xl mx-auto">
@@ -113,12 +112,12 @@ export default function AffordabilityCalculator() {
           <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-6 lg:p-8">
 
             <h1 className="text-3xl lg:text-5xl font-black mb-2 lg:mb-4">
-              Affordability Calculator
+              Mortgage Calculator
             </h1>
 
             <p className="text-blue-100 text-sm lg:text-lg leading-7">
-              Estimate how much house you can afford based on
-              income, debt, interest rates, and monthly expenses.
+              Calculate mortgage payments, loan costs,
+              amortization schedules, and affordability.
             </p>
 
           </div>
@@ -130,24 +129,17 @@ export default function AffordabilityCalculator() {
               <div className="space-y-5">
 
                 <InputField
-                  label="Annual Income"
-                  value={annualIncome}
-                  setValue={setAnnualIncome}
-                  prefix="$"
-                />
-
-                <InputField
-                  label="Monthly Debt"
-                  value={monthlyDebt}
-                  setValue={setMonthlyDebt}
+                  label="Home Price"
+                  value={homePrice}
+                  setValue={setHomePrice}
                   prefix="$"
                 />
 
                 <InputField
                   label="Down Payment"
-                  value={downPayment}
-                  setValue={setDownPayment}
-                  prefix="$"
+                  value={downPaymentPercent}
+                  setValue={setDownPaymentPercent}
+                  suffix="%"
                 />
 
                 <InputField
@@ -187,11 +179,11 @@ export default function AffordabilityCalculator() {
               <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-3xl p-5 lg:p-8 mb-5 lg:mb-8">
 
                 <p className="text-blue-100 text-sm lg:text-lg mb-2">
-                  Estimated Affordable Home Price
+                  Monthly Mortgage Payment
                 </p>
 
                 <h2 className="text-3xl lg:text-5xl font-black break-all">
-                  ${affordableHomePrice.toFixed(0)}
+                  ${totalMonthlyPayment.toFixed(2)}
                 </h2>
 
               </div>
@@ -201,7 +193,7 @@ export default function AffordabilityCalculator() {
                 <div className="px-4 lg:px-6 py-4 border-b border-slate-200">
 
                   <h3 className="text-xl lg:text-2xl font-bold">
-                    Affordability Summary
+                    Mortgage Summary
                   </h3>
 
                 </div>
@@ -209,23 +201,23 @@ export default function AffordabilityCalculator() {
                 <div className="divide-y divide-slate-200">
 
                   <SummaryRow
-                    label="Monthly Income"
-                    value={monthlyIncome}
+                    label="Loan Amount"
+                    value={loanAmount}
                   />
 
                   <SummaryRow
-                    label="Maximum Housing Budget"
-                    value={maxHousingBudget}
+                    label="Monthly Principal & Interest"
+                    value={monthlyPayment}
                   />
 
                   <SummaryRow
-                    label="Estimated Loan Amount"
-                    value={estimatedLoan}
+                    label="Total Interest"
+                    value={totalInterest}
                   />
 
                   <SummaryRow
-                    label="Estimated Monthly Payment"
-                    value={estimatedPayment}
+                    label="Total Loan Cost"
+                    value={totalCost}
                   />
 
                 </div>
@@ -237,79 +229,12 @@ export default function AffordabilityCalculator() {
                 <div className="px-4 lg:px-6 py-4 border-b border-slate-200">
 
                   <h3 className="text-xl lg:text-2xl font-bold">
-                    Affordability Report
+                    Amortization Schedule
                   </h3>
 
                 </div>
 
-                <div className="block lg:hidden divide-y divide-slate-200">
-
-                  {affordabilityReport.slice(0, 12).map((row, index) => (
-
-                    <div
-                      key={index}
-                      className="p-4"
-                    >
-
-                      <div className="flex justify-between items-center mb-3">
-
-                        <div className="font-bold text-lg">
-                          Payment {index + 1}
-                        </div>
-
-                        <div className="text-sm text-slate-500">
-                          Month
-                        </div>
-
-                      </div>
-
-                      <div className="grid grid-cols-2 gap-3 text-sm">
-
-                        <div className="bg-slate-50 rounded-2xl p-3">
-
-                          <div className="text-slate-500 mb-1">
-                            Interest
-                          </div>
-
-                          <div className="font-bold">
-                            ${row.interest.toFixed(0)}
-                          </div>
-
-                        </div>
-
-                        <div className="bg-slate-50 rounded-2xl p-3">
-
-                          <div className="text-slate-500 mb-1">
-                            Principal
-                          </div>
-
-                          <div className="font-bold">
-                            ${row.principal.toFixed(0)}
-                          </div>
-
-                        </div>
-
-                        <div className="bg-blue-50 rounded-2xl p-3 col-span-2">
-
-                          <div className="text-slate-500 mb-1">
-                            Remaining Balance
-                          </div>
-
-                          <div className="font-black text-lg">
-                            ${row.balance.toFixed(0)}
-                          </div>
-
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                  ))}
-
-                </div>
-
-                <div className="hidden lg:block overflow-x-auto">
+                <div className="overflow-x-auto">
 
                   <table className="w-full text-left">
 
@@ -339,7 +264,7 @@ export default function AffordabilityCalculator() {
 
                     <tbody>
 
-                      {affordabilityReport.slice(0, 12).map((row, index) => (
+                      {amortizationSchedule.slice(0, 12).map((row, index) => (
 
                         <tr
                           key={index}
@@ -380,35 +305,37 @@ export default function AffordabilityCalculator() {
 
         </div>
 
+        {/* RESULT EXPLANATION */}
+
         <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-5 lg:p-8 mt-6 lg:mt-10">
 
           <h2 className="text-2xl lg:text-3xl font-black mb-5">
-            Affordability Explanation
+            Mortgage Payment Explanation
           </h2>
 
           <p className="text-slate-700 text-base lg:text-lg leading-8">
-            Based on an annual income of
-            <strong> ${annualIncome.toLocaleString()}</strong>,
-            monthly debt obligations of
-            <strong> ${monthlyDebt.toFixed(0)}</strong>,
-            and a down payment of
-            <strong> ${downPayment.toFixed(0)}</strong>,
-            your estimated affordable home price is
-            <strong> ${affordableHomePrice.toFixed(0)}</strong>.
-          </p>
 
-          <p className="text-slate-700 text-base lg:text-lg leading-8 mt-4">
-            Mortgage affordability depends on income,
-            debt-to-income ratio, interest rates,
-            property taxes, and loan terms.
+            Based on a home price of
+            <strong> ${homePrice.toLocaleString()}</strong>,
+            a down payment of
+            <strong> ${actualDownPayment.toFixed(0)}</strong>,
+            an interest rate of
+            <strong> {interestRate}%</strong>,
+            and a
+            <strong> {loanTerm}-year</strong> loan term,
+            your estimated monthly mortgage payment is
+            <strong> ${monthlyPayment.toFixed(2)}</strong>.
+
           </p>
 
         </div>
 
+        {/* CHART */}
+
         <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-5 lg:p-8 mt-6">
 
           <h2 className="text-2xl lg:text-3xl font-black mb-6">
-            Home Affordability Breakdown
+            Mortgage Cost Breakdown
           </h2>
 
           <div className="grid lg:grid-cols-2 gap-8 items-center">
@@ -446,11 +373,11 @@ export default function AffordabilityCalculator() {
               <div className="bg-blue-50 rounded-2xl p-5">
 
                 <div className="text-slate-500 mb-1">
-                  Estimated Loan Capacity
+                  Principal
                 </div>
 
                 <div className="text-2xl font-black">
-                  ${totalHousingCapacity.toFixed(0)}
+                  ${loanAmount.toFixed(0)}
                 </div>
 
               </div>
@@ -458,23 +385,11 @@ export default function AffordabilityCalculator() {
               <div className="bg-slate-100 rounded-2xl p-5">
 
                 <div className="text-slate-500 mb-1">
-                  Down Payment
+                  Interest
                 </div>
 
                 <div className="text-2xl font-black">
-                  ${downPayment.toFixed(0)}
-                </div>
-
-              </div>
-
-              <div className="bg-indigo-50 rounded-2xl p-5">
-
-                <div className="text-slate-500 mb-1">
-                  Affordable Home Price
-                </div>
-
-                <div className="text-2xl font-black">
-                  ${affordableHomePrice.toFixed(0)}
+                  ${totalInterest.toFixed(0)}
                 </div>
 
               </div>
@@ -485,43 +400,110 @@ export default function AffordabilityCalculator() {
 
         </div>
 
+        {/* FORMULA */}
+
         <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-5 lg:p-8 mt-6">
 
           <h2 className="text-2xl lg:text-3xl font-black mb-5">
-            Affordability Formula
+            Mortgage Formula
           </h2>
 
           <div className="bg-slate-100 rounded-2xl p-5 overflow-x-auto">
 
             <p className="text-lg font-mono">
-              Housing Budget = Monthly Income × 28% − Monthly Debt
+              M = P × [ r(1+r)^n ] / [ (1+r)^n − 1 ]
             </p>
 
           </div>
 
         </div>
 
-        <section className="bg-white rounded-3xl shadow-xl border border-slate-200 p-5 lg:p-10 mt-6 lg:mt-10">
+        {/* FAQ */}
 
-          <h2 className="text-3xl lg:text-4xl font-black mb-6">
-            Understanding Home Affordability
+        <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-5 lg:p-8 mt-6">
+
+          <h2 className="text-2xl lg:text-3xl font-black mb-6">
+            Mortgage FAQ
           </h2>
 
-          <div className="space-y-6 text-slate-700 leading-8 text-base lg:text-lg">
+          <div className="space-y-6">
 
-            <p>
-              A home affordability calculator estimates how much
-              house buyers can afford based on income, debt,
-              down payment, and mortgage interest rates.
-            </p>
+            <div>
+
+              <h3 className="font-bold text-xl mb-2">
+                How is mortgage calculated?
+              </h3>
+
+              <p className="text-slate-700 leading-8">
+                Mortgage payments depend on loan amount,
+                interest rate, and repayment term.
+              </p>
+
+            </div>
+
+            <div>
+
+              <h3 className="font-bold text-xl mb-2">
+                What affects mortgage affordability?
+              </h3>
+
+              <p className="text-slate-700 leading-8">
+                Income, credit score, debt,
+                and interest rates affect affordability.
+              </p>
+
+            </div>
 
           </div>
 
-        </section>
+        </div>
+
+        {/* RELATED */}
+
+        <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-5 lg:p-8 mt-6 mb-10">
+
+          <h2 className="text-2xl lg:text-3xl font-black mb-6">
+            Related Calculators
+          </h2>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+            <a
+              href="/loan-calculator"
+              className="bg-slate-100 hover:bg-blue-50 rounded-2xl p-5 font-bold transition"
+            >
+              Loan Calculator
+            </a>
+
+            <a
+              href="/refinance-calculator"
+              className="bg-slate-100 hover:bg-blue-50 rounded-2xl p-5 font-bold transition"
+            >
+              Refinance Calculator
+            </a>
+
+            <a
+              href="/affordability-calculator"
+              className="bg-slate-100 hover:bg-blue-50 rounded-2xl p-5 font-bold transition"
+            >
+              Affordability Calculator
+            </a>
+
+            <a
+              href="/auto-loan-calculator"
+              className="bg-slate-100 hover:bg-blue-50 rounded-2xl p-5 font-bold transition"
+            >
+              Auto Loan Calculator
+            </a>
+
+          </div>
+
+        </div>
 
       </div>
 
     </main>
+
   )
 }
 
@@ -538,7 +520,9 @@ function InputField({
   prefix?: string
   suffix?: string
 }) {
+
   return (
+
     <div>
 
       <label className="block text-sm font-semibold mb-2 text-slate-700">
@@ -573,6 +557,7 @@ function InputField({
       </div>
 
     </div>
+
   )
 }
 
@@ -583,6 +568,7 @@ function SummaryRow({
   label: string
   value: number
 }) {
+
   return (
 
     <div className="px-4 lg:px-6 py-4">

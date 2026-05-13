@@ -2,31 +2,68 @@
 
 import { useMemo, useState } from "react"
 
+import {
+  PieChart,
+  Pie,
+  Cell,
+  ResponsiveContainer,
+  Tooltip,
+} from "recharts"
+
 export default function LoanCalculator() {
 
   const [loanAmount, setLoanAmount] = useState(25000)
+
   const [interestRate, setInterestRate] = useState(7.5)
+
   const [loanTerm, setLoanTerm] = useState(5)
+
   const [loanType, setLoanType] = useState("amortized")
 
-  const monthlyInterest = interestRate / 100 / 12
+  const monthlyInterest =
+    interestRate / 100 / 12
 
-  const totalPayments = loanTerm * 12
+  const totalPayments =
+    loanTerm * 12
 
   const monthlyPayment =
     loanType === "amortized"
       ? loanAmount *
-        (monthlyInterest *
-          Math.pow(1 + monthlyInterest, totalPayments)) /
-        (Math.pow(1 + monthlyInterest, totalPayments) - 1)
+        (
+          monthlyInterest *
+          Math.pow(
+            1 + monthlyInterest,
+            totalPayments
+          )
+        ) /
+        (
+          Math.pow(
+            1 + monthlyInterest,
+            totalPayments
+          ) - 1
+        )
       : loanAmount * monthlyInterest
 
   const totalInterest =
     loanType === "amortized"
       ? monthlyPayment * totalPayments - loanAmount
-      : loanAmount * (interestRate / 100) * loanTerm
+      : loanAmount *
+        (interestRate / 100) *
+        loanTerm
 
-  const totalCost = loanAmount + totalInterest
+  const totalCost =
+    loanAmount + totalInterest
+
+  const chartData = [
+    {
+      name: "Principal",
+      value: loanAmount,
+    },
+    {
+      name: "Interest",
+      value: totalInterest,
+    },
+  ]
 
   const report = useMemo(() => {
 
@@ -36,7 +73,8 @@ export default function LoanCalculator() {
 
     for (let i = 1; i <= totalPayments; i++) {
 
-      const interest = balance * monthlyInterest
+      const interest =
+        balance * monthlyInterest
 
       const principal =
         loanType === "amortized"
@@ -49,7 +87,8 @@ export default function LoanCalculator() {
         payment: i,
         interest,
         principal,
-        balance: balance > 0 ? balance : 0,
+        balance:
+          balance > 0 ? balance : 0,
       })
     }
 
@@ -64,6 +103,7 @@ export default function LoanCalculator() {
   ])
 
   return (
+
     <main className="min-h-screen bg-slate-100 py-4 lg:py-10 px-2 lg:px-4">
 
       <div className="max-w-7xl mx-auto">
@@ -79,9 +119,10 @@ export default function LoanCalculator() {
             </h1>
 
             <p className="text-blue-100 text-sm lg:text-lg leading-7">
-              A loan is a contract between a borrower and a lender
-              in which the borrower receives money that must be
-              repaid over time with interest.
+              Calculate loan payments,
+              amortization schedules,
+              total interest,
+              and repayment costs instantly.
             </p>
 
           </div>
@@ -115,8 +156,6 @@ export default function LoanCalculator() {
                   suffix="Years"
                 />
 
-                {/* LOAN TYPE */}
-
                 <div>
 
                   <label className="block text-sm font-semibold mb-2 text-slate-700">
@@ -126,10 +165,13 @@ export default function LoanCalculator() {
                   <select
                     value={loanType}
                     onChange={(e) =>
-                      setLoanType(e.target.value)
+                      setLoanType(
+                        e.target.value
+                      )
                     }
                     className="w-full border border-slate-200 rounded-2xl py-3 px-4 bg-white shadow-sm"
                   >
+
                     <option value="amortized">
                       Amortized Loan
                     </option>
@@ -219,78 +261,7 @@ export default function LoanCalculator() {
 
                 </div>
 
-                {/* MOBILE */}
-
-                <div className="block lg:hidden divide-y divide-slate-200">
-
-                  {report.slice(0, 12).map((row, index) => (
-
-                    <div
-                      key={index}
-                      className="p-4"
-                    >
-
-                      <div className="flex justify-between items-center mb-3">
-
-                        <div className="font-bold text-lg">
-                          Payment {index + 1}
-                        </div>
-
-                        <div className="text-sm text-slate-500">
-                          Month
-                        </div>
-
-                      </div>
-
-                      <div className="grid grid-cols-2 gap-3 text-sm">
-
-                        <div className="bg-slate-50 rounded-2xl p-3">
-
-                          <div className="text-slate-500 mb-1">
-                            Interest
-                          </div>
-
-                          <div className="font-bold">
-                            ${row.interest.toFixed(0)}
-                          </div>
-
-                        </div>
-
-                        <div className="bg-slate-50 rounded-2xl p-3">
-
-                          <div className="text-slate-500 mb-1">
-                            Principal
-                          </div>
-
-                          <div className="font-bold">
-                            ${row.principal.toFixed(0)}
-                          </div>
-
-                        </div>
-
-                        <div className="bg-blue-50 rounded-2xl p-3 col-span-2">
-
-                          <div className="text-slate-500 mb-1">
-                            Remaining Balance
-                          </div>
-
-                          <div className="font-black text-lg">
-                            ${row.balance.toFixed(0)}
-                          </div>
-
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                  ))}
-
-                </div>
-
-                {/* DESKTOP */}
-
-                <div className="hidden lg:block overflow-x-auto">
+                <div className="overflow-x-auto">
 
                   <table className="w-full text-left">
 
@@ -320,7 +291,9 @@ export default function LoanCalculator() {
 
                     <tbody>
 
-                      {report.slice(0, 12).map((row, index) => (
+                      {report
+                        .slice(0, 12)
+                        .map((row, index) => (
 
                         <tr
                           key={index}
@@ -361,110 +334,93 @@ export default function LoanCalculator() {
 
         </div>
 
-        {/* ARTICLE */}
+        {/* EXPLANATION */}
 
-        <section className="bg-white rounded-3xl shadow-xl border border-slate-200 p-5 lg:p-10 mt-6 lg:mt-10">
+        <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 lg:p-8 mt-6">
 
-          <h2 className="text-3xl lg:text-4xl font-black mb-6">
-            Understanding Loans
+          <h2 className="text-3xl font-black mb-5">
+            Loan Payment Explanation
           </h2>
 
-          <div className="space-y-6 text-slate-700 leading-8 text-base lg:text-lg">
+          <p className="text-slate-700 leading-8 text-lg">
 
-            <p>
-              A loan is a financial agreement in which a borrower
-              receives money from a lender and agrees to repay it
-              over time with interest.
-            </p>
+            Based on a loan amount of
+            <strong> ${loanAmount.toLocaleString()}</strong>,
+            an interest rate of
+            <strong> {interestRate}%</strong>,
+            and a
+            <strong> {loanTerm}-year</strong> term,
+            your estimated monthly payment is
+            <strong> ${monthlyPayment.toFixed(2)}</strong>.
 
-            <div>
+          </p>
 
-              <h3 className="text-2xl font-bold mb-3 text-black">
-                Amortized Loan
-              </h3>
+        </div>
 
-              <p>
-                An amortized loan is repaid with fixed payments
-                over time. Each payment includes both principal
-                and interest.
-              </p>
+        {/* CHART */}
 
-            </div>
+        <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 lg:p-8 mt-6">
 
-            <div>
+          <h2 className="text-3xl font-black mb-6">
+            Loan Breakdown
+          </h2>
 
-              <h3 className="text-2xl font-bold mb-3 text-black">
-                Deferred Payment Loan
-              </h3>
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
 
-              <p>
-                Deferred payment loans delay repayment until the
-                loan reaches maturity. Borrowers often pay a lump
-                sum at the end.
-              </p>
+            <div className="h-[300px]">
 
-            </div>
+              <ResponsiveContainer
+                width="100%"
+                height="100%"
+              >
 
-            <div>
+                <PieChart>
 
-              <h3 className="text-2xl font-bold mb-3 text-black">
-                Bond Loans
-              </h3>
+                  <Pie
+                    data={chartData}
+                    cx="50%"
+                    cy="50%"
+                    outerRadius={100}
+                    dataKey="value"
+                    label
+                  >
 
-              <p>
-                Bonds are fixed-income investments where borrowers
-                repay principal at maturity while paying interest
-                periodically.
-              </p>
+                    <Cell fill="#2563eb" />
 
-            </div>
+                    <Cell fill="#93c5fd" />
 
-            <div>
+                  </Pie>
 
-              <h3 className="text-2xl font-bold mb-3 text-black">
-                How Loan Interest Works
-              </h3>
+                  <Tooltip />
 
-              <p>
-                Loan interest is the cost of borrowing money.
-                Higher interest rates increase total repayment costs,
-                while lower rates reduce monthly payments.
-              </p>
+                </PieChart>
+
+              </ResponsiveContainer>
 
             </div>
 
-            <div>
+            <div className="space-y-4">
 
-              <h3 className="text-2xl font-bold mb-3 text-black">
-                Frequently Asked Questions
-              </h3>
+              <div className="bg-blue-50 rounded-2xl p-5">
 
-              <div className="space-y-5">
-
-                <div>
-
-                  <h4 className="font-bold text-xl mb-2 text-black">
-                    What is a good loan interest rate?
-                  </h4>
-
-                  <p>
-                    Good loan rates vary depending on credit score,
-                    loan type, and market conditions.
-                  </p>
-
+                <div className="text-slate-500 mb-1">
+                  Principal
                 </div>
 
-                <div>
+                <div className="text-2xl font-black">
+                  ${loanAmount.toFixed(0)}
+                </div>
 
-                  <h4 className="font-bold text-xl mb-2 text-black">
-                    How can I reduce loan interest?
-                  </h4>
+              </div>
 
-                  <p>
-                    Paying extra toward the principal and improving
-                    your credit score may help reduce borrowing costs.
-                  </p>
+              <div className="bg-slate-100 rounded-2xl p-5">
 
+                <div className="text-slate-500 mb-1">
+                  Interest
+                </div>
+
+                <div className="text-2xl font-black">
+                  ${totalInterest.toFixed(0)}
                 </div>
 
               </div>
@@ -473,11 +429,133 @@ export default function LoanCalculator() {
 
           </div>
 
-        </section>
+        </div>
+
+        {/* FORMULA */}
+
+        <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 lg:p-8 mt-6">
+
+          <h2 className="text-3xl font-black mb-5">
+            Loan Formula
+          </h2>
+
+          <div className="bg-slate-100 rounded-2xl p-5 overflow-x-auto">
+
+            <p className="text-lg font-mono">
+              M = P × [ r(1+r)^n ] / [ (1+r)^n − 1 ]
+            </p>
+
+          </div>
+
+        </div>
+
+        {/* EXAMPLE */}
+
+        <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 lg:p-8 mt-6">
+
+          <h2 className="text-3xl font-black mb-5">
+            Loan Example
+          </h2>
+
+          <p className="text-slate-700 leading-8 text-lg">
+
+            A $25,000 loan with a 7.5% interest rate
+            and a 5-year repayment period would
+            result in an estimated monthly payment of
+            <strong> ${monthlyPayment.toFixed(2)}</strong>.
+
+          </p>
+
+        </div>
+
+        {/* FAQ */}
+
+        <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 lg:p-8 mt-6">
+
+          <h2 className="text-3xl font-black mb-6">
+            Loan FAQ
+          </h2>
+
+          <div className="space-y-6">
+
+            <div>
+
+              <h3 className="font-bold text-xl mb-2">
+                How is a loan payment calculated?
+              </h3>
+
+              <p className="text-slate-700 leading-8">
+                Loan payments depend on loan amount,
+                interest rate, repayment term,
+                and loan structure.
+              </p>
+
+            </div>
+
+            <div>
+
+              <h3 className="font-bold text-xl mb-2">
+                What is an amortized loan?
+              </h3>
+
+              <p className="text-slate-700 leading-8">
+                Amortized loans use fixed payments
+                that gradually reduce the principal
+                balance over time.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* RELATED */}
+
+        <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 lg:p-8 mt-6 mb-10">
+
+          <h2 className="text-3xl font-black mb-6">
+            Related Calculators
+          </h2>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+            <a
+              href="/mortgage-calculator"
+              className="bg-slate-100 hover:bg-blue-50 rounded-2xl p-5 font-bold"
+            >
+              Mortgage Calculator
+            </a>
+
+            <a
+              href="/auto-loan-calculator"
+              className="bg-slate-100 hover:bg-blue-50 rounded-2xl p-5 font-bold"
+            >
+              Auto Loan Calculator
+            </a>
+
+            <a
+              href="/refinance-calculator"
+              className="bg-slate-100 hover:bg-blue-50 rounded-2xl p-5 font-bold"
+            >
+              Refinance Calculator
+            </a>
+
+            <a
+              href="/affordability-calculator"
+              className="bg-slate-100 hover:bg-blue-50 rounded-2xl p-5 font-bold"
+            >
+              Affordability Calculator
+            </a>
+
+          </div>
+
+        </div>
 
       </div>
 
     </main>
+
   )
 }
 
@@ -494,7 +572,9 @@ function InputField({
   prefix?: string
   suffix?: string
 }) {
+
   return (
+
     <div>
 
       <label className="block text-sm font-semibold mb-2 text-slate-700">
@@ -512,7 +592,9 @@ function InputField({
         <input
           type="number"
           value={value}
-          onChange={(e) => setValue(Number(e.target.value))}
+          onChange={(e) =>
+            setValue(Number(e.target.value))
+          }
           className={`w-full border border-slate-200 rounded-2xl py-3 px-4 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
             prefix ? "pl-9" : ""
           } ${
@@ -529,6 +611,7 @@ function InputField({
       </div>
 
     </div>
+
   )
 }
 
@@ -541,6 +624,7 @@ function SummaryRow({
   value: number
   suffix?: string
 }) {
+
   return (
 
     <div className="px-4 lg:px-6 py-4">

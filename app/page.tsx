@@ -69,6 +69,12 @@ export default function HomePage() {
       description:
         "Estimate how much house you can afford based on income.",
     },
+    {
+      title: "Compound Interest Calculator",
+      link: "/compound-interest-calculator",
+      description:
+        "Estimate compound investment growth and long-term returns.",
+    },
   ]
 
   return (
@@ -88,7 +94,7 @@ export default function HomePage() {
 
             <p className="text-lg lg:text-2xl text-blue-100 leading-9">
               Free online mortgage, loan, refinance, auto loan,
-              affordability, and scientific calculators.
+              affordability, compound interest, and scientific calculators.
             </p>
 
           </div>
@@ -223,7 +229,7 @@ export default function HomePage() {
             <p>
               Online calculators help users estimate financial costs,
               mortgage payments, loan interest, refinancing savings,
-              and affordability instantly.
+              investment growth, and affordability instantly.
             </p>
 
             <div>
@@ -255,12 +261,25 @@ export default function HomePage() {
             <div>
 
               <h3 className="text-2xl font-bold mb-3 text-black">
+                Compound Interest Tools
+              </h3>
+
+              <p>
+                Compound interest calculators help investors estimate
+                future investment growth and long-term wealth accumulation.
+              </p>
+
+            </div>
+
+            <div>
+
+              <h3 className="text-2xl font-bold mb-3 text-black">
                 Financial Planning Tools
               </h3>
 
               <p>
                 Financial calculators simplify budgeting, refinancing,
-                and affordability analysis for consumers.
+                affordability analysis, and investment planning.
               </p>
 
             </div>

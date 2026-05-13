@@ -1,7 +1,13 @@
 "use client"
 
 import { useMemo, useState } from "react"
-
+import {
+  PieChart,
+  Pie,
+  Cell,
+  ResponsiveContainer,
+  Tooltip,
+} from "recharts"
 export default function MortgageCalculator() {
 
   const [homePrice, setHomePrice] = useState(500000)
@@ -42,6 +48,20 @@ export default function MortgageCalculator() {
   const totalPayments = loanTerm * 12
 
   const monthlyPayment =
+  const totalCost = monthlyPayment * totalPayments
+
+const totalInterest = totalCost - loanAmount
+
+const chartData = [
+  {
+    name: "Principal",
+    value: loanAmount,
+  },
+  {
+    name: "Interest",
+    value: totalInterest,
+  },
+]
     loanAmount *
     (monthlyInterest *
       Math.pow(1 + monthlyInterest, totalPayments)) /
@@ -507,6 +527,87 @@ export default function MortgageCalculator() {
           </div>
 
         </div>
+        {/* CHART */}
+
+<div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-5 lg:p-8 mt-6">
+
+<h2 className="text-2xl lg:text-3xl font-black mb-6">
+  Mortgage Cost Breakdown
+</h2>
+
+<div className="grid lg:grid-cols-2 gap-8 items-center">
+
+  <div className="h-[300px]">
+
+    <ResponsiveContainer width="100%" height="100%">
+
+      <PieChart>
+
+        <Pie
+          data={chartData}
+          cx="50%"
+          cy="50%"
+          outerRadius={100}
+          dataKey="value"
+          label
+        >
+
+          <Cell fill="#2563eb" />
+          <Cell fill="#93c5fd" />
+
+        </Pie>
+
+        <Tooltip />
+
+      </PieChart>
+
+    </ResponsiveContainer>
+
+  </div>
+
+  <div className="space-y-4">
+
+    <div className="bg-blue-50 rounded-2xl p-5">
+
+      <div className="text-slate-500 mb-1">
+        Total Principal
+      </div>
+
+      <div className="text-2xl font-black">
+        ${loanAmount.toFixed(0)}
+      </div>
+
+    </div>
+
+    <div className="bg-slate-100 rounded-2xl p-5">
+
+      <div className="text-slate-500 mb-1">
+        Total Interest
+      </div>
+
+      <div className="text-2xl font-black">
+        ${totalInterest.toFixed(0)}
+      </div>
+
+    </div>
+
+    <div className="bg-indigo-50 rounded-2xl p-5">
+
+      <div className="text-slate-500 mb-1">
+        Total Mortgage Cost
+      </div>
+
+      <div className="text-2xl font-black">
+        ${totalCost.toFixed(0)}
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</div>
 {/* RESULT EXPLANATION */}
 
 <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-5 lg:p-8 mt-6 lg:mt-10">

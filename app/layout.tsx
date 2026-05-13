@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -19,54 +20,48 @@ export default function RootLayout({
 
       <body className="bg-slate-100 text-slate-900">
 
-        {/* NAVBAR */}
-
         <header className="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
 
           <div className="max-w-7xl mx-auto px-4">
 
             <div className="flex items-center justify-between h-16">
 
-              {/* LOGO */}
-
-              <a
+              <Link
                 href="/"
                 className="text-2xl font-black text-blue-600"
               >
                 LoanFormulas
-              </a>
-
-              {/* MENU */}
+              </Link>
 
               <nav className="hidden md:flex items-center gap-6 text-sm font-semibold">
 
-                <a
+                <Link
                   href="/loan-calculator"
                   className="hover:text-blue-600 transition"
                 >
                   Loans
-                </a>
+                </Link>
 
-                <a
+                <Link
                   href="/mortgage-calculator"
                   className="hover:text-blue-600 transition"
                 >
                   Mortgage
-                </a>
+                </Link>
 
-                <a
+                <Link
                   href="/compound-interest-calculator"
                   className="hover:text-blue-600 transition"
                 >
                   Investing
-                </a>
+                </Link>
 
-                <a
+                <Link
                   href="/auto-loan-calculator"
                   className="hover:text-blue-600 transition"
                 >
                   Auto
-                </a>
+                </Link>
 
               </nav>
 
@@ -75,8 +70,6 @@ export default function RootLayout({
           </div>
 
         </header>
-
-        {/* PAGE */}
 
         {children}
 

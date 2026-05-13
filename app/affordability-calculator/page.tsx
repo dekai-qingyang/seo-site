@@ -1,6 +1,17 @@
+# app/affordability-calculator/page.tsx
+
+```tsx
 "use client"
 
 import { useMemo, useState } from "react"
+
+import {
+  PieChart,
+  Pie,
+  Cell,
+  ResponsiveContainer,
+  Tooltip,
+} from "recharts"
 
 export default function AffordabilityCalculator() {
 
@@ -41,6 +52,20 @@ export default function AffordabilityCalculator() {
     maxHousingBudget -
     propertyTax -
     insurance
+
+  const totalHousingCapacity =
+    affordableHomePrice - downPayment
+
+  const chartData = [
+    {
+      name: "Loan Capacity",
+      value: totalHousingCapacity,
+    },
+    {
+      name: "Down Payment",
+      value: downPayment,
+    },
+  ]
 
   const affordabilityReport = useMemo(() => {
 
@@ -85,8 +110,6 @@ export default function AffordabilityCalculator() {
 
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200">
 
-          {/* HERO */}
-
           <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-6 lg:p-8">
 
             <h1 className="text-3xl lg:text-5xl font-black mb-2 lg:mb-4">
@@ -101,8 +124,6 @@ export default function AffordabilityCalculator() {
           </div>
 
           <div className="grid lg:grid-cols-2">
-
-            {/* LEFT */}
 
             <div className="p-4 lg:p-8 border-r border-slate-200">
 
@@ -161,11 +182,7 @@ export default function AffordabilityCalculator() {
 
             </div>
 
-            {/* RIGHT */}
-
             <div className="bg-gradient-to-b from-blue-50 to-white p-4 lg:p-8">
-
-              {/* RESULT */}
 
               <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-3xl p-5 lg:p-8 mb-5 lg:mb-8">
 
@@ -178,8 +195,6 @@ export default function AffordabilityCalculator() {
                 </h2>
 
               </div>
-
-              {/* SUMMARY */}
 
               <div className="bg-white rounded-3xl border border-slate-200 overflow-hidden mb-5 lg:mb-8">
 
@@ -217,8 +232,6 @@ export default function AffordabilityCalculator() {
 
               </div>
 
-              {/* REPORT */}
-
               <div className="bg-white rounded-3xl border border-slate-200 overflow-hidden">
 
                 <div className="px-4 lg:px-6 py-4 border-b border-slate-200">
@@ -228,8 +241,6 @@ export default function AffordabilityCalculator() {
                   </h3>
 
                 </div>
-
-                {/* MOBILE */}
 
                 <div className="block lg:hidden divide-y divide-slate-200">
 
@@ -297,8 +308,6 @@ export default function AffordabilityCalculator() {
                   ))}
 
                 </div>
-
-                {/* DESKTOP */}
 
                 <div className="hidden lg:block overflow-x-auto">
 
@@ -371,7 +380,126 @@ export default function AffordabilityCalculator() {
 
         </div>
 
-        {/* ARTICLE */}
+        <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-5 lg:p-8 mt-6 lg:mt-10">
+
+          <h2 className="text-2xl lg:text-3xl font-black mb-5">
+            Affordability Explanation
+          </h2>
+
+          <p className="text-slate-700 text-base lg:text-lg leading-8">
+            Based on an annual income of
+            <strong> ${annualIncome.toLocaleString()}</strong>,
+            monthly debt obligations of
+            <strong> ${monthlyDebt.toFixed(0)}</strong>,
+            and a down payment of
+            <strong> ${downPayment.toFixed(0)}</strong>,
+            your estimated affordable home price is
+            <strong> ${affordableHomePrice.toFixed(0)}</strong>.
+          </p>
+
+          <p className="text-slate-700 text-base lg:text-lg leading-8 mt-4">
+            Mortgage affordability depends on income,
+            debt-to-income ratio, interest rates,
+            property taxes, and loan terms.
+          </p>
+
+        </div>
+
+        <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-5 lg:p-8 mt-6">
+
+          <h2 className="text-2xl lg:text-3xl font-black mb-6">
+            Home Affordability Breakdown
+          </h2>
+
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+
+            <div className="h-[300px]">
+
+              <ResponsiveContainer width="100%" height="100%">
+
+                <PieChart>
+
+                  <Pie
+                    data={chartData}
+                    cx="50%"
+                    cy="50%"
+                    outerRadius={100}
+                    dataKey="value"
+                    label
+                  >
+
+                    <Cell fill="#2563eb" />
+                    <Cell fill="#93c5fd" />
+
+                  </Pie>
+
+                  <Tooltip />
+
+                </PieChart>
+
+              </ResponsiveContainer>
+
+            </div>
+
+            <div className="space-y-4">
+
+              <div className="bg-blue-50 rounded-2xl p-5">
+
+                <div className="text-slate-500 mb-1">
+                  Estimated Loan Capacity
+                </div>
+
+                <div className="text-2xl font-black">
+                  ${totalHousingCapacity.toFixed(0)}
+                </div>
+
+              </div>
+
+              <div className="bg-slate-100 rounded-2xl p-5">
+
+                <div className="text-slate-500 mb-1">
+                  Down Payment
+                </div>
+
+                <div className="text-2xl font-black">
+                  ${downPayment.toFixed(0)}
+                </div>
+
+              </div>
+
+              <div className="bg-indigo-50 rounded-2xl p-5">
+
+                <div className="text-slate-500 mb-1">
+                  Affordable Home Price
+                </div>
+
+                <div className="text-2xl font-black">
+                  ${affordableHomePrice.toFixed(0)}
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-5 lg:p-8 mt-6">
+
+          <h2 className="text-2xl lg:text-3xl font-black mb-5">
+            Affordability Formula
+          </h2>
+
+          <div className="bg-slate-100 rounded-2xl p-5 overflow-x-auto">
+
+            <p className="text-lg font-mono">
+              Housing Budget = Monthly Income × 28% − Monthly Debt
+            </p>
+
+          </div>
+
+        </div>
 
         <section className="bg-white rounded-3xl shadow-xl border border-slate-200 p-5 lg:p-10 mt-6 lg:mt-10">
 
@@ -386,84 +514,6 @@ export default function AffordabilityCalculator() {
               house buyers can afford based on income, debt,
               down payment, and mortgage interest rates.
             </p>
-
-            <div>
-
-              <h3 className="text-2xl font-bold mb-3 text-black">
-                How Much House Can I Afford?
-              </h3>
-
-              <p>
-                Most lenders recommend spending no more than
-                28% of gross monthly income on housing expenses.
-              </p>
-
-            </div>
-
-            <div>
-
-              <h3 className="text-2xl font-bold mb-3 text-black">
-                Debt-to-Income Ratio
-              </h3>
-
-              <p>
-                Debt-to-income ratios compare monthly debt payments
-                to monthly income and help lenders evaluate risk.
-              </p>
-
-            </div>
-
-            <div>
-
-              <h3 className="text-2xl font-bold mb-3 text-black">
-                Why Down Payments Matter
-              </h3>
-
-              <p>
-                Larger down payments reduce loan balances,
-                lower monthly payments, and may eliminate
-                mortgage insurance costs.
-              </p>
-
-            </div>
-
-            <div>
-
-              <h3 className="text-2xl font-bold mb-3 text-black">
-                Frequently Asked Questions
-              </h3>
-
-              <div className="space-y-5">
-
-                <div>
-
-                  <h4 className="font-bold text-xl mb-2 text-black">
-                    What is a good debt-to-income ratio?
-                  </h4>
-
-                  <p>
-                    Most lenders prefer debt-to-income ratios
-                    below 43%, although lower ratios are usually better.
-                  </p>
-
-                </div>
-
-                <div>
-
-                  <h4 className="font-bold text-xl mb-2 text-black">
-                    How does interest rate affect affordability?
-                  </h4>
-
-                  <p>
-                    Higher mortgage interest rates reduce
-                    purchasing power and increase monthly payments.
-                  </p>
-
-                </div>
-
-              </div>
-
-            </div>
 
           </div>
 

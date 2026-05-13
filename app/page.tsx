@@ -15,12 +15,21 @@ export default function HomePage() {
     }
 
     if (value === "=") {
+
       try {
-        const result = eval(display)
+
+        const result = Function(
+          `"use strict"; return (${display})`
+        )()
+
         setDisplay(String(result))
+
       } catch {
+
         setDisplay("Error")
+
       }
+
       return
     }
 
@@ -78,6 +87,7 @@ export default function HomePage() {
   ]
 
   return (
+
     <main className="min-h-screen bg-slate-100">
 
       {/* HERO */}
@@ -291,5 +301,6 @@ export default function HomePage() {
       </section>
 
     </main>
+
   )
 }

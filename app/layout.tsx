@@ -1,42 +1,88 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "LoanFormulas.com",
+  title: "LoanFormulas",
   description:
-    "Free online mortgage, loan, refinance, affordability, and auto loan calculators.",
+    "Financial calculators for loans, mortgages, investments, and more.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <head>
-        <meta
-          name="google-site-verification"
-          content="G_Z6xMUs90IYZy_Jv0pUT1gVwsDucJSEcRCc2gbDdgs"
-        />
-      </head>
+}) {
 
-      <body
-        className={`${geistSans.variable} ${geistMono.variable}`}
-      >
+  return (
+
+    <html lang="en">
+
+      <body className="bg-slate-100 text-slate-900">
+
+        {/* NAVBAR */}
+
+        <header className="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
+
+          <div className="max-w-7xl mx-auto px-4">
+
+            <div className="flex items-center justify-between h-16">
+
+              {/* LOGO */}
+
+              <a
+                href="/"
+                className="text-2xl font-black text-blue-600"
+              >
+                LoanFormulas
+              </a>
+
+              {/* MENU */}
+
+              <nav className="hidden md:flex items-center gap-6 text-sm font-semibold">
+
+                <a
+                  href="/loan-calculator"
+                  className="hover:text-blue-600 transition"
+                >
+                  Loans
+                </a>
+
+                <a
+                  href="/mortgage-calculator"
+                  className="hover:text-blue-600 transition"
+                >
+                  Mortgage
+                </a>
+
+                <a
+                  href="/compound-interest-calculator"
+                  className="hover:text-blue-600 transition"
+                >
+                  Investing
+                </a>
+
+                <a
+                  href="/auto-loan-calculator"
+                  className="hover:text-blue-600 transition"
+                >
+                  Auto
+                </a>
+
+              </nav>
+
+            </div>
+
+          </div>
+
+        </header>
+
+        {/* PAGE */}
+
         {children}
+
       </body>
+
     </html>
-  );
+
+  )
 }

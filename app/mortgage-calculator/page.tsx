@@ -507,7 +507,177 @@ export default function MortgageCalculator() {
           </div>
 
         </div>
+{/* RESULT EXPLANATION */}
 
+<div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-5 lg:p-8 mt-6 lg:mt-10">
+
+  <h2 className="text-2xl lg:text-3xl font-black mb-5">
+    Mortgage Payment Explanation
+  </h2>
+
+  <p className="text-slate-700 text-base lg:text-lg leading-8">
+    Based on a home price of <strong>${homePrice.toLocaleString()}</strong>,
+    a down payment of <strong>${actualDownPayment.toFixed(0)}</strong>,
+    an interest rate of <strong>{interestRate}%</strong>,
+    and a <strong>{loanTerm}-year</strong> loan term,
+    your estimated monthly mortgage payment is
+    <strong> ${monthlyPayment.toFixed(2)}</strong>.
+  </p>
+
+  <p className="text-slate-700 text-base lg:text-lg leading-8 mt-4">
+    Over the life of the loan, you will pay both principal and interest.
+    Lower interest rates and larger down payments can reduce monthly costs.
+  </p>
+
+</div>
+
+{/* FORMULA */}
+
+<div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-5 lg:p-8 mt-6">
+
+  <h2 className="text-2xl lg:text-3xl font-black mb-5">
+    Mortgage Formula
+  </h2>
+
+  <div className="bg-slate-100 rounded-2xl p-5 overflow-x-auto">
+
+    <p className="text-lg font-mono">
+      M = P × [ r(1+r)^n ] / [ (1+r)^n − 1 ]
+    </p>
+
+  </div>
+
+  <div className="mt-5 text-slate-700 leading-8">
+
+    <p><strong>M</strong> = Monthly Payment</p>
+    <p><strong>P</strong> = Loan Amount</p>
+    <p><strong>r</strong> = Monthly Interest Rate</p>
+    <p><strong>n</strong> = Number of Monthly Payments</p>
+
+  </div>
+
+</div>
+
+{/* EXAMPLE */}
+
+<div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-5 lg:p-8 mt-6">
+
+  <h2 className="text-2xl lg:text-3xl font-black mb-5">
+    Mortgage Calculation Example
+  </h2>
+
+  <div className="space-y-4 text-slate-700 text-base lg:text-lg leading-8">
+
+    <p>
+      Suppose you purchase a home for <strong>$500,000</strong>
+      with a <strong>20% down payment</strong>.
+    </p>
+
+    <p>
+      Your loan amount would be approximately
+      <strong> $400,000</strong>.
+    </p>
+
+    <p>
+      With a <strong>6.5% interest rate</strong> over
+      <strong> 30 years</strong>, your estimated monthly
+      payment would be approximately
+      <strong> ${monthlyPayment.toFixed(2)}</strong>.
+    </p>
+
+  </div>
+
+</div>
+
+{/* FAQ */}
+
+<div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-5 lg:p-8 mt-6">
+
+  <h2 className="text-2xl lg:text-3xl font-black mb-6">
+    Mortgage Calculator FAQ
+  </h2>
+
+  <div className="space-y-6">
+
+    <div>
+      <h3 className="font-bold text-xl mb-2">
+        How is a mortgage payment calculated?
+      </h3>
+
+      <p className="text-slate-700 leading-8">
+        Mortgage payments are based on the loan amount,
+        interest rate, and repayment term.
+      </p>
+    </div>
+
+    <div>
+      <h3 className="font-bold text-xl mb-2">
+        What affects mortgage afford
+        ability?
+      </h3>
+
+      <p className="text-slate-700 leading-8">
+        Income, debt, credit score, down payment,
+        and interest rates all affect affordability.
+      </p>
+    </div>
+
+    <div>
+      <h3 className="font-bold text-xl mb-2">
+        Can I lower my monthly payment?
+      </h3>
+
+      <p className="text-slate-700 leading-8">
+        Yes. Increasing your down payment or selecting
+        a longer loan term can reduce monthly costs.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+{/* RELATED CALCULATORS */}
+
+<div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-5 lg:p-8 mt-6 mb-10">
+
+  <h2 className="text-2xl lg:text-3xl font-black mb-6">
+    Related Calculators
+  </h2>
+
+  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+    <a
+      href="/loan-calculator"
+      className="bg-slate-100 hover:bg-blue-50 rounded-2xl p-5 font-bold transition"
+    >
+      Loan Calculator
+    </a>
+
+    <a
+      href="/refinance-calculator"
+      className="bg-slate-100 hover:bg-blue-50 rounded-2xl p-5 font-bold transition"
+    >
+      Refinance Calculator
+    </a>
+
+    <a
+      href="/affordability-calculator"
+      className="bg-slate-100 hover:bg-blue-50 rounded-2xl p-5 font-bold transition"
+    >
+      Affordability Calculator
+    </a>
+
+    <a
+      href="/auto-loan-calculator"
+      className="bg-slate-100 hover:bg-blue-50 rounded-2xl p-5 font-bold transition"
+    >
+      Auto Loan Calculator
+    </a>
+
+  </div>
+
+</div>
         {/* ARTICLE */}
 
         <section className="bg-white rounded-3xl shadow-xl border border-slate-200 p-5 lg:p-10 mt-6 lg:mt-10">

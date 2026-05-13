@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Mortgage Calculator | LoanFormulas",
+  title: "Affordability Calculator | LoanFormulas",
   description:
-    "Free mortgage calculator with amortization schedule, monthly payment estimates, mortgage formula, charts, and loan breakdown tools.",
+    "Free affordability calculator to estimate how much house you can afford based on income, debt, down payment, and mortgage rates.",
 };
 
-export default function MortgageLayout({
+export default function AffordabilityLayout({
   children,
 }: {
   children: React.ReactNode;

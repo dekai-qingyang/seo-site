@@ -102,6 +102,13 @@ export default function HomePage() {
       description:
         "Estimate investment growth, compound returns, and long-term wealth accumulation.",
     },
+    {
+      title: "Dividend Calculator",
+      link: "/dividend-calculator",
+      description:
+      "Estimate dividend income, passive income growth, and long-term investment returns.",
+    },
+    
     
   ]
 

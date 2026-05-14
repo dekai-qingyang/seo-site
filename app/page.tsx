@@ -96,6 +96,12 @@ export default function HomePage() {
       description:
         "Estimate dividend income and investment returns.",
     },
+    {
+      title: "Investment Calculator",
+      link: "/investment-calculator",
+      description:
+        "Estimate investment growth, compound returns, and long-term wealth accumulation.",
+    },
     
   ]
 

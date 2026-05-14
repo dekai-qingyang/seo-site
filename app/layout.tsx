@@ -1,3 +1,4 @@
+import Script from "next/script"
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
@@ -19,6 +20,12 @@ export default function RootLayout({
     <html lang="en">
 
       <body className="bg-slate-100 text-slate-900">
+      <Script
+  async
+  strategy="afterInteractive"
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7679960560339960"
+  crossOrigin="anonymous"
+/>
 
         <header className="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
 

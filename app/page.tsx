@@ -114,6 +114,54 @@ export default function HomePage() {
       description:
         "Calculate return on investment, profit percentage, and investment performance estimates.",
     },
+    {
+      title: "Amortization Calculator",
+      link: "/amortization-calculator",
+      description:
+        "Calculate loan amortization schedules, monthly payments, principal balances, and total interest costs.",
+    },
+    
+    {
+      title: "Down Payment Calculator",
+      link: "/down-payment-calculator",
+      description:
+        "Estimate down payments, mortgage affordability, monthly payments, and home buying costs.",
+    },
+    
+    {
+      title: "Rent vs Buy Calculator",
+      link: "/rent-vs-buy-calculator",
+      description:
+        "Compare renting versus buying a home with cost analysis, mortgage estimates, and long-term housing expenses.",
+    },
+    
+    {
+      title: "Extra Payment Calculator",
+      link: "/extra-payment-calculator",
+      description:
+        "Calculate mortgage savings, interest reduction, and loan payoff timelines with extra monthly payments.",
+    },
+    
+    {
+      title: "Credit Card Payoff Calculator",
+      link: "/credit-card-payoff-calculator",
+      description:
+        "Estimate credit card payoff schedules, interest savings, debt repayment timelines, and monthly payment strategies.",
+    },
+    
+    {
+      title: "Debt Snowball Calculator",
+      link: "/debt-snowball-calculator",
+      description:
+        "Calculate debt snowball repayment plans, monthly debt payoff schedules, and interest reduction strategies.",
+    },
+    
+    {
+      title: "Debt Avalanche Calculator",
+      link: "/debt-avalanche-calculator",
+      description:
+        "Estimate debt avalanche repayment plans, high-interest debt payoff strategies, and total interest savings.",
+    },
     
     
   ]

@@ -86,7 +86,7 @@ export default function HomePage() {
     },
     {
       title: "Retirement Calculator",
-      link: "/retirement calculator",
+      link: "/retirement-calculator",
       description:
         "Calculate retirement savings, investment growth, and future retirement income projections.",
     },

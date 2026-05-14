@@ -108,6 +108,12 @@ export default function HomePage() {
       description:
       "Estimate dividend income, passive income growth, and long-term investment returns.",
     },
+    {
+      title: "Roi Calculator",
+      link: "/roi-calculator",
+      description:
+        "Calculate return on investment, profit percentage, and investment performance estimates.",
+    },
     
     
   ]

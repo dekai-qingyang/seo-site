@@ -84,6 +84,13 @@ export default function HomePage() {
       description:
         "Estimate compound investment growth and long-term returns.",
     },
+    {
+      title: "Retirement Calculator",
+      link: "/retirement calculator",
+      description:
+        "Calculate retirement savings, investment growth, and future retirement income projections.",
+    },
+    
   ]
 
   return (

@@ -90,6 +90,12 @@ export default function HomePage() {
       description:
         "Calculate retirement savings, investment growth, and future retirement income projections.",
     },
+    {
+      title: "Savings Calculator",
+      link: "/savings-calculator",
+      description:
+        "Estimate dividend income and investment returns.",
+    },
     
   ]
 

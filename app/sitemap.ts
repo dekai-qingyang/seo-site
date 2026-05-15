@@ -44,6 +44,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/debt-snowball-calculator",
 
     "/debt-avalanche-calculator",
+    
+    "/biweekly-mortgage-calculator",
 
   ]
 

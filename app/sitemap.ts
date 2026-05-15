@@ -1,43 +1,63 @@
-import { MetadataRoute } from "next";
+import { MetadataRoute } from "next"
 
 export default function sitemap(): MetadataRoute.Sitemap {
 
-  return [
+  const baseUrl =
+    "https://loanformulas.com"
 
-    {
-      url: "https://loanformulas.com",
-      lastModified: new Date(),
-    },
+  const routes = [
 
-    {
-      url: "https://loanformulas.com/loan-calculator",
-      lastModified: new Date(),
-    },
+    "",
 
-    {
-      url: "https://loanformulas.com/mortgage-calculator",
-      lastModified: new Date(),
-    },
+    "/loan-calculator",
 
-    {
-      url: "https://loanformulas.com/refinance-calculator",
-      lastModified: new Date(),
-    },
+    "/mortgage-calculator",
 
-    {
-      url: "https://loanformulas.com/auto-loan-calculator",
-      lastModified: new Date(),
-    },
+    "/refinance-calculator",
 
-    {
-      url: "https://loanformulas.com/affordability-calculator",
-      lastModified: new Date(),
-    },
+    "/auto-loan-calculator",
 
-    {
-      url: "https://loanformulas.com/compound-interest-calculator",
-      lastModified: new Date(),
-    },
+    "/affordability-calculator",
+
+    "/compound-interest-calculator",
+
+    "/retirement-calculator",
+
+    "/savings-calculator",
+
+    "/investment-calculator",
+
+    "/dividend-calculator",
+
+    "/roi-calculator",
+
+    "/amortization-calculator",
+
+    "/down-payment-calculator",
+
+    "/rent-vs-buy-calculator",
+
+    "/extra-payment-calculator",
+
+    "/credit-card-payoff-calculator",
+
+    "/debt-snowball-calculator",
+
+    "/debt-avalanche-calculator",
 
   ]
+
+  return routes.map((route) => ({
+
+    url: `${baseUrl}${route}`,
+
+    lastModified: new Date(),
+
+    changeFrequency: "weekly",
+
+    priority: route === ""
+      ? 1
+      : 0.8,
+
+  }))
 }

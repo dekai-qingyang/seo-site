@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 export default function MortgageCalculatorsPage() {
 
   return (
@@ -22,54 +24,54 @@ export default function MortgageCalculatorsPage() {
 
           <div className="grid md:grid-cols-2 gap-4">
 
-            <a
+            <Link
               href="/mortgage-calculator"
               className="bg-slate-100 hover:bg-blue-50 rounded-2xl p-5 font-bold"
             >
               Mortgage Calculator
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/refinance-calculator"
               className="bg-slate-100 hover:bg-blue-50 rounded-2xl p-5 font-bold"
             >
               Refinance Calculator
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/amortization-calculator"
               className="bg-slate-100 hover:bg-blue-50 rounded-2xl p-5 font-bold"
             >
               Amortization Calculator
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/down-payment-calculator"
               className="bg-slate-100 hover:bg-blue-50 rounded-2xl p-5 font-bold"
             >
               Down Payment Calculator
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/affordability-calculator"
               className="bg-slate-100 hover:bg-blue-50 rounded-2xl p-5 font-bold"
             >
               Affordability Calculator
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/rent-vs-buy-calculator"
               className="bg-slate-100 hover:bg-blue-50 rounded-2xl p-5 font-bold"
             >
               Rent vs Buy Calculator
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/extra-payment-calculator"
               className="bg-slate-100 hover:bg-blue-50 rounded-2xl p-5 font-bold"
             >
               Extra Payment Calculator
-            </a>
+            </Link>
 
           </div>
 

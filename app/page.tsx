@@ -162,6 +162,12 @@ export default function HomePage() {
       description:
         "Estimate debt avalanche repayment plans, high-interest debt payoff strategies, and total interest savings.",
     },
+    {
+      title: "Biweekly Mortgage Calculator",
+      link: "/biweekly-mortgage-calculator",
+      description:
+        "Estimate biweekly mortgage payments, interest savings, and faster mortgage payoff schedules.",
+    },
     
     
   ]

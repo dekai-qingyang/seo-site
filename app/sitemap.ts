@@ -44,9 +44,46 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/debt-snowball-calculator",
 
     "/debt-avalanche-calculator",
-    
+
     "/biweekly-mortgage-calculator",
 
+    "/mortgage-payoff-calculator",
+
+    "/mortgage-interest-calculator",
+
+    "/mortgage-points-calculator",
+
+    "/mortgage-insurance-calculator",
+
+    "/property-tax-calculator",
+
+    "/home-equity-calculator",
+
+    "/home-equity-loan-calculator",
+
+    "/home-equity-line-of-credit-calculator",
+
+    "/heloc-calculator",
+
+    "/closing-cost-calculator",
+
+    "/house-payment-calculator",
+
+    "/home-affordability-calculator",
+
+    "/real-estate-calculator",
+
+    "/cash-out-refinance-calculator",
+
+    "/adjustable-rate-mortgage-calculator",
+
+    "/arm-calculator",
+
+    "/principal-and-interest-calculator",
+
+    "/escrow-calculator",
+    
+    "/mortgage-amortization-calculator",
   ]
 
   return routes.map((route) => ({

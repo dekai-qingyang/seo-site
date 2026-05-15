@@ -168,6 +168,138 @@ export default function HomePage() {
       description:
         "Estimate biweekly mortgage payments, interest savings, and faster mortgage payoff schedules.",
     },
+    {
+      title: "Mortgage Payoff Calculator",
+      link: "/mortgage-payoff-calculator",
+      description:
+        "Estimate mortgage payoff schedules, interest savings, and early repayment timelines.",
+    },
+    
+    {
+      title: "Mortgage Interest Calculator",
+      link: "/mortgage-interest-calculator",
+      description:
+        "Calculate mortgage interest costs, total loan payments, and long-term borrowing expenses.",
+    },
+    
+    {
+      title: "Mortgage Points Calculator",
+      link: "/mortgage-points-calculator",
+      description:
+        "Estimate mortgage points costs, interest rate reductions, and long-term savings.",
+    },
+    
+    {
+      title: "Mortgage Insurance Calculator",
+      link: "/mortgage-insurance-calculator",
+      description:
+        "Calculate PMI costs, mortgage insurance payments, and total home loan expenses.",
+    },
+    
+    {
+      title: "Property Tax Calculator",
+      link: "/property-tax-calculator",
+      description:
+        "Estimate annual property taxes, monthly tax payments, and homeownership costs.",
+    },
+    
+    {
+      title: "Home Equity Calculator",
+      link: "/home-equity-calculator",
+      description:
+        "Estimate home equity value, remaining mortgage balance, and property ownership percentage.",
+    },
+    
+    {
+      title: "Home Equity Loan Calculator",
+      link: "/home-equity-loan-calculator",
+      description:
+        "Calculate home equity loan payments, interest costs, and borrowing estimates.",
+    },
+    
+    {
+      title: "Home Equity Line of Credit Calculator",
+      link: "/home-equity-line-of-credit-calculator",
+      description:
+        "Estimate HELOC payments, credit line borrowing costs, and home equity usage.",
+    },
+    
+    {
+      title: "HELOC Calculator",
+      link: "/heloc-calculator",
+      description:
+        "Estimate HELOC payments, interest costs, and flexible home equity borrowing schedules.",
+    },
+    
+    {
+      title: "Closing Cost Calculator",
+      link: "/closing-cost-calculator",
+      description:
+        "Calculate home closing costs, lender fees, taxes, and total purchase expenses.",
+    },
+    
+    {
+      title: "House Payment Calculator",
+      link: "/house-payment-calculator",
+      description:
+        "Estimate monthly house payments including mortgage, taxes, insurance, and HOA fees.",
+    },
+    
+    {
+      title: "Home Affordability Calculator",
+      link: "/home-affordability-calculator",
+      description:
+        "Estimate how much house you can afford based on income, debt, and mortgage payments.",
+    },
+    
+    {
+      title: "Real Estate Calculator",
+      link: "/real-estate-calculator",
+      description:
+        "Estimate real estate investment returns, property costs, and long-term value growth.",
+    },
+    
+    {
+      title: "Cash Out Refinance Calculator",
+      link: "/cash-out-refinance-calculator",
+      description:
+        "Estimate cash-out refinance payments, equity withdrawal amounts, and refinancing costs.",
+    },
+    
+    {
+      title: "Adjustable Rate Mortgage Calculator",
+      link: "/adjustable-rate-mortgage-calculator",
+      description:
+        "Estimate adjustable-rate mortgage payments, interest rate changes, and ARM loan costs.",
+    },
+    
+    {
+      title: "ARM Calculator",
+      link: "/arm-calculator",
+      description:
+        "Calculate ARM mortgage payments, adjustable interest rates, and future loan estimates.",
+    },
+    
+    {
+      title: "Principal and Interest Calculator",
+      link: "/principal-and-interest-calculator",
+      description:
+        "Estimate principal and interest mortgage payments with detailed loan repayment schedules.",
+    },
+    
+    {
+      title: "Escrow Calculator",
+      link: "/escrow-calculator",
+      description:
+        "Estimate escrow payments for property taxes, insurance, and monthly mortgage expenses.",
+    },
+    
+    {
+      title: "Mortgage Amortization Calculator",
+      link: "/mortgage-amortization-calculator",
+      description:
+        "Calculate mortgage amortization schedules, principal payments, and long-term interest costs.",
+    },
     
     
   ]

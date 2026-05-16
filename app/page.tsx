@@ -307,7 +307,120 @@ export default function HomePage() {
   return (
 
     <main className="min-h-screen bg-slate-100">
+{/* CATEGORY SECTIONS */}
 
+<section className="max-w-7xl mx-auto px-4 py-10">
+
+  <h2 className="text-4xl font-black mb-8">
+    Financial Calculator Categories
+  </h2>
+
+  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+    {/* MORTGAGE */}
+
+    <a
+      href="/mortgage-calculators"
+      className="bg-white rounded-3xl shadow-xl p-6 border border-slate-200 hover:-translate-y-1 transition"
+    >
+
+      <div className="text-5xl mb-4">
+        🏠
+      </div>
+
+      <h3 className="text-2xl font-black mb-3">
+        Mortgage Calculators
+      </h3>
+
+      <p className="text-slate-600 leading-7">
+        Mortgage,
+        refinance,
+        amortization,
+        ARM,
+        affordability,
+        HELOC,
+        and home loan calculators.
+      </p>
+
+    </a>
+
+    {/* DEBT */}
+
+    <a
+      href="/debt-calculators"
+      className="bg-white rounded-3xl shadow-xl p-6 border border-slate-200 hover:-translate-y-1 transition"
+    >
+
+      <div className="text-5xl mb-4">
+        💳
+      </div>
+
+      <h3 className="text-2xl font-black mb-3">
+        Debt Calculators
+      </h3>
+
+      <p className="text-slate-600 leading-7">
+        Debt payoff,
+        avalanche,
+        snowball,
+        credit card,
+        and repayment strategy calculators.
+      </p>
+
+    </a>
+
+    {/* INVESTMENT */}
+
+    <a
+      href="/investment-calculators"
+      className="bg-white rounded-3xl shadow-xl p-6 border border-slate-200 hover:-translate-y-1 transition"
+    >
+
+      <div className="text-5xl mb-4">
+        📈
+      </div>
+
+      <h3 className="text-2xl font-black mb-3">
+        Investment Calculators
+      </h3>
+
+      <p className="text-slate-600 leading-7">
+        Compound interest,
+        ROI,
+        dividend,
+        savings,
+        and investment growth calculators.
+      </p>
+
+    </a>
+
+    {/* RETIREMENT */}
+
+    <a
+      href="/retirement-calculators"
+      className="bg-white rounded-3xl shadow-xl p-6 border border-slate-200 hover:-translate-y-1 transition"
+    >
+
+      <div className="text-5xl mb-4">
+        🏖️
+      </div>
+
+      <h3 className="text-2xl font-black mb-3">
+        Retirement Calculators
+      </h3>
+
+      <p className="text-slate-600 leading-7">
+        Retirement planning,
+        savings,
+        future income,
+        and financial independence calculators.
+      </p>
+
+    </a>
+
+  </div>
+
+</section>
       {/* HERO */}
 
       <section className="bg-gradient-to-r from-blue-700 to-indigo-700 text-white">

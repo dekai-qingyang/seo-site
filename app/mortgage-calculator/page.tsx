@@ -602,7 +602,416 @@ export default function MortgageCalculator() {
           </div>
 
         </div>
+{/* SEO CONTENT */}
 
+<div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 lg:p-8 mt-6">
+
+  <h2 className="text-3xl font-black mb-8">
+    Mortgage Learning Center
+  </h2>
+
+  <div className="space-y-14 text-slate-700">
+
+    {/* SECTION 1 */}
+
+    <section>
+
+      <h3 className="text-2xl font-black mb-5">
+        How Does a Mortgage Calculator Work?
+      </h3>
+
+      <div className="space-y-5 leading-8 text-lg">
+
+        <p>
+          A mortgage calculator helps homebuyers estimate
+          monthly mortgage payments based on loan amount,
+          interest rate,
+          and repayment term.
+        </p>
+
+        <p>
+          Mortgage calculations are important because
+          home loans are long-term financial commitments
+          that may last 15 to 30 years.
+          Even small changes in interest rates
+          may significantly affect monthly payments
+          and total interest costs.
+        </p>
+
+        <p>
+          Most mortgage calculators estimate:
+        </p>
+
+        <ul className="list-disc pl-6 space-y-2">
+
+          <li>Monthly mortgage payments</li>
+
+          <li>Total interest costs</li>
+
+          <li>Total repayment amount</li>
+
+          <li>Amortization schedules</li>
+
+          <li>Loan payoff timelines</li>
+
+        </ul>
+
+        <p>
+          Mortgage payments usually include:
+          principal,
+          interest,
+          taxes,
+          insurance,
+          and HOA fees.
+          However,
+          many calculators focus only on principal
+          and interest calculations.
+        </p>
+
+        <p>
+          Mortgage calculators are commonly used when:
+        </p>
+
+        <ul className="list-disc pl-6 space-y-2">
+
+          <li>Buying a new home</li>
+
+          <li>Comparing mortgage lenders</li>
+
+          <li>Refinancing existing loans</li>
+
+          <li>Estimating affordability</li>
+
+          <li>Planning long-term budgets</li>
+
+        </ul>
+
+        <p>
+          Mortgage calculators simplify complicated financial calculations
+          and help borrowers better understand
+          the long-term cost of homeownership.
+        </p>
+
+      </div>
+
+    </section>
+
+    {/* SECTION 2 */}
+
+    <section>
+
+      <h3 className="text-2xl font-black mb-5">
+        15-Year vs 30-Year Mortgage
+      </h3>
+
+      <div className="space-y-5 leading-8 text-lg">
+
+        <p>
+          One of the most important mortgage decisions
+          is choosing between a 15-year
+          and a 30-year loan term.
+        </p>
+
+        <p>
+          A 15-year mortgage
+          usually has:
+        </p>
+
+        <ul className="list-disc pl-6 space-y-2">
+
+          <li>Higher monthly payments</li>
+
+          <li>Lower total interest costs</li>
+
+          <li>Faster equity growth</li>
+
+          <li>Earlier loan payoff</li>
+
+        </ul>
+
+        <p>
+          A 30-year mortgage
+          generally provides:
+        </p>
+
+        <ul className="list-disc pl-6 space-y-2">
+
+          <li>Lower monthly payments</li>
+
+          <li>Greater monthly cash flow flexibility</li>
+
+          <li>Higher total interest costs</li>
+
+          <li>Longer repayment periods</li>
+
+        </ul>
+
+        <p>
+          Homebuyers with higher income
+          may prefer shorter mortgage terms
+          because they reduce long-term borrowing expenses.
+        </p>
+
+        <p>
+          However,
+          many borrowers choose 30-year mortgages
+          because lower monthly payments
+          improve affordability
+          and reduce financial pressure.
+        </p>
+
+        <p>
+          Mortgage calculators help borrowers compare
+          long-term costs between different repayment options
+          before selecting a mortgage structure.
+        </p>
+
+      </div>
+
+    </section>
+
+    {/* SECTION 3 */}
+
+    <section>
+
+      <h3 className="text-2xl font-black mb-5">
+        How Much House Can I Afford?
+      </h3>
+
+      <div className="space-y-5 leading-8 text-lg">
+
+        <p>
+          Home affordability depends on:
+          income,
+          debt,
+          interest rates,
+          down payment size,
+          and overall monthly expenses.
+        </p>
+
+        <p>
+          Mortgage lenders commonly evaluate:
+        </p>
+
+        <ul className="list-disc pl-6 space-y-2">
+
+          <li>Debt-to-income ratio</li>
+
+          <li>Employment stability</li>
+
+          <li>Credit scores</li>
+
+          <li>Cash reserves</li>
+
+          <li>Down payment amounts</li>
+
+        </ul>
+
+        <p>
+          Financial experts often recommend
+          limiting housing costs
+          to approximately
+          28% of gross monthly income.
+        </p>
+
+        <p>
+          Mortgage affordability calculators help borrowers estimate:
+        </p>
+
+        <ul className="list-disc pl-6 space-y-2">
+
+          <li>Maximum loan amounts</li>
+
+          <li>Affordable monthly payments</li>
+
+          <li>Estimated down payments</li>
+
+          <li>Interest affordability</li>
+
+        </ul>
+
+        <p>
+          Rising mortgage rates
+          significantly reduce affordability
+          because monthly payments increase
+          even if home prices remain unchanged.
+        </p>
+
+        <p>
+          Buyers should also budget for:
+        </p>
+
+        <ul className="list-disc pl-6 space-y-2">
+
+          <li>Property taxes</li>
+
+          <li>Insurance</li>
+
+          <li>Maintenance</li>
+
+          <li>Closing costs</li>
+
+          <li>HOA fees</li>
+
+        </ul>
+
+      </div>
+
+    </section>
+
+    {/* SECTION 4 */}
+
+    <section>
+
+      <h3 className="text-2xl font-black mb-5">
+        Fixed vs Adjustable Rate Mortgage
+      </h3>
+
+      <div className="space-y-5 leading-8 text-lg">
+
+        <p>
+          Fixed-rate mortgages
+          maintain the same interest rate
+          throughout the entire loan term.
+        </p>
+
+        <p>
+          Adjustable-rate mortgages,
+          commonly called ARM loans,
+          begin with lower introductory rates
+          before adjusting periodically
+          according to market conditions.
+        </p>
+
+        <p>
+          Fixed-rate mortgages provide:
+        </p>
+
+        <ul className="list-disc pl-6 space-y-2">
+
+          <li>Stable monthly payments</li>
+
+          <li>Predictable long-term budgeting</li>
+
+          <li>Lower payment risk</li>
+
+        </ul>
+
+        <p>
+          ARM loans may provide:
+        </p>
+
+        <ul className="list-disc pl-6 space-y-2">
+
+          <li>Lower initial payments</li>
+
+          <li>Short-term savings</li>
+
+          <li>Greater flexibility for short-term homeowners</li>
+
+        </ul>
+
+        <p>
+          However,
+          adjustable-rate mortgages
+          may become more expensive
+          if future interest rates rise significantly.
+        </p>
+
+        <p>
+          Mortgage calculators help borrowers estimate
+          potential payment increases
+          and compare long-term costs
+          between mortgage structures.
+        </p>
+
+      </div>
+
+    </section>
+
+    {/* SECTION 5 */}
+
+    <section>
+
+      <h3 className="text-2xl font-black mb-5">
+        Ways to Lower Monthly Mortgage Payments
+      </h3>
+
+      <div className="space-y-5 leading-8 text-lg">
+
+        <p>
+          Many homeowners look for ways
+          to reduce monthly mortgage expenses
+          and improve long-term affordability.
+        </p>
+
+        <p>
+          Common strategies include:
+        </p>
+
+        <ul className="list-disc pl-6 space-y-2">
+
+          <li>Increasing down payments</li>
+
+          <li>Improving credit scores</li>
+
+          <li>Refinancing into lower rates</li>
+
+          <li>Extending loan terms</li>
+
+          <li>Eliminating mortgage insurance</li>
+
+        </ul>
+
+        <p>
+          Larger down payments
+          reduce loan balances,
+          which lowers monthly principal
+          and interest payments.
+        </p>
+
+        <p>
+          Borrowers with strong credit profiles
+          may qualify for lower interest rates,
+          significantly reducing long-term borrowing costs.
+        </p>
+
+        <p>
+          Refinancing may also reduce payments
+          if mortgage rates decline
+          after the original loan was issued.
+        </p>
+
+        <p>
+          However,
+          refinancing involves closing costs
+          and should be evaluated carefully
+          before replacing an existing mortgage.
+        </p>
+
+        <p>
+          Mortgage calculators help homeowners compare:
+        </p>
+
+        <ul className="list-disc pl-6 space-y-2">
+
+          <li>Current vs refinance payments</li>
+
+          <li>Interest savings</li>
+
+          <li>Loan payoff timelines</li>
+
+          <li>Monthly affordability</li>
+
+        </ul>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</div>
         {/* RELATED */}
 
         <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 lg:p-8 mt-6 mb-10">

@@ -124,6 +124,56 @@ export default function RootLayout({
         </header>
 
         {children}
+        <footer className="bg-white border-t border-slate-200 mt-16">
+
+  <div className="max-w-7xl mx-auto px-4 py-10">
+
+    <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-slate-600 font-medium">
+
+      <a
+        href="/about"
+        className="hover:text-blue-600 transition"
+      >
+        About
+      </a>
+
+      <a
+        href="/contact"
+        className="hover:text-blue-600 transition"
+      >
+        Contact
+      </a>
+
+      <a
+        href="/privacy-policy"
+        className="hover:text-blue-600 transition"
+      >
+        Privacy Policy
+      </a>
+
+      <a
+        href="/terms-of-service"
+        className="hover:text-blue-600 transition"
+      >
+        Terms of Service
+      </a>
+
+      <a
+        href="/sitemap.xml"
+        className="hover:text-blue-600 transition"
+      >
+        Sitemap
+      </a>
+
+    </div>
+
+    <div className="text-center text-slate-500 text-sm mt-6">
+      © 2026 LoanFormulas. All rights reserved.
+    </div>
+
+  </div>
+
+</footer>
 
         <footer className="bg-white border-t border-slate-200 mt-20">
 

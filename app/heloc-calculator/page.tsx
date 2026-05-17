@@ -314,7 +314,7 @@ function InputField({
           onChange={(e) =>
             setValue(Number(e.target.value))
           }
-          className="w-full border rounded-2xl py-3 px-4"
+          className="w-full border rounded-2xl py-3 px-7"
         />
 
         {suffix && (

@@ -108,6 +108,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/ev-savings-calculator",
     
     "/vehicle-depreciation-calculator",
+
+    "/minimum-payment-calculator",
+
   ]
 
   return routes.map((route) => ({

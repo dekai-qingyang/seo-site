@@ -383,6 +383,12 @@ export default function HomePage() {
       description:
         "Estimate vehicle depreciation, resale value, and long-term car ownership costs.",
     },
+    {
+      title: "Minimum Payment Calculator",
+      link: "/minimum-payment-calculator",
+      description:
+        "Estimate minimum credit card payments, payoff timelines, total interest costs, and debt repayment strategies.",
+    },
     
     
   ]

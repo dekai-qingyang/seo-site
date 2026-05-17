@@ -2,8 +2,6 @@
 
 import { useMemo, useState } from "react"
 
-import Image from "next/image"
-
 import {
   ResponsiveContainer,
   PieChart,
@@ -236,14 +234,14 @@ export default function MinimumPaymentCalculator() {
 
         <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-4 lg:p-8 mt-6">
 
-          <div className="relative w-full h-[300px] lg:h-[420px] rounded-3xl overflow-hidden">
+          <div className="w-full h-[300px] lg:h-[420px] overflow-hidden rounded-3xl">
 
-          <Image
-               src="/images/minimum-payment.jpg"
-               alt="Minimum payment calculator"
-               fill
-            className="object-cover"
-          />
+          <img
+        
+           src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1600&auto=format&fit=crop"
+          className="w-full h-full object-cover rounded-3xl"
+          alt="Minimum payment calculator"
+          />  
 
           </div>
 
@@ -468,9 +466,9 @@ export default function MinimumPaymentCalculator() {
             Payment Comparison
           </h2>
 
-          <div className="h-[420px]">
+          <div className="w-full h-[420px] min-h-[420px]">
 
-            <ResponsiveContainer width="100%" height="100%">
+          <ResponsiveContainer width="100%" height={420}>
 
               <BarChart data={compareData}>
 
@@ -497,7 +495,7 @@ export default function MinimumPaymentCalculator() {
 
         {/* FORMULA */}
 
-        <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 lg:p-8 mt-6">
+        <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 lg:p-8 mt-6 mb-10">
 
           <h2 className="text-3xl font-black mb-5">
             Minimum Payment Formula
@@ -612,4 +610,5 @@ function SummaryCard({
     </div>
 
   )
+
 }

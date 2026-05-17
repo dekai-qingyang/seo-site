@@ -238,12 +238,12 @@ export default function MinimumPaymentCalculator() {
 
           <div className="relative w-full h-[300px] lg:h-[420px] rounded-3xl overflow-hidden">
 
-            <Image
-              src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1600&auto=format&fit=crop"
-              alt="Minimum payment calculator"
-              fill
-              className="object-cover"
-            />
+          <Image
+               src="/images/minimum-payment.jpg"
+               alt="Minimum payment calculator"
+               fill
+            className="object-cover"
+          />
 
           </div>
 

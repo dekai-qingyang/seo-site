@@ -84,6 +84,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/escrow-calculator",
     
     "/mortgage-amortization-calculator",
+
+    "/car-payment-calculator",
+
+    "/car-affordability-calculator",
+
+    "/lease-calculator",
+
+    "/car-lease-calculator",
+
+    "/used-car-calculator",
+
+    "/vehicle-loan-calculator",
+
+    "/trade-in-calculator",
+
+    "/auto-refinance-calculator",
+
+    "/gas-cost-calculator",
+
+    "/fuel-cost-calculator",
+
+    "/ev-savings-calculator",
+    
+    "/vehicle-depreciation-calculator",
   ]
 
   return routes.map((route) => ({

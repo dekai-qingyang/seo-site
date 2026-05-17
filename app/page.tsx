@@ -300,6 +300,89 @@ export default function HomePage() {
       description:
         "Calculate mortgage amortization schedules, principal payments, and long-term interest costs.",
     },
+    {
+      title: "Car Payment Calculator",
+      link: "/car-payment-calculator",
+      description:
+        "Estimate monthly car payments, auto loan interest, and vehicle financing costs.",
+    },
+    
+    {
+      title: "Car Affordability Calculator",
+      link: "/car-affordability-calculator",
+      description:
+        "Estimate how much car you can afford based on income, debt, and monthly budget.",
+    },
+    
+    {
+      title: "Lease Calculator",
+      link: "/lease-calculator",
+      description:
+        "Calculate monthly lease payments, lease costs, and financing estimates.",
+    },
+    
+    {
+      title: "Car Lease Calculator",
+      link: "/car-lease-calculator",
+      description:
+        "Estimate car lease payments, lease terms, residual values, and financing costs.",
+    },
+    
+    {
+      title: "Used Car Calculator",
+      link: "/used-car-calculator",
+      description:
+        "Estimate financing costs and monthly payments for used vehicle purchases.",
+    },
+    
+    {
+      title: "Vehicle Loan Calculator",
+      link: "/vehicle-loan-calculator",
+      description:
+        "Calculate vehicle loan payments, total interest costs, and auto financing estimates.",
+    },
+    
+    {
+      title: "Trade In Calculator",
+      link: "/trade-in-calculator",
+      description:
+        "Estimate vehicle trade-in values and financing savings for your next car purchase.",
+    },
+    
+    {
+      title: "Auto Refinance Calculator",
+      link: "/auto-refinance-calculator",
+      description:
+        "Estimate savings from refinancing your auto loan with lower interest rates.",
+    },
+    
+    {
+      title: "Gas Cost Calculator",
+      link: "/gas-cost-calculator",
+      description:
+        "Estimate fuel costs, gasoline expenses, and driving costs for road trips and commuting.",
+    },
+    
+    {
+      title: "Fuel Cost Calculator",
+      link: "/fuel-cost-calculator",
+      description:
+        "Calculate fuel expenses, mileage costs, and total driving fuel consumption estimates.",
+    },
+    
+    {
+      title: "EV Savings Calculator",
+      link: "/ev-savings-calculator",
+      description:
+        "Compare electric vehicle savings versus gasoline vehicle ownership costs.",
+    },
+    
+    {
+      title: "Vehicle Depreciation Calculator",
+      link: "/vehicle-depreciation-calculator",
+      description:
+        "Estimate vehicle depreciation, resale value, and long-term car ownership costs.",
+    },
     
     
   ]

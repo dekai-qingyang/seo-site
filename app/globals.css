@@ -24,3 +24,38 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* MOBILE TEXT IMPROVEMENTS */
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+input {
+  color: #000;
+  font-weight: 600;
+}
+
+input::placeholder {
+  color: #64748b;
+}
+
+label {
+  color: #334155;
+}
+
+input,
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* MOBILE SPACING */
+
+@media (max-width: 768px) {
+
+  .rounded-3xl {
+    border-radius: 1.25rem;
+  }
+
+}

@@ -111,6 +111,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     "/minimum-payment-calculator",
 
+    "/debt-payoff-calculator",
+
+    "/personal-loan-calculator",
+
+    "/payday-loan-calculator",
+
+    "/student-loan-calculator",
+
+    "/student-loan-payoff-calculator",
+
+    "/student-loan-refinance-calculator",
+
+    "/interest-payoff-calculator",
+
+    "/loan-payoff-calculator",
+
+    "/line-of-credit-calculator",
+
+    "/credit-utilization-calculator",
+
+    "/balance-transfer-calculator",
+
+    "/debt-consolidation-calculator",
+
+    "/apr-calculator",
+
+    "/apy-calculator",
+
+    "/simple-interest-calculator",
+
+
   ]
 
   return routes.map((route) => ({

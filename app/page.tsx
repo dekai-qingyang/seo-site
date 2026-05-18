@@ -390,6 +390,111 @@ export default function HomePage() {
         "Estimate minimum credit card payments, payoff timelines, total interest costs, and debt repayment strategies.",
     },
     
+    {
+      title: "Debt Payoff Calculator",
+      link: "/debt-payoff-calculator",
+      description:
+        "Calculate how long it takes to pay off debt and reduce interest costs.",
+    },
+    
+    {
+      title: "Personal Loan Calculator",
+      link: "/personal-loan-calculator",
+      description:
+        "Estimate monthly payments and total costs for a personal loan.",
+    },
+    
+    {
+      title: "Payday Loan Calculator",
+      link: "/payday-loan-calculator",
+      description:
+        "Calculate payday loan fees, repayment amounts, and borrowing costs.",
+    },
+    
+    {
+      title: "Student Loan Calculator",
+      link: "/student-loan-calculator",
+      description:
+        "Estimate student loan payments, interest, and repayment schedules.",
+    },
+    
+    {
+      title: "Student Loan Payoff Calculator",
+      link: "/student-loan-payoff-calculator",
+      description:
+        "Calculate how quickly you can pay off your student loans.",
+    },
+    
+    {
+      title: "Student Loan Refinance Calculator",
+      link: "/student-loan-refinance-calculator",
+      description:
+        "Compare refinancing options and estimate student loan savings.",
+    },
+    
+    {
+      title: "Interest Payoff Calculator",
+      link: "/interest-payoff-calculator",
+      description:
+        "Estimate interest costs and payoff timelines for loans and debt.",
+    },
+    
+    {
+      title: "Loan Payoff Calculator",
+      link: "/loan-payoff-calculator",
+      description:
+        "Calculate loan payoff dates, interest savings, and extra payment impact.",
+    },
+    
+    {
+      title: "Line Of Credit Calculator",
+      link: "/line-of-credit-calculator",
+      description:
+        "Estimate payments and borrowing costs for a line of credit.",
+    },
+    
+    {
+      title: "Credit Utilization Calculator",
+      link: "/credit-utilization-calculator",
+      description:
+        "Calculate your credit utilization ratio and improve credit health.",
+    },
+    
+    {
+      title: "Balance Transfer Calculator",
+      link: "/balance-transfer-calculator",
+      description:
+        "Estimate savings from transferring balances to lower APR credit cards.",
+    },
+    
+    {
+      title: "Debt Consolidation Calculator",
+      link: "/debt-consolidation-calculator",
+      description:
+        "Compare debt consolidation options and monthly payment savings.",
+    },
+    
+    {
+      title: "APR Calculator",
+      link: "/apr-calculator",
+      description:
+        "Calculate annual percentage rates for loans, credit cards, and financing.",
+    },
+    
+    {
+      title: "APY Calculator",
+      link: "/apy-calculator",
+      description:
+        "Estimate annual percentage yield and compound interest earnings.",
+    },
+    
+    {
+      title: "Simple Interest Calculator",
+      link: "/simple-interest-calculator",
+      description:
+        "Calculate simple interest earned or paid over time.",
+    },
+    
     
   ]
 

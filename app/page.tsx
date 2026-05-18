@@ -617,7 +617,7 @@ export default function HomePage() {
 </section>
       {/* HERO */}
 
-      <section className="bg-gradient-to-r from-blue-700 to-indigo-700 text-white">
+      <section className="bg-gradient-to-r from-blue-700 to-indigo-700 text-white font-semibold ">
 
         <div className="max-w-7xl mx-auto px-4 py-16 lg:py-24">
 
@@ -627,7 +627,7 @@ export default function HomePage() {
               Online Financial & Math Calculators
             </h1>
 
-            <p className="text-lg lg:text-2xl text-blue-100 leading-9">
+            <p className="text-lg lg:text-2xl text-blue-700 leading-9">
               Free online mortgage, loan, refinance, auto loan,
               affordability, compound interest, and scientific calculators.
             </p>
@@ -646,11 +646,11 @@ export default function HomePage() {
 
           <div className="bg-gradient-to-r from-blue-700 to-indigo-700 p-4 lg:p-6">
 
-            <h2 className="text-2xl lg:text-4xl font-black text-white mb-2">
+            <h2 className="text-2xl lg:text-4xl font-black text-white font-semibold  mb-2">
               Scientific Calculator
             </h2>
 
-            <p className="text-blue-100">
+            <p className="text-blue-700">
               Simple online calculator for quick calculations.
             </p>
 
@@ -662,7 +662,7 @@ export default function HomePage() {
 
             <div className="bg-slate-900 rounded-2xl p-5 lg:p-7 mb-5 lg:mb-8">
 
-              <div className="text-right text-white text-3xl lg:text-5xl font-black break-all min-h-[50px]">
+              <div className="text-right text-white font-semibold text-3xl lg:text-5xl font-black break-all min-h-[50px]">
                 {display}
               </div>
 
@@ -679,7 +679,7 @@ export default function HomePage() {
                   onClick={() => handleClick(btn)}
                   className={`rounded-2xl py-4 lg:py-6 text-xl lg:text-3xl font-bold transition-all shadow-md hover:scale-105 ${
                     ["+", "-", "*", "/", "="].includes(btn)
-                      ? "bg-blue-600 text-white"
+                      ? "bg-blue-600 text-white font-semibold font-semibold font-semibold"
                       : "bg-slate-100 hover:bg-slate-200"
                   }`}
                 >
@@ -690,7 +690,7 @@ export default function HomePage() {
 
               <button
                 onClick={() => handleClick("AC")}
-                className="col-span-4 rounded-2xl py-4 lg:py-5 bg-red-500 text-white text-xl lg:text-2xl font-bold shadow-md hover:scale-[1.01]"
+                className="col-span-4 rounded-2xl py-4 lg:py-5 bg-red-500 text-white font-semibold  text-xl lg:text-2xl font-bold shadow-md hover:scale-[1.01]"
               >
                 Clear Calculator
               </button>
@@ -727,7 +727,7 @@ export default function HomePage() {
 
               <div className="mb-5">
 
-                <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 flex items-center justify-center text-white text-2xl lg:text-3xl font-black">
+                <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 flex items-center justify-center text-white font-semibold text-2xl lg:text-3xl font-black">
                   $
                 </div>
 

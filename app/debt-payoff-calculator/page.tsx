@@ -394,7 +394,66 @@ export default function DebtPayoffCalculator() {
         </div>
 
       </div>
+{/* RELATED TOOLS */}
 
+<div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-8 mt-8 mb-10">
+
+  <h2 className="text-3xl font-black mb-6">
+    Related Calculators
+  </h2>
+
+  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+    {[
+      {
+        title: "Loan Payoff Calculator",
+        link: "/loan-payoff-calculator",
+      },
+
+      {
+        title: "Personal Loan Calculator",
+        link: "/personal-loan-calculator",
+      },
+
+      {
+        title: "APR Calculator",
+        link: "/apr-calculator",
+      },
+
+      {
+        title: "Balance Transfer Calculator",
+        link: "/balance-transfer-calculator",
+      },
+
+      {
+        title: "Debt Consolidation Calculator",
+        link: "/debt-consolidation-calculator",
+      },
+
+      {
+        title: "Credit Utilization Calculator",
+        link: "/credit-utilization-calculator",
+      },
+
+    ].map((item) => (
+
+      <a
+        key={item.link}
+        href={item.link}
+        className="border border-slate-200 rounded-2xl p-5 hover:bg-slate-50 transition"
+      >
+
+        <div className="font-bold text-lg">
+          {item.title}
+        </div>
+
+      </a>
+
+    ))}
+
+  </div>
+
+</div>
     </main>
 
   );

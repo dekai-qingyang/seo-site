@@ -269,7 +269,196 @@ export default function HomeEquityLineOfCreditCalculator() {
         </section>
 
       </div>
+{/* ARTICLE SECTION */}
 
+<section className="bg-white rounded-3xl shadow-xl border border-slate-200 p-8 mt-8 mb-10">
+
+  <h2 className="text-4xl font-black mb-6">
+    What Is a Home Equity Line of Credit (HELOC)?
+  </h2>
+
+  <div className="space-y-6 text-slate-600 leading-8">
+
+    <p>
+      A home equity line of credit, commonly called a HELOC,
+      is a revolving line of credit secured by the equity in
+      your home. Homeowners can borrow money as needed while
+      using their property as collateral.
+    </p>
+
+    <p>
+      Unlike traditional loans that provide a lump sum,
+      a HELOC allows flexible borrowing during the draw period.
+      Borrowers can withdraw funds multiple times up to their
+      approved credit limit.
+    </p>
+
+    <h3 className="text-2xl font-bold text-slate-900">
+      How Does a HELOC Work?
+    </h3>
+
+    <p>
+      A HELOC is based on your available home equity.
+      Lenders usually calculate equity by subtracting
+      your remaining mortgage balance from your home's value.
+    </p>
+
+    <div className="bg-slate-100 rounded-2xl p-6">
+
+      <p>
+        Home Value: $500,000
+      </p>
+
+      <p>
+        Mortgage Balance: $300,000
+      </p>
+
+      <p>
+        Available Equity: $200,000
+      </p>
+
+    </div>
+
+    <p>
+      Depending on lender requirements, homeowners may borrow
+      a percentage of that equity through a revolving credit line.
+    </p>
+
+    <h3 className="text-2xl font-bold text-slate-900">
+      HELOC Draw Period vs Repayment Period
+    </h3>
+
+    <p>
+      Most HELOCs have two stages: the draw period and the
+      repayment period.
+    </p>
+
+    <p>
+      During the draw period, borrowers can access funds and
+      often make interest-only payments. During the repayment
+      period, both principal and interest payments become required.
+    </p>
+
+    <h3 className="text-2xl font-bold text-slate-900">
+      HELOC Interest Rates
+    </h3>
+
+    <p>
+      Most HELOCs use variable interest rates tied to benchmark
+      indexes such as the prime rate. This means monthly payments
+      may increase or decrease over time.
+    </p>
+
+    <div className="bg-slate-100 rounded-2xl p-6 overflow-auto">
+
+      <code className="text-lg">
+        Interest = Outstanding Balance × Annual Interest Rate ÷ 12
+      </code>
+
+    </div>
+
+    <h3 className="text-2xl font-bold text-slate-900">
+      Benefits of a HELOC
+    </h3>
+
+    <ul className="list-disc pl-6 space-y-3">
+
+      <li>
+        Lower interest rates compared to credit cards
+      </li>
+
+      <li>
+        Flexible borrowing access
+      </li>
+
+      <li>
+        Large borrowing limits
+      </li>
+
+      <li>
+        Useful for home renovations and debt consolidation
+      </li>
+
+      <li>
+        Potential tax advantages in certain situations
+      </li>
+
+    </ul>
+
+    <h3 className="text-2xl font-bold text-slate-900">
+      Risks of a HELOC
+    </h3>
+
+    <p>
+      Because a HELOC uses your home as collateral,
+      failure to repay could increase foreclosure risk.
+      Borrowers should also understand that variable
+      interest rates can increase monthly costs over time.
+    </p>
+
+    <h3 className="text-2xl font-bold text-slate-900">
+      Frequently Asked Questions
+    </h3>
+
+    <div className="space-y-5">
+
+      <div className="border rounded-2xl p-5">
+
+        <h4 className="font-bold text-lg mb-2 text-slate-900">
+          Is a HELOC a good idea?
+        </h4>
+
+        <p>
+          A HELOC may be useful for homeowners who need flexible
+          access to funds with relatively lower interest rates.
+        </p>
+
+      </div>
+
+      <div className="border rounded-2xl p-5">
+
+        <h4 className="font-bold text-lg mb-2 text-slate-900">
+          What credit score is needed for a HELOC?
+        </h4>
+
+        <p>
+          Many lenders prefer credit scores above 620 to 680,
+          although requirements vary between lenders.
+        </p>
+
+      </div>
+
+      <div className="border rounded-2xl p-5">
+
+        <h4 className="font-bold text-lg mb-2 text-slate-900">
+          Can HELOC interest rates change?
+        </h4>
+
+        <p>
+          Yes. Most HELOCs use variable rates that fluctuate
+          based on market interest conditions.
+        </p>
+
+      </div>
+
+      <div className="border rounded-2xl p-5">
+
+        <h4 className="font-bold text-lg mb-2 text-slate-900">
+          Can I pay off a HELOC early?
+        </h4>
+
+        <p>
+          Many lenders allow early repayment without penalties,
+          but borrowers should review individual loan terms.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
     </main>
 
   )

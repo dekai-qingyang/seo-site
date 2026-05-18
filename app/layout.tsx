@@ -167,7 +167,7 @@ export default function RootLayout({
 
     </div>
 
-    <div className="text-center text-slate-500 text-sm mt-6">
+    <div className="text-center text-slate-700 text-sm mt-6">
       © 2026 LoanFormulas. All rights reserved.
     </div>
 
@@ -311,7 +311,7 @@ export default function RootLayout({
 
             </div>
 
-            <div className="border-t border-slate-200 mt-10 pt-6 text-sm text-slate-500 text-center">
+            <div className="border-t border-slate-200 mt-10 pt-6 text-sm text-slate-700 text-center">
 
               © 2026 LoanFormulas. All rights reserved.
 

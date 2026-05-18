@@ -25,7 +25,7 @@ type Props = {
         <div className="relative">
   
           {prefix && (
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-700">
               {prefix}
             </span>
           )}
@@ -40,7 +40,7 @@ type Props = {
           />
   
           {suffix && (
-            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500">
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-700">
               {suffix}
             </span>
           )}

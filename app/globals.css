@@ -21,13 +21,11 @@
 
 body {
   background: var(--background);
-  color: var(--foreground);
+  color: #000;
   font-family: Arial, Helvetica, sans-serif;
-}
-/* MOBILE TEXT IMPROVEMENTS */
 
-body {
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
@@ -58,4 +56,86 @@ a {
     border-radius: 1.25rem;
   }
 
+}
+/* GLOBAL RESET */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* IOS INPUT FIX */
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+/* MOBILE FONT RENDER */
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* REMOVE IOS SHADOW */
+
+input {
+  box-shadow: none;
+  outline: none;
+}
+
+/* FIX INPUT TEXT */
+
+input {
+  color: #000;
+  font-weight: 600;
+  background: #fff;
+}
+
+/* FIX PLACEHOLDER */
+
+input::placeholder {
+  color: #64748b;
+}
+
+/* FIX LABEL */
+
+label {
+  color: #334155;
+}
+
+/* IMAGE FIX */
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* BUTTON FIX */
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+/* LINK FIX */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* IOS TAP */
+
+input,
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
 }

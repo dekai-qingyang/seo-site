@@ -324,7 +324,7 @@ function SummaryCard({
 
     <div className="bg-white rounded-2xl border p-5">
 
-      <p className="text-slate-500 mb-2">
+      <p className="text-slate-700 mb-2">
         {title}
       </p>
 

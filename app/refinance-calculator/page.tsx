@@ -407,7 +407,7 @@ export default function RefinanceCalculator() {
 
               <div className="bg-blue-50 rounded-2xl p-5">
 
-                <div className="text-slate-500 mb-1">
+                <div className="text-slate-700 mb-1">
                   Current Mortgage
                 </div>
 
@@ -419,7 +419,7 @@ export default function RefinanceCalculator() {
 
               <div className="bg-slate-100 rounded-2xl p-5">
 
-                <div className="text-slate-500 mb-1">
+                <div className="text-slate-700 mb-1">
                   Refinanced Mortgage
                 </div>
 
@@ -587,7 +587,7 @@ function InputField({
       <div className="relative">
 
         {prefix && (
-          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500">
+          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-700">
             {prefix}
           </span>
         )}
@@ -606,7 +606,7 @@ function InputField({
         />
 
         {suffix && (
-          <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 font-medium">
+          <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-700 font-medium">
             {suffix}
           </span>
         )}
@@ -634,7 +634,7 @@ function SummaryRow({
 
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-1">
 
-        <span className="text-slate-500 text-sm lg:text-base">
+        <span className="text-slate-700 text-sm lg:text-base">
           {label}
         </span>
 

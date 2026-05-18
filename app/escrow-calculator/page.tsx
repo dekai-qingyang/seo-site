@@ -674,7 +674,7 @@ function InputField({
 
       <div className="relative">
 
-        <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500">
+        <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-700">
           {prefix}
         </span>
 
@@ -705,7 +705,7 @@ function SummaryRow({
 
       <div className="flex items-center justify-between">
 
-        <span className="text-slate-500">
+        <span className="text-slate-700">
           {label}
         </span>
 
@@ -729,7 +729,7 @@ function SummaryCard({
 
     <div className="bg-slate-100 rounded-2xl p-5">
 
-      <div className="text-slate-500 mb-1">
+      <div className="text-slate-700 mb-1">
         {title}
       </div>
 

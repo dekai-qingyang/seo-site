@@ -1,5 +1,3 @@
-// app/credit-utilization-calculator/page.tsx
-
 "use client";
 
 import { useMemo, useState } from "react";

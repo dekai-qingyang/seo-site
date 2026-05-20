@@ -495,6 +495,125 @@ export default function HomePage() {
         "Calculate simple interest earned or paid over time.",
     },
     
+    {
+      title: "Stock Calculator",
+      link: "/stock-calculator",
+      description:
+        "Calculate stock investment growth, profits, dividends, and portfolio returns.",
+    },
+
+    {
+      title: "ETF Calculator",
+      link: "/etf-calculator",
+      description:
+        "Estimate ETF investment performance, compound growth, and long-term returns.",
+    },
+
+    {
+      title: "Mutual Fund Calculator",
+      link: "/mutual-fund-calculator",
+      description:
+        "Calculate mutual fund returns, investment growth, and future portfolio value.",
+    },
+
+    {
+      title: "Portfolio Calculator",
+      link: "/portfolio-calculator",
+      description:
+        "Analyze portfolio allocation, diversification, growth, and investment performance.",
+    },
+
+    {
+      title: "Investment Return Calculator",
+      link: "/investment-return-calculator",
+      description:
+        "Estimate investment profits, annual returns, and long-term wealth growth.",
+    },
+
+    {
+      title: "Annual Return Calculator",
+      link: "/annual-return-calculator",
+      description:
+        "Calculate annualized returns, yearly investment performance, and portfolio growth.",
+    },
+
+    {
+      title: "Capital Gains Calculator",
+      link: "/capital-gains-calculator",
+      description:
+        "Estimate capital gains taxes, investment profits, and after-tax returns.",
+    },
+
+    {
+      title: "Net Worth Calculator",
+      link: "/net-worth-calculator",
+      description:
+        "Track assets, liabilities, and calculate your total net worth.",
+    },
+
+    {
+      title: "Wealth Calculator",
+      link: "/wealth-calculator",
+      description:
+        "Estimate long-term wealth accumulation, savings growth, and financial progress.",
+    },
+
+    {
+      title: "Passive Income Calculator",
+      link: "/passive-income-calculator",
+      description:
+        "Calculate passive income streams, investment cash flow, and recurring earnings.",
+    },
+
+    {
+      title: "Financial Independence Calculator",
+      link: "/financial-independence-calculator",
+      description:
+        "Estimate savings goals and investment targets for financial independence.",
+    },
+
+    {
+      title: "FIRE Calculator",
+      link: "/fire-calculator",
+      description:
+        "Calculate retirement targets and savings needed for the FIRE movement.",
+    },
+
+    {
+      title: "Future Value Calculator",
+      link: "/future-value-calculator",
+      description:
+        "Estimate future investment value using compound growth and contributions.",
+    },
+
+    {
+      title: "Present Value Calculator",
+      link: "/present-value-calculator",
+      description:
+        "Calculate the present value of future cash flows and investment returns.",
+    },
+
+    {
+      title: "Inflation Calculator",
+      link: "/inflation-calculator",
+      description:
+        "Estimate purchasing power changes and inflation-adjusted values over time.",
+    },
+
+    {
+      title: "Real Return Calculator",
+      link: "/real-return-calculator",
+      description:
+        "Calculate investment returns adjusted for inflation and purchasing power.",
+    },
+
+    {
+      title: "Risk Reward Calculator",
+      link: "/risk-reward-calculator",
+      description:
+        "Analyze investment risk versus potential reward and expected return ratios.",
+    },
+    
     
   ]
 

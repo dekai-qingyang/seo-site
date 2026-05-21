@@ -1,21 +1,15 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-
   const baseUrl = "https://loanformulas.com";
 
   const routes = [
-
     "",
-
-    // MAIN
-
-    "/sitemap.xml",
+    "/about",
+    "/contact",
     "/privacy-policy",
     "/terms-of-service",
-
-    // MORTGAGE
-
+    "/sitemap-page",
     "/mortgage-calculator",
     "/refinance-calculator",
     "/affordability-calculator",
@@ -42,9 +36,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/principal-and-interest-calculator",
     "/escrow-calculator",
     "/mortgage-amortization-calculator",
-
-    // AUTO
-
     "/auto-loan-calculator",
     "/car-payment-calculator",
     "/car-affordability-calculator",
@@ -58,9 +49,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/fuel-cost-calculator",
     "/ev-savings-calculator",
     "/vehicle-depreciation-calculator",
-
-    // LOANS
-
     "/loan-calculator",
     "/personal-loan-calculator",
     "/payday-loan-calculator",
@@ -72,18 +60,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/line-of-credit-calculator",
     "/balance-transfer-calculator",
     "/debt-consolidation-calculator",
-
-    // CREDIT & DEBT
-
     "/credit-card-payoff-calculator",
     "/debt-snowball-calculator",
     "/debt-avalanche-calculator",
     "/minimum-payment-calculator",
     "/debt-payoff-calculator",
     "/credit-utilization-calculator",
-
-    // INTEREST & RETURNS
-
     "/compound-interest-calculator",
     "/apr-calculator",
     "/apy-calculator",
@@ -95,9 +77,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/inflation-calculator",
     "/real-return-calculator",
     "/risk-reward-calculator",
-
-    // INVESTING
-
     "/investment-calculator",
     "/dividend-calculator",
     "/stock-calculator",
@@ -112,34 +91,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/wealth-calculator",
     "/financial-independence-calculator",
     "/fire-calculator",
-
-    // MISC
-
-    "/amortization-calculator",
-
+    "/certificate-of-deposit-calculator",
+    "/amortization-calculator"
   ];
 
   return routes.map((route) => ({
-
     url: `${baseUrl}${route}`,
-
     lastModified: new Date(),
-
-    changeFrequency:
-      route === ""
-        ? "daily"
-        : "weekly",
-
-    priority:
-      route === ""
-        ? 1.0
-        : route.includes("mortgage")
-        ? 0.95
-        : route.includes("loan")
-        ? 0.92
-        : route.includes("investment")
-        ? 0.9
-        : 0.85,
-
+    changeFrequency: route === "" ? "daily" : "weekly",
+    priority: route === "" ? 1.0 : 0.85,
   }));
 }

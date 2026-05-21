@@ -443,6 +443,13 @@ export default function SitemapPage() {
             Terms of Use
           </Link>
 
+          <Link
+             href="/sitemap-page"
+             className="hover:text-slate-900"
+          >
+           Sitemap
+        </Link>
+
         </div>
 
       </div>

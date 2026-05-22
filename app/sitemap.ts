@@ -4,7 +4,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://loanformulas.com";
 
   const routes = [
-    "",
+  
     "/about",
     "/contact",
     "/privacy-policy",
@@ -92,7 +92,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/financial-independence-calculator",
     "/fire-calculator",
     "/certificate-of-deposit-calculator",
-    "/amortization-calculator"
+    "/amortization-calculator",
+    "/high-yield-savings-calculator",
+    "/emergency-fund-calculator",
+    "/bank-interest-calculator",
+    "/recurring-deposit-calculator",
+    "/budget-calculator",
+    "/expense-calculator",
+    "/cash-flow-calculator",
+    "/monthly-budget-calculator",
+    "/weekly-savings-calculator",
+
   ];
 
   return routes.map((route) => ({

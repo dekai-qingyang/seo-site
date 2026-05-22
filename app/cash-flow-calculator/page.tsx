@@ -170,13 +170,13 @@ export default function CashFlowCalculatorPage() {
   ========================= */
 
   return (
-    <main className="min-h-screen bg-[#f4f7fb]">
+    <main className="min-h-screen bg-[#f4f7fb] overflow-hidden">
 
-      <section className="max-w-7xl mx-auto px-5 pt-16 pb-12">
+      <section className="max-w-7xl mx-auto px-4 md:px-5 pt-12 md:pt-16 pb-12">
 
         {/* HERO */}
 
-        <div className="text-center mb-14">
+        <div className="text-center mb-12 md:mb-14">
 
           <div className="
             inline-flex
@@ -199,7 +199,8 @@ export default function CashFlowCalculatorPage() {
           </div>
 
           <h1 className="
-            text-5xl
+            text-4xl
+            sm:text-5xl
             md:text-7xl
             font-black
             text-gray-900
@@ -214,9 +215,11 @@ export default function CashFlowCalculatorPage() {
           <p className="
             max-w-3xl
             mx-auto
-            text-lg
+            text-base
+            md:text-lg
             text-gray-500
-            leading-9
+            leading-8
+            md:leading-9
           ">
 
             Analyze your monthly income,
@@ -243,18 +246,21 @@ export default function CashFlowCalculatorPage() {
 
           <div className="
             bg-white
-            rounded-[34px]
-            p-8
+            rounded-[28px]
+            md:rounded-[34px]
+            p-6
+            md:p-8
             shadow-sm
             border
             border-gray-100
             h-fit
-            sticky
-            top-5
+            lg:sticky
+            lg:top-5
           ">
 
             <h2 className="
-              text-3xl
+              text-2xl
+              md:text-3xl
               font-black
               mb-8
             ">
@@ -288,7 +294,8 @@ export default function CashFlowCalculatorPage() {
             "></div>
 
             <h2 className="
-              text-3xl
+              text-2xl
+              md:text-3xl
               font-black
               mb-8
             ">
@@ -338,7 +345,7 @@ export default function CashFlowCalculatorPage() {
             <div className="
               grid
               grid-cols-1
-              md:grid-cols-2
+              sm:grid-cols-2
               xl:grid-cols-4
               gap-5
               mb-7
@@ -388,31 +395,35 @@ export default function CashFlowCalculatorPage() {
 
               <ChartCard title="Income vs Expenses">
 
-                <ResponsiveContainer
-                  width="100%"
-                  height={350}
-                >
+                <div className="w-full h-[320px] md:h-[350px]">
 
-                  <PieChart>
+                  <ResponsiveContainer
+                    width="100%"
+                    height="100%"
+                  >
 
-                    <Pie
-                      data={pieData}
-                      dataKey="value"
-                      outerRadius={120}
-                      label
-                    >
+                    <PieChart>
 
-                      <Cell fill="#4f46e5" />
+                      <Pie
+                        data={pieData}
+                        dataKey="value"
+                        outerRadius={90}
+                        label
+                      >
 
-                      <Cell fill="#ef4444" />
+                        <Cell fill="#4f46e5" />
 
-                    </Pie>
+                        <Cell fill="#ef4444" />
 
-                    <Tooltip />
+                      </Pie>
 
-                  </PieChart>
+                      <Tooltip />
 
-                </ResponsiveContainer>
+                    </PieChart>
+
+                  </ResponsiveContainer>
+
+                </div>
 
               </ChartCard>
 
@@ -420,38 +431,79 @@ export default function CashFlowCalculatorPage() {
 
               <ChartCard title="Savings Growth">
 
+                <div className="w-full h-[320px] md:h-[350px]">
+
+                  <ResponsiveContainer
+                    width="100%"
+                    height="100%"
+                  >
+
+                    <AreaChart data={monthlyTrend}>
+
+                      <defs>
+
+                        <linearGradient
+                          id="colorSavings"
+                          x1="0"
+                          y1="0"
+                          x2="0"
+                          y2="1"
+                        >
+
+                          <stop
+                            offset="5%"
+                            stopColor="#4f46e5"
+                            stopOpacity={0.8}
+                          />
+
+                          <stop
+                            offset="95%"
+                            stopColor="#4f46e5"
+                            stopOpacity={0}
+                          />
+
+                        </linearGradient>
+
+                      </defs>
+
+                      <CartesianGrid stroke="#eee" />
+
+                      <XAxis dataKey="month" />
+
+                      <YAxis />
+
+                      <Tooltip />
+
+                      <Area
+                        type="monotone"
+                        dataKey="savings"
+                        stroke="#4f46e5"
+                        fillOpacity={1}
+                        fill="url(#colorSavings)"
+                      />
+
+                    </AreaChart>
+
+                  </ResponsiveContainer>
+
+                </div>
+
+              </ChartCard>
+
+            </div>
+
+            {/* LINE */}
+
+            <ChartCard title="Monthly Cash Flow Trend">
+
+              <div className="w-full h-[340px] md:h-[380px]">
+
                 <ResponsiveContainer
                   width="100%"
-                  height={350}
+                  height="100%"
                 >
 
-                  <AreaChart data={monthlyTrend}>
-
-                    <defs>
-
-                      <linearGradient
-                        id="colorSavings"
-                        x1="0"
-                        y1="0"
-                        x2="0"
-                        y2="1"
-                      >
-
-                        <stop
-                          offset="5%"
-                          stopColor="#4f46e5"
-                          stopOpacity={0.8}
-                        />
-
-                        <stop
-                          offset="95%"
-                          stopColor="#4f46e5"
-                          stopOpacity={0}
-                        />
-
-                      </linearGradient>
-
-                    </defs>
+                  <LineChart data={monthlyTrend}>
 
                     <CartesianGrid stroke="#eee" />
 
@@ -461,100 +513,71 @@ export default function CashFlowCalculatorPage() {
 
                     <Tooltip />
 
-                    <Area
+                    <Legend />
+
+                    <Line
                       type="monotone"
-                      dataKey="savings"
+                      dataKey="income"
                       stroke="#4f46e5"
-                      fillOpacity={1}
-                      fill="url(#colorSavings)"
+                      strokeWidth={4}
                     />
 
-                  </AreaChart>
+                    <Line
+                      type="monotone"
+                      dataKey="expenses"
+                      stroke="#ef4444"
+                      strokeWidth={4}
+                    />
+
+                    <Line
+                      type="monotone"
+                      dataKey="savings"
+                      stroke="#10b981"
+                      strokeWidth={4}
+                    />
+
+                  </LineChart>
 
                 </ResponsiveContainer>
 
-              </ChartCard>
-
-            </div>
-
-            {/* LINE CHART */}
-
-            <ChartCard title="Monthly Cash Flow Trend">
-
-              <ResponsiveContainer
-                width="100%"
-                height={380}
-              >
-
-                <LineChart data={monthlyTrend}>
-
-                  <CartesianGrid stroke="#eee" />
-
-                  <XAxis dataKey="month" />
-
-                  <YAxis />
-
-                  <Tooltip />
-
-                  <Legend />
-
-                  <Line
-                    type="monotone"
-                    dataKey="income"
-                    stroke="#4f46e5"
-                    strokeWidth={4}
-                  />
-
-                  <Line
-                    type="monotone"
-                    dataKey="expenses"
-                    stroke="#ef4444"
-                    strokeWidth={4}
-                  />
-
-                  <Line
-                    type="monotone"
-                    dataKey="savings"
-                    stroke="#10b981"
-                    strokeWidth={4}
-                  />
-
-                </LineChart>
-
-              </ResponsiveContainer>
+              </div>
 
             </ChartCard>
 
-            {/* BAR CHART */}
+            {/* BAR */}
 
             <ChartCard title="Expense Breakdown">
 
-              <ResponsiveContainer
-                width="100%"
-                height={380}
-              >
+              <div className="w-full h-[340px] md:h-[380px]">
 
-                <BarChart data={expenseData}>
+                <ResponsiveContainer
+                  width="100%"
+                  height="100%"
+                >
 
-                  <CartesianGrid stroke="#eee" />
+                  <BarChart data={expenseData}>
 
-                  <XAxis dataKey="name" />
+                    <CartesianGrid stroke="#eee" />
 
-                  <YAxis />
+                    <XAxis dataKey="name" />
 
-                  <Tooltip />
+                    <YAxis />
 
-                  <Legend />
+                    <Tooltip />
 
-                  <Bar
-                    dataKey="amount"
-                    fill="#7c3aed"
-                    radius={[10, 10, 0, 0]}
-                  />
+                    <Legend />
 
-                </BarChart>
+                    <Bar
+                      dataKey="amount"
+                      fill="#7c3aed"
+                      radius={[10, 10, 0, 0]}
+                    />
 
-              </ResponsiveContainer>
+                  </BarChart>
+
+                </ResponsiveContainer>
+
+              </div>
 
             </ChartCard>
 
@@ -566,18 +589,21 @@ export default function CashFlowCalculatorPage() {
 
         <section className="
           bg-white
-          rounded-[34px]
+          rounded-[28px]
+          md:rounded-[34px]
           shadow-sm
           border
           border-gray-100
-          p-10
+          p-6
+          md:p-10
           mt-10
         ">
 
           <div className="max-w-5xl">
 
             <h2 className="
-              text-4xl
+              text-3xl
+              md:text-4xl
               font-black
               text-gray-900
               mb-8
@@ -590,8 +616,10 @@ export default function CashFlowCalculatorPage() {
             <div className="
               space-y-7
               text-gray-600
-              text-[17px]
-              leading-9
+              text-[16px]
+              md:text-[17px]
+              leading-8
+              md:leading-9
             ">
 
               <p>
@@ -799,7 +827,7 @@ function InputField({
           }
           className="
             w-full
-            h-[60px]
+            h-[58px]
             rounded-2xl
             border
             border-gray-200
@@ -869,7 +897,8 @@ function SummaryCard({
       </p>
 
       <h3 className="
-        text-4xl
+        text-3xl
+        md:text-4xl
         font-black
       ">
 
@@ -892,16 +921,20 @@ function ChartCard({
   return (
     <div className="
       bg-white
-      rounded-[34px]
-      p-8
+      rounded-[28px]
+      md:rounded-[34px]
+      p-6
+      md:p-8
       shadow-sm
       border
       border-gray-100
       mb-6
+      overflow-hidden
     ">
 
       <h3 className="
-        text-2xl
+        text-xl
+        md:text-2xl
         font-black
         mb-5
       ">

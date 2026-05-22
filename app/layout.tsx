@@ -1,11 +1,10 @@
-import Script from "next/script"
-import type { Metadata } from "next"
-import Link from "next/link"
+import Script from "next/script";
+import type { Metadata } from "next";
+import Link from "next/link";
 
-import "./globals.css"
+import "./globals.css";
 
 export const metadata: Metadata = {
-
   title: {
     default: "LoanFormulas",
     template: "%s | LoanFormulas",
@@ -28,7 +27,6 @@ export const metadata: Metadata = {
   ),
 
   openGraph: {
-
     title: "LoanFormulas",
 
     description:
@@ -41,26 +39,20 @@ export const metadata: Metadata = {
     locale: "en_US",
 
     type: "website",
-
   },
 
   robots: {
-
     index: true,
     follow: true,
-
   },
-
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-
   return (
-
     <html lang="en">
 
       <body className="bg-slate-100 text-slate-900">
@@ -71,6 +63,8 @@ export default function RootLayout({
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7679960560339960"
           crossOrigin="anonymous"
         />
+
+        {/* HEADER */}
 
         <header className="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
 
@@ -123,63 +117,19 @@ export default function RootLayout({
 
         </header>
 
+        {/* PAGE */}
+
         {children}
-        <footer className="bg-white border-t border-slate-200 mt-16">
 
-  <div className="max-w-7xl mx-auto px-4 py-10">
-
-    <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-slate-600 font-medium">
-
-      <a
-        href="/about"
-        className="hover:text-blue-600 transition"
-      >
-        About
-      </a>
-
-      <a
-        href="/contact"
-        className="hover:text-blue-600 transition"
-      >
-        Contact
-      </a>
-
-      <a
-        href="/privacy-policy"
-        className="hover:text-blue-600 transition"
-      >
-        Privacy Policy
-      </a>
-
-      <a
-        href="/terms-of-service"
-        className="hover:text-blue-600 transition"
-      >
-        Terms of Service
-      </a>
-
-      <a
-        href="/sitemap.xml"
-        className="hover:text-blue-600 transition"
-      >
-        Sitemap
-      </a>
-
-    </div>
-
-    <div className="text-center text-slate-700 text-sm mt-6">
-      © 2026 LoanFormulas. All rights reserved.
-    </div>
-
-  </div>
-
-</footer>
+        {/* FOOTER */}
 
         <footer className="bg-white border-t border-slate-200 mt-20">
 
           <div className="max-w-7xl mx-auto px-4 py-12">
 
             <div className="grid md:grid-cols-4 gap-10">
+
+              {/* BRAND */}
 
               <div>
 
@@ -196,6 +146,8 @@ export default function RootLayout({
                 </p>
 
               </div>
+
+              {/* MORTGAGE */}
 
               <div>
 
@@ -245,6 +197,8 @@ export default function RootLayout({
 
               </div>
 
+              {/* DEBT */}
+
               <div>
 
                 <h3 className="font-bold mb-4">
@@ -272,6 +226,8 @@ export default function RootLayout({
                 </div>
 
               </div>
+
+              {/* INVESTMENT */}
 
               <div>
 
@@ -311,9 +267,54 @@ export default function RootLayout({
 
             </div>
 
-            <div className="border-t border-slate-200 mt-10 pt-6 text-sm text-slate-700 text-center">
+            {/* BOTTOM */}
 
-              © 2026 LoanFormulas. All rights reserved.
+            <div className="border-t border-slate-200 mt-10 pt-6">
+
+              <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-slate-600 font-medium mb-5">
+
+                <Link
+                  href="/about"
+                  className="hover:text-blue-600 transition"
+                >
+                  About
+                </Link>
+
+                <Link
+                  href="/contact"
+                  className="hover:text-blue-600 transition"
+                >
+                  Contact
+                </Link>
+
+                <Link
+                  href="/privacy-policy"
+                  className="hover:text-blue-600 transition"
+                >
+                  Privacy Policy
+                </Link>
+
+                <Link
+                  href="/terms-of-service"
+                  className="hover:text-blue-600 transition"
+                >
+                  Terms of Service
+                </Link>
+
+                <Link
+                  href="/sitemap-page"
+                  className="hover:text-blue-600 transition"
+                >
+                  Sitemap
+                </Link>
+
+              </div>
+
+              <div className="text-sm text-slate-700 text-center">
+
+                © 2026 LoanFormulas. All rights reserved.
+
+              </div>
 
             </div>
 
@@ -324,6 +325,5 @@ export default function RootLayout({
       </body>
 
     </html>
-
-  )
+  );
 }

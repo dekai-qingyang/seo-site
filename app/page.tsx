@@ -614,6 +614,83 @@ export default function HomePage() {
         "Analyze investment risk versus potential reward and expected return ratios.",
     },
     
+    {
+      title: "Certificate of Deposit Calculator",
+      link: "/certificate-of-deposit-calculator",
+      description:
+        "Estimate CD growth, APY earnings, compound interest, and long-term certificate of deposit returns.",
+    },
+    
+    {
+      title: "CD Calculator",
+      link: "/cd-calculator",
+      description:
+        "Calculate certificate of deposit maturity balances, APY growth, and fixed-interest savings projections.",
+    },
+    
+    {
+      title: "High Yield Savings Calculator",
+      link: "/high-yield-savings-calculator",
+      description:
+        "Estimate HYSA growth, monthly compound interest, APY returns, and future savings balances.",
+    },
+    
+    {
+      title: "Emergency Fund Calculator",
+      link: "/emergency-fund-calculator",
+      description:
+        "Calculate recommended emergency savings goals based on monthly expenses and financial security targets.",
+    },
+    
+    {
+      title: "Bank Interest Calculator",
+      link: "/bank-interest-calculator",
+      description:
+        "Estimate bank account interest earnings, savings growth, APY returns, and future account balances.",
+    },
+    
+    {
+      title: "Recurring Deposit Calculator",
+      link: "/recurring-deposit-calculator",
+      description:
+        "Calculate recurring deposit maturity values, monthly savings growth, and compound interest earnings.",
+    },
+    
+    {
+      title: "Budget Calculator",
+      link: "/budget-calculator",
+      description:
+        "Create a monthly budget plan, track spending, manage savings goals, and improve financial planning.",
+    },
+    
+    {
+      title: "Expense Calculator",
+      link: "/expense-calculator",
+      description:
+        "Track monthly expenses, estimate spending categories, and analyze personal cash outflows.",
+    },
+    
+    {
+      title: "Cash Flow Calculator",
+      link: "/cash-flow-calculator",
+      description:
+        "Estimate income, expenses, net cash flow, and long-term financial stability projections.",
+    },
+    
+    {
+      title: "Monthly Budget Calculator",
+      link: "/monthly-budget-calculator",
+      description:
+        "Plan monthly income allocation, savings targets, debt payments, and household budgeting strategies.",
+    },
+    
+    {
+      title: "Weekly Savings Calculator",
+      link: "/weekly-savings-calculator",
+      description:
+        "Estimate weekly savings growth, contribution schedules, and long-term savings accumulation.",
+    },
+    
     
   ]
 

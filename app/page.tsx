@@ -691,8 +691,74 @@ export default function HomePage() {
         "Estimate weekly savings growth, contribution schedules, and long-term savings accumulation.",
     },
     
+
+      {
+        title: "401(k) Calculator",
+        link: "/401k-calculator",
+        description:
+          "Estimate 401(k) retirement savings, employer matching contributions, compound investment growth, and future retirement income projections.",
+      },
     
-  ]
+      {
+        title: "Roth IRA Calculator",
+        link: "/roth-ira-calculator",
+        description:
+          "Calculate Roth IRA retirement growth, tax-free withdrawals, long-term investment returns, and retirement savings accumulation.",
+      },
+    
+      {
+        title: "IRA Calculator",
+        link: "/ira-calculator",
+        description:
+          "Estimate IRA contributions, retirement account growth, compound interest, and future retirement savings projections.",
+      },
+    
+      {
+        title: "Pension Calculator",
+        link: "/pension-calculator",
+        description:
+          "Calculate future pension income, retirement savings growth, monthly retirement payouts, and long-term pension planning.",
+      },
+    
+      {
+        title: "Social Security Calculator",
+        link: "/social-security-calculator",
+        description:
+          "Estimate Social Security retirement benefits, monthly income projections, lifetime payouts, and retirement planning goals.",
+      },
+    
+      {
+        title: "Retirement Savings Calculator",
+        link: "/retirement-savings-calculator",
+        description:
+          "Estimate future retirement savings, investment growth, compound interest, and long-term retirement wealth accumulation.",
+      },
+    
+      {
+        title: "Retirement Income Calculator",
+        link: "/retirement-income-calculator",
+        description:
+          "Calculate retirement income, investment withdrawals, retirement expenses, and long-term financial sustainability projections.",
+      },
+    
+      {
+        title: "Retirement Withdrawal Calculator",
+        link: "/retirement-withdrawal-calculator",
+        description:
+          "Estimate sustainable retirement withdrawals, portfolio longevity, safe withdrawal rates, and inflation-adjusted retirement income.",
+      },
+    
+      {
+        title: "Early Retirement Calculator",
+        link: "/early-retirement-calculator",
+        description:
+          "Estimate FIRE goals, passive investment income, financial independence timelines, and early retirement portfolio growth.",
+      },
+    
+    ];
+    
+    
+  
 
   return (
 

@@ -102,6 +102,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/cash-flow-calculator",
     "/monthly-budget-calculator",
     "/weekly-savings-calculator",
+    "/401k-calculator",
+    "/roth-ira-calculator",
+    "/ira-calculator",
+    "/pension-calculator",
+    "/social-security-calculator",
+    "/retirement-savings-calculator",
+    "/retirement-income-calculator",
+    "/retirement-withdrawal-calculator",
+    "/early-retirement-calculator",
 
   ];
 

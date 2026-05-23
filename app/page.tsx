@@ -754,6 +754,82 @@ export default function HomePage() {
         description:
           "Estimate FIRE goals, passive investment income, financial independence timelines, and early retirement portfolio growth.",
       },
+      {
+        title: "Salary Calculator",
+        link: "/salary-calculator",
+        description:
+          "Estimate salary income, annual earnings, monthly pay, taxes, deductions, and compensation projections.",
+      },
+      
+      {
+        title: "Hourly Wage Calculator",
+        link: "/hourly-wage-calculator",
+        description:
+          "Calculate hourly wages, weekly earnings, annual salary projections, overtime income, and take-home pay.",
+      },
+      
+      {
+        title: "Take Home Pay Calculator",
+        link: "/take-home-pay-calculator",
+        description:
+          "Estimate take-home pay after taxes, deductions, retirement contributions, and payroll withholdings.",
+      },
+      
+      {
+        title: "Tax Calculator",
+        link: "/tax-calculator",
+        description:
+          "Calculate estimated taxes, taxable income, deductions, credits, and annual tax liability projections.",
+      },
+      
+      {
+        title: "Income Tax Calculator",
+        link: "/income-tax-calculator",
+        description:
+          "Estimate federal and state income taxes, taxable earnings, deductions, and net take-home income.",
+      },
+      
+      {
+        title: "Bonus Tax Calculator",
+        link: "/bonus-tax-calculator",
+        description:
+          "Calculate bonus taxes, withholding rates, payroll deductions, and take-home bonus income projections.",
+      },
+      
+      {
+        title: "Overtime Calculator",
+        link: "/overtime-calculator",
+        description:
+          "Estimate overtime wages, extra work income, taxes, and annual earnings growth projections.",
+      },
+      
+      {
+        title: "Commission Calculator",
+        link: "/commission-calculator",
+        description:
+          "Calculate sales commissions, bonuses, taxes, gross compensation, and net income projections.",
+      },
+      
+      {
+        title: "Freelance Tax Calculator",
+        link: "/freelance-tax-calculator",
+        description:
+          "Estimate freelance taxes, self-employment income, deductions, quarterly taxes, and take-home pay.",
+      },
+      
+      {
+        title: "Self Employment Tax Calculator",
+        link: "/self-employment-tax-calculator",
+        description:
+          "Calculate self-employment taxes, Medicare taxes, Social Security taxes, deductions, and net income.",
+      },
+      
+      {
+        title: "Paycheck Calculator",
+        link: "/paycheck-calculator",
+        description:
+          "Estimate paycheck taxes, payroll deductions, overtime pay, and net take-home salary projections.",
+      },
     
     ];
     

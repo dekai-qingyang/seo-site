@@ -111,6 +111,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/retirement-income-calculator",
     "/retirement-withdrawal-calculator",
     "/early-retirement-calculator",
+    "/salary-calculator",
+    "/hourly-wage-calculator",
+    "/take-home-pay-calculator",
+    "/tax-calculator",
+    "/income-tax-calculator",
+    "/bonus-tax-calculator",
+    "/overtime-calculator",
+    "/commission-calculator",
+    "/freelance-tax-calculator",
+    "/self-employment-tax-calculator",
+    "/paycheck-calculator",
 
   ];
 

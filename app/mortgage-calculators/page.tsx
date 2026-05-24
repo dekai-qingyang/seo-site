@@ -443,10 +443,27 @@ export default function MortgageCalculatorsPage() {
 
               <p>
 
-                These calculators are frequently used to compare loan options,
-                evaluate refinance opportunities,
-                estimate total interest costs,
-                and improve long-term housing affordability planning.
+                Use our{" "}
+
+                <Link
+                  href="/mortgage-calculator"
+                  className="text-blue-600 font-bold hover:underline"
+                >
+                  Mortgage Calculator
+                </Link>
+
+                {" "}to estimate monthly home loan payments and total borrowing costs.
+
+                You can also explore our{" "}
+
+                <Link
+                  href="/refinance-calculator"
+                  className="text-blue-600 font-bold hover:underline"
+                >
+                  Refinance Calculator
+                </Link>
+
+                {" "}to compare refinancing options and long-term interest savings.
 
               </p>
 
@@ -464,10 +481,26 @@ export default function MortgageCalculatorsPage() {
 
               <p>
 
-                Mortgage calculators may help borrowers understand monthly payment obligations,
-                evaluate home affordability,
-                compare fixed-rate and adjustable-rate mortgages,
-                and estimate long-term repayment timelines.
+                Our{" "}
+
+                <Link
+                  href="/amortization-calculator"
+                  className="text-blue-600 font-bold hover:underline"
+                >
+                  Amortization Calculator
+                </Link>
+
+                {" "}helps borrowers understand repayment schedules and long-term principal balances,
+                while the{" "}
+
+                <Link
+                  href="/affordability-calculator"
+                  className="text-blue-600 font-bold hover:underline"
+                >
+                  Affordability Calculator
+                </Link>
+
+                {" "}may help estimate realistic home purchase budgets.
 
               </p>
 
@@ -477,6 +510,181 @@ export default function MortgageCalculatorsPage() {
                 refinancing an existing mortgage,
                 or analyzing home equity borrowing options,
                 these mortgage calculators provide fast and accurate financial estimates for smarter real estate decisions.
+
+              </p>
+
+            </div>
+
+          </div>
+
+        </section>
+
+        {/* FAQ */}
+
+        <section className="
+          mt-12
+          bg-white
+          rounded-3xl
+          border
+          border-slate-200
+          shadow-xl
+          p-8
+          md:p-12
+        ">
+
+          <h2 className="
+            text-4xl
+            font-black
+            text-slate-900
+            mb-10
+          ">
+
+            Mortgage Calculator FAQ
+
+          </h2>
+
+          <div className="space-y-10">
+
+            <div>
+
+              <h3 className="
+                text-2xl
+                font-black
+                text-slate-900
+                mb-4
+              ">
+
+                What is a mortgage calculator?
+
+              </h3>
+
+              <p className="
+                text-slate-700
+                text-lg
+                leading-9
+              ">
+
+                A mortgage calculator helps estimate monthly mortgage payments,
+                total loan costs,
+                interest expenses,
+                and long-term home financing affordability based on loan amount,
+                interest rate,
+                and repayment terms.
+
+              </p>
+
+            </div>
+
+            <div>
+
+              <h3 className="
+                text-2xl
+                font-black
+                text-slate-900
+                mb-4
+              ">
+
+                How much house can I afford?
+
+              </h3>
+
+              <p className="
+                text-slate-700
+                text-lg
+                leading-9
+              ">
+
+                Home affordability depends on income,
+                debt obligations,
+                credit score,
+                down payment,
+                mortgage rates,
+                and property taxes.
+
+                Use our{" "}
+
+                <Link
+                  href="/affordability-calculator"
+                  className="text-blue-600 font-bold hover:underline"
+                >
+                  Affordability Calculator
+                </Link>
+
+                {" "}to estimate realistic home buying budgets.
+
+              </p>
+
+            </div>
+
+            <div>
+
+              <h3 className="
+                text-2xl
+                font-black
+                text-slate-900
+                mb-4
+              ">
+
+                What is amortization?
+
+              </h3>
+
+              <p className="
+                text-slate-700
+                text-lg
+                leading-9
+              ">
+
+                Mortgage amortization refers to the gradual repayment of loan principal and interest over time.
+
+                Use our{" "}
+
+                <Link
+                  href="/amortization-calculator"
+                  className="text-blue-600 font-bold hover:underline"
+                >
+                  Amortization Calculator
+                </Link>
+
+                {" "}to view detailed repayment schedules and remaining balances.
+
+              </p>
+
+            </div>
+
+            <div>
+
+              <h3 className="
+                text-2xl
+                font-black
+                text-slate-900
+                mb-4
+              ">
+
+                Should I refinance my mortgage?
+
+              </h3>
+
+              <p className="
+                text-slate-700
+                text-lg
+                leading-9
+              ">
+
+                Refinancing may reduce monthly payments,
+                lower interest costs,
+                or shorten loan terms depending on market rates and financial goals.
+
+                Use our{" "}
+
+                <Link
+                  href="/refinance-calculator"
+                  className="text-blue-600 font-bold hover:underline"
+                >
+                  Refinance Calculator
+                </Link>
+
+                {" "}to compare refinance scenarios and savings opportunities.
 
               </p>
 

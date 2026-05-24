@@ -1,1151 +1,195 @@
-"use client"
-
-import Link from "next/link"
-import { useState } from "react"
+import ScientificCalculator from "@/components/ScientificCalculator";
+import Link from "next/link";
 
 export default function HomePage() {
 
-  const [display, setDisplay] = useState("0")
+  const categories = [
 
-  const handleClick = (value: string) => {
+    {
+      title: "Mortgage Calculators",
+      link: "/mortgage-calculators",
+      icon: "🏠",
+      description:
+        "Mortgage, refinance, affordability, HELOC, amortization, and home loan calculators.",
+    },
 
-    if (value === "AC") {
-      setDisplay("0")
-      return
-    }
+    {
+      title: "Debt Calculators",
+      link: "/debt-calculators",
+      icon: "💳",
+      description:
+        "Debt payoff, avalanche, snowball, credit card, and repayment strategy calculators.",
+    },
 
-    if (value === "=") {
+    {
+      title: "Investment Calculators",
+      link: "/investment-calculators",
+      icon: "📈",
+      description:
+        "Compound interest, ROI, dividend, savings, and investment growth calculators.",
+    },
 
-      try {
+    {
+      title: "Retirement Calculators",
+      link: "/retirement-calculators",
+      icon: "🏖️",
+      description:
+        "Retirement planning, savings, future income, and FIRE calculators.",
+    },
 
-        const result = Function(
-          `"use strict"; return (${display})`
-        )()
+    {
+      title: "Savings Calculators",
+      link: "/savings-calculators",
+      icon: "💰",
+      description:
+        "CD, budget, emergency fund, bank interest, and savings growth calculators.",
+    },
 
-        setDisplay(String(result))
+    {
+      title: "Income & Tax Calculators",
+      link: "/income-tax-calculators",
+      icon: "🧾",
+      description:
+        "Salary, paycheck, freelance tax, overtime, and income tax calculators.",
+    },
 
-      } catch {
+    {
+      title: "Business Calculators",
+      link: "/business-calculators",
+      icon: "📊",
+      description:
+        "Revenue, profit margin, markup, break-even, and business finance calculators.",
+    },
 
-        setDisplay("Error")
+    {
+      title: "Auto Loan Calculators",
+      link: "/auto-calculators",
+      icon: "🚗",
+      description:
+        "Auto loan, lease, car affordability, gas cost, and vehicle finance calculators.",
+    },
 
-      }
+  ];
 
-      return
-    }
+  const popularTools = [
 
-    if (display === "0" || display === "Error") {
-      setDisplay(value)
-    } else {
-      setDisplay(display + value)
-    }
-  }
-
-  const buttons = [
-    "7", "8", "9", "/",
-    "4", "5", "6", "*",
-    "1", "2", "3", "-",
-    "0", ".", "=", "+",
-  ]
-
-  const tools = [
     {
       title: "Mortgage Calculator",
       link: "/mortgage-calculator",
-      description:
-        "Estimate monthly mortgage payments and amortization schedules.",
     },
+
     {
       title: "Loan Calculator",
       link: "/loan-calculator",
-      description:
-        "Calculate loan payments, total interest, and repayment costs.",
     },
+
     {
-      title: "Refinance Calculator",
-      link: "/refinance-calculator",
-      description:
-        "Compare refinance rates and estimate savings over time.",
+      title: "401k Calculator",
+      link: "/401k-calculator",
     },
-    {
-      title: "Auto Loan Calculator",
-      link: "/auto-loan-calculator",
-      description:
-        "Calculate car loan payments and total financing costs.",
-    },
-    {
-      title: "Affordability Calculator",
-      link: "/affordability-calculator",
-      description:
-        "Estimate how much house you can afford based on income.",
-    },
-    {
-      title: "Compound Interest Calculator",
-      link: "/compound-interest-calculator",
-      description:
-        "Estimate compound investment growth and long-term returns.",
-    },
+
     {
       title: "Retirement Calculator",
       link: "/retirement-calculator",
-      description:
-        "Calculate retirement savings, investment growth, and future retirement income projections.",
     },
+
     {
-      title: "Savings Calculator",
-      link: "/savings-calculator",
-      description:
-        "Estimate dividend income and investment returns.",
+      title: "Compound Interest Calculator",
+      link: "/compound-interest-calculator",
     },
+
     {
       title: "Investment Calculator",
       link: "/investment-calculator",
-      description:
-        "Estimate investment growth, compound returns, and long-term wealth accumulation.",
-    },
-    {
-      title: "Dividend Calculator",
-      link: "/dividend-calculator",
-      description:
-      "Estimate dividend income, passive income growth, and long-term investment returns.",
-    },
-    {
-      title: "Roi Calculator",
-      link: "/roi-calculator",
-      description:
-        "Calculate return on investment, profit percentage, and investment performance estimates.",
-    },
-    {
-      title: "Amortization Calculator",
-      link: "/amortization-calculator",
-      description:
-        "Calculate loan amortization schedules, monthly payments, principal balances, and total interest costs.",
-    },
-    
-    {
-      title: "Down Payment Calculator",
-      link: "/down-payment-calculator",
-      description:
-        "Estimate down payments, mortgage affordability, monthly payments, and home buying costs.",
-    },
-    
-    {
-      title: "Rent vs Buy Calculator",
-      link: "/rent-vs-buy-calculator",
-      description:
-        "Compare renting versus buying a home with cost analysis, mortgage estimates, and long-term housing expenses.",
-    },
-    
-    {
-      title: "Extra Payment Calculator",
-      link: "/extra-payment-calculator",
-      description:
-        "Calculate mortgage savings, interest reduction, and loan payoff timelines with extra monthly payments.",
-    },
-    
-    {
-      title: "Credit Card Payoff Calculator",
-      link: "/credit-card-payoff-calculator",
-      description:
-        "Estimate credit card payoff schedules, interest savings, debt repayment timelines, and monthly payment strategies.",
-    },
-    
-    {
-      title: "Debt Snowball Calculator",
-      link: "/debt-snowball-calculator",
-      description:
-        "Calculate debt snowball repayment plans, monthly debt payoff schedules, and interest reduction strategies.",
-    },
-    
-    {
-      title: "Debt Avalanche Calculator",
-      link: "/debt-avalanche-calculator",
-      description:
-        "Estimate debt avalanche repayment plans, high-interest debt payoff strategies, and total interest savings.",
-    },
-    {
-      title: "Biweekly Mortgage Calculator",
-      link: "/biweekly-mortgage-calculator",
-      description:
-        "Estimate biweekly mortgage payments, interest savings, and faster mortgage payoff schedules.",
-    },
-    {
-      title: "Mortgage Payoff Calculator",
-      link: "/mortgage-payoff-calculator",
-      description:
-        "Estimate mortgage payoff schedules, interest savings, and early repayment timelines.",
-    },
-    
-    {
-      title: "Mortgage Interest Calculator",
-      link: "/mortgage-interest-calculator",
-      description:
-        "Calculate mortgage interest costs, total loan payments, and long-term borrowing expenses.",
-    },
-    
-    {
-      title: "Mortgage Points Calculator",
-      link: "/mortgage-points-calculator",
-      description:
-        "Estimate mortgage points costs, interest rate reductions, and long-term savings.",
-    },
-    
-    {
-      title: "Mortgage Insurance Calculator",
-      link: "/mortgage-insurance-calculator",
-      description:
-        "Calculate PMI costs, mortgage insurance payments, and total home loan expenses.",
-    },
-    
-    {
-      title: "Property Tax Calculator",
-      link: "/property-tax-calculator",
-      description:
-        "Estimate annual property taxes, monthly tax payments, and homeownership costs.",
-    },
-    
-    {
-      title: "Home Equity Calculator",
-      link: "/home-equity-calculator",
-      description:
-        "Estimate home equity value, remaining mortgage balance, and property ownership percentage.",
-    },
-    
-    {
-      title: "Home Equity Loan Calculator",
-      link: "/home-equity-loan-calculator",
-      description:
-        "Calculate home equity loan payments, interest costs, and borrowing estimates.",
-    },
-    
-    {
-      title: "Home Equity Line of Credit Calculator",
-      link: "/home-equity-line-of-credit-calculator",
-      description:
-        "Estimate HELOC payments, credit line borrowing costs, and home equity usage.",
-    },
-    
-    {
-      title: "HELOC Calculator",
-      link: "/heloc-calculator",
-      description:
-        "Estimate HELOC payments, interest costs, and flexible home equity borrowing schedules.",
-    },
-    
-    {
-      title: "Closing Cost Calculator",
-      link: "/closing-cost-calculator",
-      description:
-        "Calculate home closing costs, lender fees, taxes, and total purchase expenses.",
-    },
-    
-    {
-      title: "House Payment Calculator",
-      link: "/house-payment-calculator",
-      description:
-        "Estimate monthly house payments including mortgage, taxes, insurance, and HOA fees.",
-    },
-    
-    {
-      title: "Home Affordability Calculator",
-      link: "/home-affordability-calculator",
-      description:
-        "Estimate how much house you can afford based on income, debt, and mortgage payments.",
-    },
-    
-    {
-      title: "Real Estate Calculator",
-      link: "/real-estate-calculator",
-      description:
-        "Estimate real estate investment returns, property costs, and long-term value growth.",
-    },
-    
-    {
-      title: "Cash Out Refinance Calculator",
-      link: "/cash-out-refinance-calculator",
-      description:
-        "Estimate cash-out refinance payments, equity withdrawal amounts, and refinancing costs.",
-    },
-    
-    {
-      title: "Adjustable Rate Mortgage Calculator",
-      link: "/adjustable-rate-mortgage-calculator",
-      description:
-        "Estimate adjustable-rate mortgage payments, interest rate changes, and ARM loan costs.",
-    },
-    
-    {
-      title: "ARM Calculator",
-      link: "/arm-calculator",
-      description:
-        "Calculate ARM mortgage payments, adjustable interest rates, and future loan estimates.",
-    },
-    
-    {
-      title: "Principal and Interest Calculator",
-      link: "/principal-and-interest-calculator",
-      description:
-        "Estimate principal and interest mortgage payments with detailed loan repayment schedules.",
-    },
-    
-    {
-      title: "Escrow Calculator",
-      link: "/escrow-calculator",
-      description:
-        "Estimate escrow payments for property taxes, insurance, and monthly mortgage expenses.",
-    },
-    
-    {
-      title: "Mortgage Amortization Calculator",
-      link: "/mortgage-amortization-calculator",
-      description:
-        "Calculate mortgage amortization schedules, principal payments, and long-term interest costs.",
-    },
-    {
-      title: "Car Payment Calculator",
-      link: "/car-payment-calculator",
-      description:
-        "Estimate monthly car payments, auto loan interest, and vehicle financing costs.",
-    },
-    
-    {
-      title: "Car Affordability Calculator",
-      link: "/car-affordability-calculator",
-      description:
-        "Estimate how much car you can afford based on income, debt, and monthly budget.",
-    },
-    
-    {
-      title: "Lease Calculator",
-      link: "/lease-calculator",
-      description:
-        "Calculate monthly lease payments, lease costs, and financing estimates.",
-    },
-    
-    {
-      title: "Car Lease Calculator",
-      link: "/car-lease-calculator",
-      description:
-        "Estimate car lease payments, lease terms, residual values, and financing costs.",
-    },
-    
-    {
-      title: "Used Car Calculator",
-      link: "/used-car-calculator",
-      description:
-        "Estimate financing costs and monthly payments for used vehicle purchases.",
-    },
-    
-    {
-      title: "Vehicle Loan Calculator",
-      link: "/vehicle-loan-calculator",
-      description:
-        "Calculate vehicle loan payments, total interest costs, and auto financing estimates.",
-    },
-    
-    {
-      title: "Trade In Calculator",
-      link: "/trade-in-calculator",
-      description:
-        "Estimate vehicle trade-in values and financing savings for your next car purchase.",
-    },
-    
-    {
-      title: "Auto Refinance Calculator",
-      link: "/auto-refinance-calculator",
-      description:
-        "Estimate savings from refinancing your auto loan with lower interest rates.",
-    },
-    
-    {
-      title: "Gas Cost Calculator",
-      link: "/gas-cost-calculator",
-      description:
-        "Estimate fuel costs, gasoline expenses, and driving costs for road trips and commuting.",
-    },
-    
-    {
-      title: "Fuel Cost Calculator",
-      link: "/fuel-cost-calculator",
-      description:
-        "Calculate fuel expenses, mileage costs, and total driving fuel consumption estimates.",
-    },
-    
-    {
-      title: "EV Savings Calculator",
-      link: "/ev-savings-calculator",
-      description:
-        "Compare electric vehicle savings versus gasoline vehicle ownership costs.",
-    },
-    
-    {
-      title: "Vehicle Depreciation Calculator",
-      link: "/vehicle-depreciation-calculator",
-      description:
-        "Estimate vehicle depreciation, resale value, and long-term car ownership costs.",
-    },
-    {
-      title: "Minimum Payment Calculator",
-      link: "/minimum-payment-calculator",
-      description:
-        "Estimate minimum credit card payments, payoff timelines, total interest costs, and debt repayment strategies.",
-    },
-    
-    {
-      title: "Debt Payoff Calculator",
-      link: "/debt-payoff-calculator",
-      description:
-        "Calculate how long it takes to pay off debt and reduce interest costs.",
-    },
-    
-    {
-      title: "Personal Loan Calculator",
-      link: "/personal-loan-calculator",
-      description:
-        "Estimate monthly payments and total costs for a personal loan.",
-    },
-    
-    {
-      title: "Payday Loan Calculator",
-      link: "/payday-loan-calculator",
-      description:
-        "Calculate payday loan fees, repayment amounts, and borrowing costs.",
-    },
-    
-    {
-      title: "Student Loan Calculator",
-      link: "/student-loan-calculator",
-      description:
-        "Estimate student loan payments, interest, and repayment schedules.",
-    },
-    
-    {
-      title: "Student Loan Payoff Calculator",
-      link: "/student-loan-payoff-calculator",
-      description:
-        "Calculate how quickly you can pay off your student loans.",
-    },
-    
-    {
-      title: "Student Loan Refinance Calculator",
-      link: "/student-loan-refinance-calculator",
-      description:
-        "Compare refinancing options and estimate student loan savings.",
-    },
-    
-    {
-      title: "Interest Payoff Calculator",
-      link: "/interest-payoff-calculator",
-      description:
-        "Estimate interest costs and payoff timelines for loans and debt.",
-    },
-    
-    {
-      title: "Loan Payoff Calculator",
-      link: "/loan-payoff-calculator",
-      description:
-        "Calculate loan payoff dates, interest savings, and extra payment impact.",
-    },
-    
-    {
-      title: "Line Of Credit Calculator",
-      link: "/line-of-credit-calculator",
-      description:
-        "Estimate payments and borrowing costs for a line of credit.",
-    },
-    
-    {
-      title: "Credit Utilization Calculator",
-      link: "/credit-utilization-calculator",
-      description:
-        "Calculate your credit utilization ratio and improve credit health.",
-    },
-    
-    {
-      title: "Balance Transfer Calculator",
-      link: "/balance-transfer-calculator",
-      description:
-        "Estimate savings from transferring balances to lower APR credit cards.",
-    },
-    
-    {
-      title: "Debt Consolidation Calculator",
-      link: "/debt-consolidation-calculator",
-      description:
-        "Compare debt consolidation options and monthly payment savings.",
-    },
-    
-    {
-      title: "APR Calculator",
-      link: "/apr-calculator",
-      description:
-        "Calculate annual percentage rates for loans, credit cards, and financing.",
-    },
-    
-    {
-      title: "APY Calculator",
-      link: "/apy-calculator",
-      description:
-        "Estimate annual percentage yield and compound interest earnings.",
-    },
-    
-    {
-      title: "Simple Interest Calculator",
-      link: "/simple-interest-calculator",
-      description:
-        "Calculate simple interest earned or paid over time.",
-    },
-    
-    {
-      title: "Stock Calculator",
-      link: "/stock-calculator",
-      description:
-        "Calculate stock investment growth, profits, dividends, and portfolio returns.",
     },
 
-    {
-      title: "ETF Calculator",
-      link: "/etf-calculator",
-      description:
-        "Estimate ETF investment performance, compound growth, and long-term returns.",
-    },
-
-    {
-      title: "Mutual Fund Calculator",
-      link: "/mutual-fund-calculator",
-      description:
-        "Calculate mutual fund returns, investment growth, and future portfolio value.",
-    },
-
-    {
-      title: "Portfolio Calculator",
-      link: "/portfolio-calculator",
-      description:
-        "Analyze portfolio allocation, diversification, growth, and investment performance.",
-    },
-
-    {
-      title: "Investment Return Calculator",
-      link: "/investment-return-calculator",
-      description:
-        "Estimate investment profits, annual returns, and long-term wealth growth.",
-    },
-
-    {
-      title: "Annual Return Calculator",
-      link: "/annual-return-calculator",
-      description:
-        "Calculate annualized returns, yearly investment performance, and portfolio growth.",
-    },
-
-    {
-      title: "Capital Gains Calculator",
-      link: "/capital-gains-calculator",
-      description:
-        "Estimate capital gains taxes, investment profits, and after-tax returns.",
-    },
-
-    {
-      title: "Net Worth Calculator",
-      link: "/net-worth-calculator",
-      description:
-        "Track assets, liabilities, and calculate your total net worth.",
-    },
-
-    {
-      title: "Wealth Calculator",
-      link: "/wealth-calculator",
-      description:
-        "Estimate long-term wealth accumulation, savings growth, and financial progress.",
-    },
-
-    {
-      title: "Passive Income Calculator",
-      link: "/passive-income-calculator",
-      description:
-        "Calculate passive income streams, investment cash flow, and recurring earnings.",
-    },
-
-    {
-      title: "Financial Independence Calculator",
-      link: "/financial-independence-calculator",
-      description:
-        "Estimate savings goals and investment targets for financial independence.",
-    },
-
-    {
-      title: "FIRE Calculator",
-      link: "/fire-calculator",
-      description:
-        "Calculate retirement targets and savings needed for the FIRE movement.",
-    },
-
-    {
-      title: "Future Value Calculator",
-      link: "/future-value-calculator",
-      description:
-        "Estimate future investment value using compound growth and contributions.",
-    },
-
-    {
-      title: "Present Value Calculator",
-      link: "/present-value-calculator",
-      description:
-        "Calculate the present value of future cash flows and investment returns.",
-    },
-
-    {
-      title: "Inflation Calculator",
-      link: "/inflation-calculator",
-      description:
-        "Estimate purchasing power changes and inflation-adjusted values over time.",
-    },
-
-    {
-      title: "Real Return Calculator",
-      link: "/real-return-calculator",
-      description:
-        "Calculate investment returns adjusted for inflation and purchasing power.",
-    },
-
-    {
-      title: "Risk Reward Calculator",
-      link: "/risk-reward-calculator",
-      description:
-        "Analyze investment risk versus potential reward and expected return ratios.",
-    },
-    
-    {
-      title: "Certificate of Deposit Calculator",
-      link: "/certificate-of-deposit-calculator",
-      description:
-        "Estimate CD growth, APY earnings, compound interest, and long-term certificate of deposit returns.",
-    },
-    
     {
       title: "CD Calculator",
       link: "/cd-calculator",
-      description:
-        "Calculate certificate of deposit maturity balances, APY growth, and fixed-interest savings projections.",
     },
-    
-    {
-      title: "High Yield Savings Calculator",
-      link: "/high-yield-savings-calculator",
-      description:
-        "Estimate HYSA growth, monthly compound interest, APY returns, and future savings balances.",
-    },
-    
-    {
-      title: "Emergency Fund Calculator",
-      link: "/emergency-fund-calculator",
-      description:
-        "Calculate recommended emergency savings goals based on monthly expenses and financial security targets.",
-    },
-    
-    {
-      title: "Bank Interest Calculator",
-      link: "/bank-interest-calculator",
-      description:
-        "Estimate bank account interest earnings, savings growth, APY returns, and future account balances.",
-    },
-    
-    {
-      title: "Recurring Deposit Calculator",
-      link: "/recurring-deposit-calculator",
-      description:
-        "Calculate recurring deposit maturity values, monthly savings growth, and compound interest earnings.",
-    },
-    
-    {
-      title: "Budget Calculator",
-      link: "/budget-calculator",
-      description:
-        "Create a monthly budget plan, track spending, manage savings goals, and improve financial planning.",
-    },
-    
-    {
-      title: "Expense Calculator",
-      link: "/expense-calculator",
-      description:
-        "Track monthly expenses, estimate spending categories, and analyze personal cash outflows.",
-    },
-    
-    {
-      title: "Cash Flow Calculator",
-      link: "/cash-flow-calculator",
-      description:
-        "Estimate income, expenses, net cash flow, and long-term financial stability projections.",
-    },
-    
-    {
-      title: "Monthly Budget Calculator",
-      link: "/monthly-budget-calculator",
-      description:
-        "Plan monthly income allocation, savings targets, debt payments, and household budgeting strategies.",
-    },
-    
-    {
-      title: "Weekly Savings Calculator",
-      link: "/weekly-savings-calculator",
-      description:
-        "Estimate weekly savings growth, contribution schedules, and long-term savings accumulation.",
-    },
-    
 
-      {
-        title: "401(k) Calculator",
-        link: "/401k-calculator",
-        description:
-          "Estimate 401(k) retirement savings, employer matching contributions, compound investment growth, and future retirement income projections.",
-      },
-    
-      {
-        title: "Roth IRA Calculator",
-        link: "/roth-ira-calculator",
-        description:
-          "Calculate Roth IRA retirement growth, tax-free withdrawals, long-term investment returns, and retirement savings accumulation.",
-      },
-    
-      {
-        title: "IRA Calculator",
-        link: "/ira-calculator",
-        description:
-          "Estimate IRA contributions, retirement account growth, compound interest, and future retirement savings projections.",
-      },
-    
-      {
-        title: "Pension Calculator",
-        link: "/pension-calculator",
-        description:
-          "Calculate future pension income, retirement savings growth, monthly retirement payouts, and long-term pension planning.",
-      },
-    
-      {
-        title: "Social Security Calculator",
-        link: "/social-security-calculator",
-        description:
-          "Estimate Social Security retirement benefits, monthly income projections, lifetime payouts, and retirement planning goals.",
-      },
-    
-      {
-        title: "Retirement Savings Calculator",
-        link: "/retirement-savings-calculator",
-        description:
-          "Estimate future retirement savings, investment growth, compound interest, and long-term retirement wealth accumulation.",
-      },
-    
-      {
-        title: "Retirement Income Calculator",
-        link: "/retirement-income-calculator",
-        description:
-          "Calculate retirement income, investment withdrawals, retirement expenses, and long-term financial sustainability projections.",
-      },
-    
-      {
-        title: "Retirement Withdrawal Calculator",
-        link: "/retirement-withdrawal-calculator",
-        description:
-          "Estimate sustainable retirement withdrawals, portfolio longevity, safe withdrawal rates, and inflation-adjusted retirement income.",
-      },
-    
-      {
-        title: "Early Retirement Calculator",
-        link: "/early-retirement-calculator",
-        description:
-          "Estimate FIRE goals, passive investment income, financial independence timelines, and early retirement portfolio growth.",
-      },
-      {
-        title: "Salary Calculator",
-        link: "/salary-calculator",
-        description:
-          "Estimate salary income, annual earnings, monthly pay, taxes, deductions, and compensation projections.",
-      },
-      
-      {
-        title: "Hourly Wage Calculator",
-        link: "/hourly-wage-calculator",
-        description:
-          "Calculate hourly wages, weekly earnings, annual salary projections, overtime income, and take-home pay.",
-      },
-      
-      {
-        title: "Take Home Pay Calculator",
-        link: "/take-home-pay-calculator",
-        description:
-          "Estimate take-home pay after taxes, deductions, retirement contributions, and payroll withholdings.",
-      },
-      
-      {
-        title: "Tax Calculator",
-        link: "/tax-calculator",
-        description:
-          "Calculate estimated taxes, taxable income, deductions, credits, and annual tax liability projections.",
-      },
-      
-      {
-        title: "Income Tax Calculator",
-        link: "/income-tax-calculator",
-        description:
-          "Estimate federal and state income taxes, taxable earnings, deductions, and net take-home income.",
-      },
-      
-      {
-        title: "Bonus Tax Calculator",
-        link: "/bonus-tax-calculator",
-        description:
-          "Calculate bonus taxes, withholding rates, payroll deductions, and take-home bonus income projections.",
-      },
-      
-      {
-        title: "Overtime Calculator",
-        link: "/overtime-calculator",
-        description:
-          "Estimate overtime wages, extra work income, taxes, and annual earnings growth projections.",
-      },
-      
-      {
-        title: "Commission Calculator",
-        link: "/commission-calculator",
-        description:
-          "Calculate sales commissions, bonuses, taxes, gross compensation, and net income projections.",
-      },
-      
-      {
-        title: "Freelance Tax Calculator",
-        link: "/freelance-tax-calculator",
-        description:
-          "Estimate freelance taxes, self-employment income, deductions, quarterly taxes, and take-home pay.",
-      },
-      
-      {
-        title: "Self Employment Tax Calculator",
-        link: "/self-employment-tax-calculator",
-        description:
-          "Calculate self-employment taxes, Medicare taxes, Social Security taxes, deductions, and net income.",
-      },
-      
-      {
-        title: "Paycheck Calculator",
-        link: "/paycheck-calculator",
-        description:
-          "Estimate paycheck taxes, payroll deductions, overtime pay, and net take-home salary projections.",
-      },
-      
-      {
-        title: "Profit Margin Calculator",
-        link: "/profit-margin-calculator",
-        description:
-          "Calculate profit margins, revenue growth, business profitability, and operating performance projections.",
-      },
-      
-      {
-        title: "Break Even Calculator",
-        link: "/break-even-calculator",
-        description:
-          "Estimate break-even points, fixed costs, variable expenses, and business profitability targets.",
-      },
-      
-      {
-        title: "Business Loan Calculator",
-        link: "/business-loan-calculator",
-        description:
-          "Estimate business loan payments, financing costs, amortization schedules, and repayment projections.",
-      },
-      
-      {
-        title: "Cash Runway Calculator",
-        link: "/cash-runway-calculator",
-        description:
-          "Calculate startup runway, monthly burn rates, operational expenses, and funding timelines.",
-      },
-      
-      {
-        title: "Revenue Calculator",
-        link: "/revenue-calculator",
-        description:
-          "Estimate business revenue, customer value, growth projections, and long-term profitability trends.",
-      },
-      
-      {
-        title: "Gross Profit Calculator",
-        link: "/gross-profit-calculator",
-        description:
-          "Calculate gross profit, gross margins, production costs, and operational profitability metrics.",
-      },
-      
-      {
-        title: "Net Profit Calculator",
-        link: "/net-profit-calculator",
-        description:
-          "Estimate net income, operating expenses, taxes, and long-term business profitability.",
-      },
-      
-      {
-        title: "Markup Calculator",
-        link: "/markup-calculator",
-        description:
-          "Calculate selling prices, markup percentages, product profitability, and pricing strategies.",
-      },
-      
-      {
-        title: "Discount Calculator",
-        link: "/discount-calculator",
-        description:
-          "Estimate discounts, markdown percentages, sale prices, and long-term shopping savings.",
-      },
-      
-      {
-        title: "Sales Tax Calculator",
-        link: "/sales-tax-calculator",
-        description:
-          "Calculate sales taxes, tax-inclusive pricing, final purchase totals, and spending projections.",
-      },
-    ];
-    
-    
-  
+    {
+      title: "Tax Calculator",
+      link: "/tax-calculator",
+    },
+
+    {
+      title: "Profit Margin Calculator",
+      link: "/profit-margin-calculator",
+    },
+
+  ];
 
   return (
 
     <main className="min-h-screen bg-slate-100">
-{/* CATEGORY SECTIONS */}
 
-<section className="max-w-7xl mx-auto px-4 py-10">
+      {/* TOP CALCULATOR */}
 
-  <h2 className="text-4xl font-black mb-8">
-    Financial Calculator Categories
-  </h2>
+      <ScientificCalculator />
 
-  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* CATEGORY SECTION */}
 
-    {/* MORTGAGE */}
+      <section className="max-w-7xl mx-auto px-4 py-14">
 
-    <a
-      href="/mortgage-calculators"
-      className="bg-white rounded-3xl shadow-xl p-6 border border-slate-200 hover:-translate-y-1 transition"
-    >
+        <div className="mb-10">
 
-      <div className="text-5xl mb-4">
-        🏠
-      </div>
+          <h2 className="text-4xl lg:text-6xl font-black text-slate-900 mb-5">
 
-      <h3 className="text-2xl font-black mb-3">
-        Mortgage Calculators
-      </h3>
+            Financial Calculator Categories
 
-      <p className="text-slate-600 leading-7">
-        Mortgage,
-        refinance,
-        amortization,
-        ARM,
-        affordability,
-        HELOC,
-        and home loan calculators.
-      </p>
-
-    </a>
-
-    {/* DEBT */}
-
-    <a
-      href="/debt-calculators"
-      className="bg-white rounded-3xl shadow-xl p-6 border border-slate-200 hover:-translate-y-1 transition"
-    >
-
-      <div className="text-5xl mb-4">
-        💳
-      </div>
-
-      <h3 className="text-2xl font-black mb-3">
-        Debt Calculators
-      </h3>
-
-      <p className="text-slate-600 leading-7">
-        Debt payoff,
-        avalanche,
-        snowball,
-        credit card,
-        and repayment strategy calculators.
-      </p>
-
-    </a>
-
-    {/* INVESTMENT */}
-
-    <a
-      href="/investment-calculators"
-      className="bg-white rounded-3xl shadow-xl p-6 border border-slate-200 hover:-translate-y-1 transition"
-    >
-
-      <div className="text-5xl mb-4">
-        📈
-      </div>
-
-      <h3 className="text-2xl font-black mb-3">
-        Investment Calculators
-      </h3>
-
-      <p className="text-slate-600 leading-7">
-        Compound interest,
-        ROI,
-        dividend,
-        savings,
-        and investment growth calculators.
-      </p>
-
-    </a>
-
-    {/* RETIREMENT */}
-
-    <a
-      href="/retirement-calculators"
-      className="bg-white rounded-3xl shadow-xl p-6 border border-slate-200 hover:-translate-y-1 transition"
-    >
-
-      <div className="text-5xl mb-4">
-        🏖️
-      </div>
-
-      <h3 className="text-2xl font-black mb-3">
-        Retirement Calculators
-      </h3>
-
-      <p className="text-slate-600 leading-7">
-        Retirement planning,
-        savings,
-        future income,
-        and financial independence calculators.
-      </p>
-
-    </a>
-
-  </div>
-
-</section>
-      {/* HERO */}
-
-      <section className="bg-gradient-to-r from-blue-700 to-indigo-700 text-white font-semibold ">
-
-        <div className="max-w-7xl mx-auto px-4 py-16 lg:py-24">
-
-          <div className="max-w-4xl">
-
-            <h1 className="text-4xl lg:text-7xl font-black leading-tight mb-6">
-              Online Financial & Math Calculators
-            </h1>
-
-            <p className="text-lg lg:text-2xl text-blue-700 leading-9">
-              Free online mortgage, loan, refinance, auto loan,
-              affordability, compound interest, and scientific calculators.
-            </p>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* SCIENTIFIC CALCULATOR */}
-
-      <section className="max-w-7xl mx-auto px-3 lg:px-4 py-8 lg:py-14">
-
-        <div className="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
-
-          <div className="bg-gradient-to-r from-blue-700 to-indigo-700 p-4 lg:p-6">
-
-            <h2 className="text-2xl lg:text-4xl font-black text-white font-semibold  mb-2">
-              Scientific Calculator
-            </h2>
-
-            <p className="text-blue-700">
-              Simple online calculator for quick calculations.
-            </p>
-
-          </div>
-
-          <div className="p-4 lg:p-8">
-
-            {/* DISPLAY */}
-
-            <div className="bg-slate-900 rounded-2xl p-5 lg:p-7 mb-5 lg:mb-8">
-
-              <div className="text-right text-white font-semibold text-3xl lg:text-5xl font-black break-all min-h-[50px]">
-                {display}
-              </div>
-
-            </div>
-
-            {/* BUTTONS */}
-
-            <div className="grid grid-cols-4 gap-3 lg:gap-4">
-
-              {buttons.map((btn) => (
-
-                <button
-                  key={btn}
-                  onClick={() => handleClick(btn)}
-                  className={`rounded-2xl py-4 lg:py-6 text-xl lg:text-3xl font-bold transition-all shadow-md hover:scale-105 ${
-                    ["+", "-", "*", "/", "="].includes(btn)
-                      ? "bg-blue-600 text-white font-semibold font-semibold font-semibold"
-                      : "bg-slate-100 hover:bg-slate-200"
-                  }`}
-                >
-                  {btn}
-                </button>
-
-              ))}
-
-              <button
-                onClick={() => handleClick("AC")}
-                className="col-span-4 rounded-2xl py-4 lg:py-5 bg-red-500 text-white font-semibold  text-xl lg:text-2xl font-bold shadow-md hover:scale-[1.01]"
-              >
-                Clear Calculator
-              </button>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* TOOL GRID */}
-
-      <section className="max-w-7xl mx-auto px-3 lg:px-4 pb-10 lg:pb-20">
-
-        <div className="flex items-center justify-between mb-6 lg:mb-10">
-
-          <h2 className="text-3xl lg:text-5xl font-black">
-            Popular Calculators
           </h2>
 
+          <p className="text-slate-600 text-lg leading-8 max-w-4xl">
+
+            Browse free online financial calculators for mortgages,
+            loans,
+            investing,
+            retirement planning,
+            taxes,
+            savings,
+            and business finance.
+
+          </p>
+
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-8">
+        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-7">
 
-          {tools.map((tool) => (
+          {categories.map((category) => (
 
             <Link
-              key={tool.title}
-              href={tool.link}
-              className="bg-white rounded-3xl border border-slate-200 shadow-lg p-6 lg:p-8 hover:-translate-y-1 transition-all"
+              key={category.title}
+              href={category.link}
+              className="
+                bg-white
+                rounded-3xl
+                border
+                border-slate-200
+                shadow-lg
+                p-7
+                hover:-translate-y-1
+                hover:border-blue-500
+                transition-all
+              "
             >
 
-              <div className="mb-5">
+              <div className="text-5xl mb-5">
 
-                <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 flex items-center justify-center text-white font-semibold text-2xl lg:text-3xl font-black">
-                  $
-                </div>
+                {category.icon}
 
               </div>
 
-              <h3 className="text-2xl font-black mb-4">
-                {tool.title}
+              <h3 className="text-2xl font-black text-slate-900 mb-4">
+
+                {category.title}
+
               </h3>
 
-              <p className="text-slate-600 leading-7">
-                {tool.description}
+              <p className="text-slate-600 leading-8">
+
+                {category.description}
+
               </p>
 
             </Link>
@@ -1156,75 +200,134 @@ export default function HomePage() {
 
       </section>
 
-      {/* ARTICLE */}
+      {/* POPULAR TOOLS */}
+
+      <section className="max-w-7xl mx-auto px-4 pb-16">
+
+        <div className="flex items-center justify-between mb-10">
+
+          <div>
+
+            <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-3">
+
+              Popular Calculators
+
+            </h2>
+
+            <p className="text-slate-600 text-lg">
+
+              Most frequently used financial calculators.
+
+            </p>
+
+          </div>
+
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+
+          {popularTools.map((tool) => (
+
+            <Link
+              key={tool.title}
+              href={tool.link}
+              className="
+                bg-white
+                rounded-3xl
+                border
+                border-slate-200
+                shadow-lg
+                p-7
+                hover:-translate-y-1
+                hover:border-blue-500
+                transition-all
+              "
+            >
+
+              <div className="
+                w-16
+                h-16
+                rounded-2xl
+                bg-gradient-to-r
+                from-blue-600
+                to-indigo-600
+                flex
+                items-center
+                justify-center
+                text-white
+                text-3xl
+                font-black
+                mb-6
+              ">
+
+                $
+
+              </div>
+
+              <h3 className="text-2xl font-black text-slate-900 mb-3">
+
+                {tool.title}
+
+              </h3>
+
+              <p className="text-slate-600 leading-8">
+
+                Free online calculator with instant results and mobile-friendly design.
+
+              </p>
+
+            </Link>
+
+          ))}
+
+        </div>
+
+      </section>
+
+      {/* SEO CONTENT */}
 
       <section className="bg-white border-t border-slate-200">
 
-        <div className="max-w-5xl mx-auto px-4 py-14 lg:py-20">
+        <div className="max-w-5xl mx-auto px-4 py-16">
 
-          <h2 className="text-3xl lg:text-5xl font-black mb-8">
-            Free Online Calculator Tools
+          <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-8">
+
+            Free Online Financial Calculators
+
           </h2>
 
-          <div className="space-y-8 text-slate-700 leading-8 text-base lg:text-lg">
+          <div className="space-y-8 text-slate-700 text-lg leading-9">
 
             <p>
-              Online calculators help users estimate financial costs,
-              mortgage payments, loan interest, refinancing savings,
-              investment growth, and affordability instantly.
+
+              Financial calculators help users estimate loan payments,
+              mortgage costs,
+              investment returns,
+              retirement savings,
+              budgeting goals,
+              and business profitability.
+
             </p>
 
-            <div>
+            <p>
 
-              <h3 className="text-2xl font-bold mb-3 text-black">
-                Mortgage Calculators
-              </h3>
+              Our online calculator platform includes mortgage calculators,
+              retirement tools,
+              tax estimators,
+              savings planners,
+              business finance tools,
+              and investment growth calculators designed for fast and accurate financial planning.
 
-              <p>
-                Mortgage calculators estimate monthly payments,
-                amortization schedules, and total home financing costs.
-              </p>
+            </p>
 
-            </div>
+            <p>
 
-            <div>
+              Every calculator is optimized for desktop and mobile devices,
+              providing clean layouts,
+              instant calculations,
+              and simple financial analysis tools for everyday use.
 
-              <h3 className="text-2xl font-bold mb-3 text-black">
-                Loan Calculators
-              </h3>
-
-              <p>
-                Loan calculators help borrowers understand repayment
-                schedules, total interest costs, and monthly installments.
-              </p>
-
-            </div>
-
-            <div>
-
-              <h3 className="text-2xl font-bold mb-3 text-black">
-                Compound Interest Tools
-              </h3>
-
-              <p>
-                Compound interest calculators help investors estimate
-                future investment growth and long-term wealth accumulation.
-              </p>
-
-            </div>
-
-            <div>
-
-              <h3 className="text-2xl font-bold mb-3 text-black">
-                Financial Planning Tools
-              </h3>
-
-              <p>
-                Financial calculators simplify budgeting, refinancing,
-                affordability analysis, and investment planning.
-              </p>
-
-            </div>
+            </p>
 
           </div>
 
@@ -1234,5 +337,6 @@ export default function HomePage() {
 
     </main>
 
-  )
+  );
+
 }

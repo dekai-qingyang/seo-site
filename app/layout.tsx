@@ -6,8 +6,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "LoanFormulas",
-    template: "%s | LoanFormulas",
+    default: "LoanFormulas Calculators",
+    template: "%s | LoanFormulas Calculators",
   },
 
   description:
@@ -72,12 +72,18 @@ export default function RootLayout({
 
             <div className="flex items-center justify-between h-16">
 
-              <Link
-                href="/"
-                className="text-2xl font-black text-blue-600"
-              >
-                LoanFormulas
-              </Link>
+            <Link
+              href="/"
+              className="text-3xl font-black tracking-tight"
+            >
+              <span className="text-blue-600">
+               LoanFormulas
+              </span>
+
+              <span className="text-slate-900 ml-1">
+                Calculators
+            </span>
+          </Link>
 
               <nav className="hidden lg:flex items-center gap-6 text-sm font-semibold">
 

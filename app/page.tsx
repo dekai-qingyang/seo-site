@@ -830,7 +830,76 @@ export default function HomePage() {
         description:
           "Estimate paycheck taxes, payroll deductions, overtime pay, and net take-home salary projections.",
       },
-    
+      
+      {
+        title: "Profit Margin Calculator",
+        link: "/profit-margin-calculator",
+        description:
+          "Calculate profit margins, revenue growth, business profitability, and operating performance projections.",
+      },
+      
+      {
+        title: "Break Even Calculator",
+        link: "/break-even-calculator",
+        description:
+          "Estimate break-even points, fixed costs, variable expenses, and business profitability targets.",
+      },
+      
+      {
+        title: "Business Loan Calculator",
+        link: "/business-loan-calculator",
+        description:
+          "Estimate business loan payments, financing costs, amortization schedules, and repayment projections.",
+      },
+      
+      {
+        title: "Cash Runway Calculator",
+        link: "/cash-runway-calculator",
+        description:
+          "Calculate startup runway, monthly burn rates, operational expenses, and funding timelines.",
+      },
+      
+      {
+        title: "Revenue Calculator",
+        link: "/revenue-calculator",
+        description:
+          "Estimate business revenue, customer value, growth projections, and long-term profitability trends.",
+      },
+      
+      {
+        title: "Gross Profit Calculator",
+        link: "/gross-profit-calculator",
+        description:
+          "Calculate gross profit, gross margins, production costs, and operational profitability metrics.",
+      },
+      
+      {
+        title: "Net Profit Calculator",
+        link: "/net-profit-calculator",
+        description:
+          "Estimate net income, operating expenses, taxes, and long-term business profitability.",
+      },
+      
+      {
+        title: "Markup Calculator",
+        link: "/markup-calculator",
+        description:
+          "Calculate selling prices, markup percentages, product profitability, and pricing strategies.",
+      },
+      
+      {
+        title: "Discount Calculator",
+        link: "/discount-calculator",
+        description:
+          "Estimate discounts, markdown percentages, sale prices, and long-term shopping savings.",
+      },
+      
+      {
+        title: "Sales Tax Calculator",
+        link: "/sales-tax-calculator",
+        description:
+          "Calculate sales taxes, tax-inclusive pricing, final purchase totals, and spending projections.",
+      },
     ];
     
     

@@ -122,6 +122,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/freelance-tax-calculator",
     "/self-employment-tax-calculator",
     "/paycheck-calculator",
+    "/profit-margin-calculator",
+    "/break-even-calculator",
+    "/business-loan-calculator",
+    "/cash-runway-calculator",
+    "/revenue-calculator",
+    "/gross-profit-calculator",
+    "/net-profit-calculator",
+    "/markup-calculator",
+    "/discount-calculator",
+    "/sales-tax-calculator",
 
   ];
 

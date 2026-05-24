@@ -332,6 +332,206 @@ const calculators = [
     link: "/certificate-of-deposit-calculator",
   },
 
+  {
+    title: "CD Calculator",
+    link: "/cd-calculator",
+  },
+  
+  {
+    title: "High Yield Savings Calculator",
+    link: "/high-yield-savings-calculator",
+  },
+  
+  {
+    title: "Emergency Fund Calculator",
+    link: "/emergency-fund-calculator",
+  },
+  
+  {
+    title: "Bank Interest Calculator",
+    link: "/bank-interest-calculator",
+  },
+  
+  {
+    title: "Recurring Deposit Calculator",
+    link: "/recurring-deposit-calculator",
+  },
+  
+  {
+    title: "Budget Calculator",
+    link: "/budget-calculator",
+  },
+  
+  {
+    title: "Expense Calculator",
+    link: "/expense-calculator",
+  },
+  
+  {
+    title: "Cash Flow Calculator",
+    link: "/cash-flow-calculator",
+  },
+  
+  {
+    title: "Monthly Budget Calculator",
+    link: "/monthly-budget-calculator",
+  },
+  
+  {
+    title: "Weekly Savings Calculator",
+    link: "/weekly-savings-calculator",
+  },
+  
+  {
+    title: "401k Calculator",
+    link: "/401k-calculator",
+  },
+  
+  {
+    title: "Roth IRA Calculator",
+    link: "/roth-ira-calculator",
+  },
+  
+  {
+    title: "IRA Calculator",
+    link: "/ira-calculator",
+  },
+  
+  {
+    title: "Pension Calculator",
+    link: "/pension-calculator",
+  },
+  
+  {
+    title: "Social Security Calculator",
+    link: "/social-security-calculator",
+  },
+  
+  {
+    title: "Retirement Savings Calculator",
+    link: "/retirement-savings-calculator",
+  },
+  
+  {
+    title: "Retirement Income Calculator",
+    link: "/retirement-income-calculator",
+  },
+  
+  {
+    title: "Retirement Withdrawal Calculator",
+    link: "/retirement-withdrawal-calculator",
+  },
+  
+  {
+    title: "Early Retirement Calculator",
+    link: "/early-retirement-calculator",
+  },
+  
+  {
+    title: "Salary Calculator",
+    link: "/salary-calculator",
+  },
+  
+  {
+    title: "Hourly Wage Calculator",
+    link: "/hourly-wage-calculator",
+  },
+  
+  {
+    title: "Take Home Pay Calculator",
+    link: "/take-home-pay-calculator",
+  },
+  
+  {
+    title: "Tax Calculator",
+    link: "/tax-calculator",
+  },
+  
+  {
+    title: "Income Tax Calculator",
+    link: "/income-tax-calculator",
+  },
+  
+  {
+    title: "Bonus Tax Calculator",
+    link: "/bonus-tax-calculator",
+  },
+  
+  {
+    title: "Overtime Calculator",
+    link: "/overtime-calculator",
+  },
+  
+  {
+    title: "Commission Calculator",
+    link: "/commission-calculator",
+  },
+  
+  {
+    title: "Freelance Tax Calculator",
+    link: "/freelance-tax-calculator",
+  },
+  
+  {
+    title: "Self Employment Tax Calculator",
+    link: "/self-employment-tax-calculator",
+  },
+  
+  {
+    title: "Paycheck Calculator",
+    link: "/paycheck-calculator",
+  },
+  
+  {
+    title: "Profit Margin Calculator",
+    link: "/profit-margin-calculator",
+  },
+  
+  {
+    title: "Break Even Calculator",
+    link: "/break-even-calculator",
+  },
+  
+  {
+    title: "Business Loan Calculator",
+    link: "/business-loan-calculator",
+  },
+  
+  {
+    title: "Cash Runway Calculator",
+    link: "/cash-runway-calculator",
+  },
+  
+  {
+    title: "Revenue Calculator",
+    link: "/revenue-calculator",
+  },
+  
+  {
+    title: "Gross Profit Calculator",
+    link: "/gross-profit-calculator",
+  },
+  
+  {
+    title: "Net Profit Calculator",
+    link: "/net-profit-calculator",
+  },
+  
+  {
+    title: "Markup Calculator",
+    link: "/markup-calculator",
+  },
+  
+  {
+    title: "Discount Calculator",
+    link: "/discount-calculator",
+  },
+  
+  {
+    title: "Sales Tax Calculator",
+    link: "/sales-tax-calculator",
+  },
+
 ];
 
 export default function SitemapPage() {

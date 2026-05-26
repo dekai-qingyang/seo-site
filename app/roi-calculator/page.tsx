@@ -1,5 +1,7 @@
 "use client"
 
+import Link from "next/link"
+
 import { useMemo, useState } from "react"
 
 import {
@@ -13,9 +15,11 @@ import {
   CartesianGrid,
   XAxis,
   YAxis,
+  BarChart,
+  Bar,
 } from "recharts"
 
-export default function ROICalculator() {
+export default function RoiCalculatorPage() {
 
   const [investmentCost, setInvestmentCost] = useState(10000)
 
@@ -44,7 +48,7 @@ export default function ROICalculator() {
 
   const chartData = [
     {
-      name: "Investment Cost",
+      name: "Investment",
       value: investmentCost,
     },
     {
@@ -70,7 +74,7 @@ export default function ROICalculator() {
         )
 
       rows.push({
-        year,
+        year: `Year ${year}`,
         value,
       })
     }
@@ -83,6 +87,21 @@ export default function ROICalculator() {
     years,
   ])
 
+  const comparisonData = [
+    {
+      name: "Cost",
+      amount: investmentCost,
+    },
+    {
+      name: "Return",
+      amount: investmentReturn,
+    },
+    {
+      name: "Profit",
+      amount: profit,
+    },
+  ]
+
   return (
 
     <main className="min-h-screen bg-slate-100 py-4 lg:py-10 px-2 lg:px-4">
@@ -91,30 +110,93 @@ export default function ROICalculator() {
 
         {/* HERO */}
 
-        <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200">
+        <div className="
+          bg-gradient-to-r
+          from-orange-600
+          to-red-600
+          rounded-3xl
+          overflow-hidden
+          shadow-2xl
+          text-white
+          mb-6
+        ">
 
-          <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-4 py-6 lg:p-8">
+          <div className="p-6 lg:p-10">
 
-            <h1 className="text-3xl lg:text-5xl font-black mb-4">
+            <div className="
+              inline-flex
+              items-center
+              rounded-full
+              bg-white/10
+              px-4
+              py-2
+              text-sm
+              font-semibold
+              mb-5
+            ">
+
+              Investment & Profitability Tool
+
+            </div>
+
+            <h1 className="
+              text-4xl
+              lg:text-6xl
+              font-black
+              mb-5
+            ">
+
               ROI Calculator
+
             </h1>
 
-            <p className="text-orange-100 text-sm lg:text-lg">
+            <p className="
+              text-orange-100
+              text-lg
+              leading-8
+              max-w-3xl
+            ">
+
               Calculate return on investment,
-              profit percentage,
+              investment profitability,
               annualized returns,
-              and investment performance.
+              long-term portfolio growth,
+              and business investment performance.
+
             </p>
 
           </div>
+
+        </div>
+
+        {/* CALCULATOR */}
+
+        <div className="
+          bg-white
+          rounded-3xl
+          shadow-xl
+          border
+          border-slate-200
+          overflow-hidden
+        ">
 
           <div className="grid lg:grid-cols-2">
 
             {/* LEFT */}
 
-            <div className="p-4 lg:p-8 border-r border-slate-200">
+            <div className="p-5 lg:p-8 border-r border-slate-200">
 
-              <div className="space-y-5">
+              <h2 className="
+                text-3xl
+                font-black
+                mb-8
+              ">
+
+                ROI Inputs
+
+              </h2>
+
+              <div className="space-y-6">
 
                 <InputField
                   label="Investment Cost"
@@ -142,56 +224,66 @@ export default function ROICalculator() {
 
             {/* RIGHT */}
 
-            <div className="bg-gradient-to-b from-orange-50 to-white p-4 lg:p-8">
+            <div className="
+              bg-gradient-to-b
+              from-orange-50
+              to-white
+              p-5
+              lg:p-8
+            ">
 
-              <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-3xl p-5 lg:p-8 mb-6">
+              <div className="
+                bg-gradient-to-r
+                from-orange-600
+                to-red-600
+                rounded-3xl
+                text-white
+                p-6
+                mb-6
+              ">
 
-                <p className="text-orange-100 mb-2">
+                <div className="text-orange-100 mb-2">
                   Estimated ROI
-                </p>
+                </div>
 
-                <h2 className="text-4xl lg:text-5xl font-black">
+                <div className="
+                  text-5xl
+                  font-black
+                ">
+
                   {roi.toFixed(2)}%
-                </h2>
+
+                </div>
 
               </div>
 
-              <div className="bg-white rounded-3xl border border-slate-200 overflow-hidden">
+              {/* SUMMARY */}
 
-                <div className="px-6 py-4 border-b border-slate-200">
+              <div className="
+                grid
+                sm:grid-cols-2
+                gap-4
+              ">
 
-                  <h3 className="text-2xl font-bold">
-                    ROI Summary
-                  </h3>
+                <SummaryCard
+                  title="Total Profit"
+                  value={`$${profit.toFixed(2)}`}
+                />
 
-                </div>
+                <SummaryCard
+                  title="Annualized ROI"
+                  value={`${annualizedROI.toFixed(2)}%`}
+                />
 
-                <div className="divide-y divide-slate-200">
+                <SummaryCard
+                  title="Monthly Profit"
+                  value={`$${monthlyProfit.toFixed(2)}`}
+                />
 
-                  <SummaryRow
-                    label="Total Profit"
-                    value={profit}
-                  />
-
-                  <SummaryRow
-                    label="Annualized ROI"
-                    value={annualizedROI}
-                    suffix="%"
-                    isCurrency={false}
-                  />
-
-                  <SummaryRow
-                    label="Monthly Profit"
-                    value={monthlyProfit}
-                  />
-
-                  <SummaryRow
-                    label="Investment Period"
-                    value={years}
-                    isCurrency={false}
-                  />
-
-                </div>
+                <SummaryCard
+                  title="Investment Period"
+                  value={`${years} Years`}
+                />
 
               </div>
 
@@ -201,41 +293,37 @@ export default function ROICalculator() {
 
         </div>
 
-        {/* EXPLANATION */}
-
-        <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 lg:p-8 mt-6">
-
-          <h2 className="text-3xl font-black mb-5">
-            ROI Explanation
-          </h2>
-
-          <p className="text-slate-700 leading-8 text-lg">
-
-            An investment of
-            <strong> ${investmentCost.toLocaleString()}</strong>
-            growing to
-            <strong> ${investmentReturn.toLocaleString()}</strong>
-            over
-            <strong> {years} years</strong>
-            generates an estimated
-            <strong> {roi.toFixed(2)}%</strong>
-            return on investment.
-
-          </p>
-
-        </div>
-
         {/* PIE CHART */}
 
-        <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 lg:p-8 mt-6">
+        <div className="
+          bg-white
+          rounded-3xl
+          shadow-xl
+          border
+          border-slate-200
+          p-6
+          lg:p-8
+          mt-6
+        ">
 
-          <h2 className="text-3xl font-black mb-6">
+          <h2 className="
+            text-3xl
+            font-black
+            mb-8
+          ">
+
             Investment Breakdown
+
           </h2>
 
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
+          <div className="
+            grid
+            lg:grid-cols-2
+            gap-10
+            items-center
+          ">
 
-            <div className="h-[300px]">
+            <div className="h-[350px]">
 
               <ResponsiveContainer
                 width="100%"
@@ -247,9 +335,7 @@ export default function ROICalculator() {
                   <Pie
                     data={chartData}
                     dataKey="value"
-                    cx="50%"
-                    cy="50%"
-                    outerRadius={100}
+                    outerRadius={120}
                     label
                   >
 
@@ -266,28 +352,46 @@ export default function ROICalculator() {
 
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-5">
 
-              <div className="bg-orange-50 rounded-2xl p-5">
+              <div className="
+                bg-orange-50
+                rounded-2xl
+                p-6
+              ">
 
-                <div className="text-slate-700 mb-1">
+                <div className="text-slate-600 mb-2">
                   Investment Cost
                 </div>
 
-                <div className="text-2xl font-black">
-                  ${investmentCost.toFixed(0)}
+                <div className="
+                  text-3xl
+                  font-black
+                ">
+
+                  ${investmentCost.toFixed(2)}
+
                 </div>
 
               </div>
 
-              <div className="bg-slate-100 rounded-2xl p-5">
+              <div className="
+                bg-slate-100
+                rounded-2xl
+                p-6
+              ">
 
-                <div className="text-slate-700 mb-1">
-                  Profit
+                <div className="text-slate-600 mb-2">
+                  Investment Profit
                 </div>
 
-                <div className="text-2xl font-black">
-                  ${profit.toFixed(0)}
+                <div className="
+                  text-3xl
+                  font-black
+                ">
+
+                  ${profit.toFixed(2)}
+
                 </div>
 
               </div>
@@ -298,12 +402,27 @@ export default function ROICalculator() {
 
         </div>
 
-        {/* CHART */}
+        {/* LINE CHART */}
 
-        <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 lg:p-8 mt-6">
+        <div className="
+          bg-white
+          rounded-3xl
+          shadow-xl
+          border
+          border-slate-200
+          p-6
+          lg:p-8
+          mt-6
+        ">
 
-          <h2 className="text-3xl font-black mb-6">
+          <h2 className="
+            text-3xl
+            font-black
+            mb-8
+          ">
+
             ROI Growth Chart
+
           </h2>
 
           <div className="h-[400px]">
@@ -327,7 +446,7 @@ export default function ROICalculator() {
                   type="monotone"
                   dataKey="value"
                   stroke="#ea580c"
-                  strokeWidth={3}
+                  strokeWidth={4}
                 />
 
               </LineChart>
@@ -338,80 +457,430 @@ export default function ROICalculator() {
 
         </div>
 
-        {/* FORMULA */}
+        {/* BAR CHART */}
 
-        <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 lg:p-8 mt-6">
+        <div className="
+          bg-white
+          rounded-3xl
+          shadow-xl
+          border
+          border-slate-200
+          p-6
+          lg:p-8
+          mt-6
+        ">
 
-          <h2 className="text-3xl font-black mb-5">
-            ROI Formula
+          <h2 className="
+            text-3xl
+            font-black
+            mb-8
+          ">
+
+            ROI Comparison
+
           </h2>
 
-          <div className="bg-slate-100 rounded-2xl p-5 overflow-x-auto">
+          <div className="h-[400px]">
 
-            <p className="text-lg font-mono">
-              ROI = ((Return - Cost) / Cost) × 100
+            <ResponsiveContainer
+              width="100%"
+              height="100%"
+            >
+
+              <BarChart data={comparisonData}>
+
+                <CartesianGrid strokeDasharray="3 3" />
+
+                <XAxis dataKey="name" />
+
+                <YAxis />
+
+                <Tooltip />
+
+                <Bar
+                  dataKey="amount"
+                  fill="#ea580c"
+                  radius={[10, 10, 0, 0]}
+                />
+
+              </BarChart>
+
+            </ResponsiveContainer>
+
+          </div>
+
+        </div>
+
+        {/* EXPLANATION */}
+
+        <div className="
+          bg-white
+          rounded-3xl
+          shadow-xl
+          border
+          border-slate-200
+          p-6
+          lg:p-10
+          mt-6
+        ">
+
+          <h2 className="
+            text-4xl
+            font-black
+            mb-8
+          ">
+
+            ROI Calculator Explanation
+
+          </h2>
+
+          <div className="
+            space-y-8
+            text-slate-700
+            text-lg
+            leading-9
+          ">
+
+            <p>
+
+              Return on Investment,
+              commonly referred to as ROI,
+              is one of the most widely used financial metrics for evaluating profitability and investment performance.
+              ROI measures how much profit or loss an investment generates relative to its original cost.
+              Investors,
+              businesses,
+              and financial analysts frequently use ROI calculations to compare different investment opportunities and evaluate financial efficiency.
+
+            </p>
+
+            <p>
+
+              The ROI formula is relatively simple.
+              It calculates the percentage difference between investment returns and investment costs.
+              A positive ROI indicates profitability,
+              while a negative ROI suggests a loss.
+              ROI calculations may help investors understand whether a project,
+              stock,
+              business investment,
+              or real estate purchase produces acceptable financial returns over time.
+
+            </p>
+
+            <p>
+
+              This ROI calculator estimates total profit,
+              annualized ROI,
+              monthly profit averages,
+              and long-term investment growth projections.
+              Investors may use these estimates to compare portfolio strategies,
+              evaluate business opportunities,
+              or analyze financial planning goals.
+
+            </p>
+
+            <p>
+
+              For example,
+              if an investor contributes $10,000 into a project and later receives $15,000,
+              the total profit equals $5,000.
+              Dividing the profit by the original investment produces an ROI of 50%.
+              This means the investment generated a 50% return relative to the original cost.
+
+            </p>
+
+            <p>
+
+              ROI calculations are commonly used in stock market investing,
+              retirement planning,
+              business expansion analysis,
+              cryptocurrency investing,
+              real estate investing,
+              and startup financial modeling.
+              Businesses often analyze ROI before launching advertising campaigns,
+              hiring employees,
+              purchasing equipment,
+              or investing in operational improvements.
+
+            </p>
+
+            <p>
+
+              Investors should also understand the difference between total ROI and annualized ROI.
+              Total ROI measures cumulative profitability,
+              while annualized ROI estimates average yearly returns.
+              Annualized returns are useful when comparing investments with different holding periods.
+
+            </p>
+
+            <p>
+
+              Long-term investment performance depends on several financial variables including market conditions,
+              inflation,
+              taxes,
+              reinvestment strategies,
+              and risk exposure.
+              While ROI calculators provide useful estimates,
+              actual investment performance may vary significantly depending on economic conditions and investment volatility.
+
+            </p>
+
+            <p>
+
+              You can also explore our{" "}
+
+              <Link
+                href="/investment-calculator"
+                className="text-orange-600 font-bold hover:underline"
+              >
+                Investment Calculator
+              </Link>
+
+              {" "}for long-term portfolio growth analysis,
+              or use the{" "}
+
+              <Link
+                href="/compound-interest-calculator"
+                className="text-orange-600 font-bold hover:underline"
+              >
+                Compound Interest Calculator
+              </Link>
+
+              {" "}to estimate compounded investment returns and recurring contribution growth projections.
+
+            </p>
+
+            <p>
+
+              Understanding ROI may help individuals and businesses improve financial planning decisions,
+              optimize investment allocations,
+              reduce unnecessary expenses,
+              and evaluate long-term profitability opportunities more effectively.
+
             </p>
 
           </div>
 
         </div>
 
-        {/* EXAMPLE */}
+        {/* FORMULA */}
 
-        <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 lg:p-8 mt-6">
+        <div className="
+          bg-white
+          rounded-3xl
+          shadow-xl
+          border
+          border-slate-200
+          p-6
+          lg:p-8
+          mt-6
+        ">
 
-          <h2 className="text-3xl font-black mb-5">
-            ROI Example
+          <h2 className="
+            text-3xl
+            font-black
+            mb-6
+          ">
+
+            ROI Formula
+
           </h2>
 
-          <p className="text-slate-700 leading-8 text-lg">
+          <div className="
+            bg-slate-100
+            rounded-2xl
+            p-6
+            overflow-x-auto
+          ">
 
-            If an investor spends
-            $10,000 and receives
-            $15,000 after 5 years,
-            the investment profit is
-            <strong> ${profit.toFixed(0)}</strong>
-            and the ROI is
-            <strong> {roi.toFixed(2)}%</strong>.
+            <p className="
+              text-xl
+              font-mono
+            ">
 
-          </p>
+              ROI = ((Return - Investment Cost) / Investment Cost) × 100
+
+            </p>
+
+          </div>
+
+        </div>
+
+        {/* EXAMPLES */}
+
+        <div className="
+          bg-white
+          rounded-3xl
+          shadow-xl
+          border
+          border-slate-200
+          p-6
+          lg:p-8
+          mt-6
+        ">
+
+          <h2 className="
+            text-3xl
+            font-black
+            mb-6
+          ">
+
+            ROI Examples
+
+          </h2>
+
+          <div className="
+            space-y-6
+            text-slate-700
+            text-lg
+            leading-9
+          ">
+
+            <p>
+
+              Example 1:
+              An investor purchases a stock portfolio for $20,000 and later sells it for $28,000.
+              The total profit equals $8,000 and the ROI equals 40%.
+
+            </p>
+
+            <p>
+
+              Example 2:
+              A business spends $5,000 on advertising and generates $12,000 in additional revenue.
+              The investment profit equals $7,000 and the ROI equals 140%.
+
+            </p>
+
+            <p>
+
+              Example 3:
+              A real estate investor purchases a rental property for $250,000 and later sells it for $320,000.
+              The investment profit equals $70,000 and the ROI equals 28%.
+
+            </p>
+
+          </div>
 
         </div>
 
         {/* FAQ */}
 
-        <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 lg:p-8 mt-6">
+        <div className="
+          bg-white
+          rounded-3xl
+          shadow-xl
+          border
+          border-slate-200
+          p-6
+          lg:p-8
+          mt-6
+        ">
 
-          <h2 className="text-3xl font-black mb-6">
+          <h2 className="
+            text-3xl
+            font-black
+            mb-8
+          ">
+
             ROI Calculator FAQ
+
           </h2>
 
-          <div className="space-y-6">
+          <div className="space-y-8">
 
             <div>
 
-              <h3 className="font-bold text-xl mb-2">
+              <h3 className="
+                text-2xl
+                font-black
+                mb-3
+              ">
+
                 What is ROI?
+
               </h3>
 
-              <p className="text-slate-700 leading-8">
+              <p className="
+                text-slate-700
+                leading-8
+              ">
+
                 ROI stands for Return on Investment.
-                It measures investment profitability
-                relative to investment cost.
+                It measures investment profitability relative to the original investment cost.
+
               </p>
 
             </div>
 
             <div>
 
-              <h3 className="font-bold text-xl mb-2">
+              <h3 className="
+                text-2xl
+                font-black
+                mb-3
+              ">
+
                 What is a good ROI?
+
               </h3>
 
-              <p className="text-slate-700 leading-8">
-                A good ROI depends on risk,
-                investment type,
-                and market conditions.
+              <p className="
+                text-slate-700
+                leading-8
+              ">
+
+                A good ROI depends on investment risk,
+                market conditions,
+                industry performance,
+                and investment objectives.
+
+              </p>
+
+            </div>
+
+            <div>
+
+              <h3 className="
+                text-2xl
+                font-black
+                mb-3
+              ">
+
+                Why is annualized ROI important?
+
+              </h3>
+
+              <p className="
+                text-slate-700
+                leading-8
+              ">
+
+                Annualized ROI helps compare investments with different holding periods by estimating average yearly returns.
+
+              </p>
+
+            </div>
+
+            <div>
+
+              <h3 className="
+                text-2xl
+                font-black
+                mb-3
+              ">
+
+                Can ROI be negative?
+
+              </h3>
+
+              <p className="
+                text-slate-700
+                leading-8
+              ">
+
+                Yes.
+                Negative ROI indicates that an investment produced a financial loss instead of profit.
+
               </p>
 
             </div>
@@ -420,43 +889,88 @@ export default function ROICalculator() {
 
         </div>
 
-        {/* RELATED */}
+        {/* RELATED TOOLS */}
 
-        <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 lg:p-8 mt-6 mb-10">
+        <div className="
+          bg-white
+          rounded-3xl
+          shadow-xl
+          border
+          border-slate-200
+          p-6
+          lg:p-8
+          mt-6
+          mb-10
+        ">
 
-          <h2 className="text-3xl font-black mb-6">
+          <h2 className="
+            text-3xl
+            font-black
+            mb-8
+          ">
+
             Related Calculators
+
           </h2>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="
+            grid
+            sm:grid-cols-2
+            lg:grid-cols-4
+            gap-4
+          ">
 
-            <a
+            <Link
               href="/investment-calculator"
-              className="bg-slate-100 hover:bg-orange-50 rounded-2xl p-5 font-bold"
+              className="
+                bg-slate-100
+                hover:bg-orange-50
+                rounded-2xl
+                p-5
+                font-bold
+              "
             >
               Investment Calculator
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/compound-interest-calculator"
-              className="bg-slate-100 hover:bg-orange-50 rounded-2xl p-5 font-bold"
+              className="
+                bg-slate-100
+                hover:bg-orange-50
+                rounded-2xl
+                p-5
+                font-bold
+              "
             >
               Compound Interest Calculator
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/dividend-calculator"
-              className="bg-slate-100 hover:bg-orange-50 rounded-2xl p-5 font-bold"
+              className="
+                bg-slate-100
+                hover:bg-orange-50
+                rounded-2xl
+                p-5
+                font-bold
+              "
             >
               Dividend Calculator
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/retirement-calculator"
-              className="bg-slate-100 hover:bg-orange-50 rounded-2xl p-5 font-bold"
+              className="
+                bg-slate-100
+                hover:bg-orange-50
+                rounded-2xl
+                p-5
+                font-bold
+              "
             >
               Retirement Calculator
-            </a>
+            </Link>
 
           </div>
 
@@ -473,29 +987,45 @@ function InputField({
   value,
   setValue,
   prefix,
-  suffix,
 }: {
   label: string
   value: number
   setValue: (value: number) => void
   prefix?: string
-  suffix?: string
 }) {
 
   return (
 
     <div>
 
-      <label className="block text-sm font-semibold mb-2 text-slate-700">
+      <label className="
+        block
+        text-sm
+        font-semibold
+        mb-2
+        text-slate-700
+      ">
+
         {label}
+
       </label>
 
       <div className="relative">
 
         {prefix && (
-          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-700">
+
+          <span className="
+            absolute
+            left-4
+            top-1/2
+            -translate-y-1/2
+            text-slate-700
+          ">
+
             {prefix}
+
           </span>
+
         )}
 
         <input
@@ -504,16 +1034,19 @@ function InputField({
           onChange={(e) =>
             setValue(Number(e.target.value))
           }
-          className={`w-full border border-slate-200 rounded-2xl py-3 px-4 bg-white ${
-            prefix ? "pl-9" : ""
-          }`}
+          className={`
+            w-full
+            border
+            border-slate-200
+            rounded-2xl
+            py-4
+            px-4
+            bg-white
+            text-lg
+            font-semibold
+            ${prefix ? "pl-9" : ""}
+          `}
         />
-
-        {suffix && (
-          <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-700">
-            {suffix}
-          </span>
-        )}
 
       </div>
 
@@ -522,35 +1055,39 @@ function InputField({
   )
 }
 
-function SummaryRow({
-  label,
+function SummaryCard({
+  title,
   value,
-  suffix,
-  isCurrency = true,
 }: {
-  label: string
-  value: number
-  suffix?: string
-  isCurrency?: boolean
+  title: string
+  value: string
 }) {
 
   return (
 
-    <div className="px-6 py-4">
+    <div className="
+      bg-white
+      border
+      border-slate-200
+      rounded-2xl
+      p-5
+    ">
 
-      <div className="flex items-center justify-between">
+      <div className="
+        text-slate-600
+        mb-2
+      ">
 
-        <span className="text-slate-700">
-          {label}
-        </span>
+        {title}
 
-        <span className="font-bold">
+      </div>
 
-          {isCurrency
-            ? `$${value.toFixed(2)}`
-            : `${value.toFixed(2)}${suffix || ""}`}
+      <div className="
+        text-2xl
+        font-black
+      ">
 
-        </span>
+        {value}
 
       </div>
 

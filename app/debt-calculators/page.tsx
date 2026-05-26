@@ -405,6 +405,171 @@ export default function DebtCalculatorsPage() {
 
             </div>
 
+            {/* RELATED LINKS */}
+
+            <div className="
+              mt-14
+              grid
+              md:grid-cols-2
+              lg:grid-cols-3
+              gap-5
+            ">
+
+              <Link
+                href="/loan-calculator"
+                className="
+                  bg-slate-50
+                  hover:bg-red-50
+                  border
+                  border-slate-200
+                  hover:border-red-400
+                  rounded-2xl
+                  p-6
+                  transition
+                "
+              >
+
+                <h3 className="text-xl font-black mb-3">
+                  Loan Calculator
+                </h3>
+
+                <p className="text-slate-600 leading-7">
+                  Estimate monthly loan payments,
+                  borrowing costs,
+                  and repayment schedules.
+                </p>
+
+              </Link>
+
+              <Link
+                href="/credit-card-payoff-calculator"
+                className="
+                  bg-slate-50
+                  hover:bg-red-50
+                  border
+                  border-slate-200
+                  hover:border-red-400
+                  rounded-2xl
+                  p-6
+                  transition
+                "
+              >
+
+                <h3 className="text-xl font-black mb-3">
+                  Credit Card Payoff Calculator
+                </h3>
+
+                <p className="text-slate-600 leading-7">
+                  Analyze repayment timelines,
+                  interest costs,
+                  and payoff strategies.
+                </p>
+
+              </Link>
+
+              <Link
+                href="/debt-snowball-calculator"
+                className="
+                  bg-slate-50
+                  hover:bg-red-50
+                  border
+                  border-slate-200
+                  hover:border-red-400
+                  rounded-2xl
+                  p-6
+                  transition
+                "
+              >
+
+                <h3 className="text-xl font-black mb-3">
+                  Debt Snowball Calculator
+                </h3>
+
+                <p className="text-slate-600 leading-7">
+                  Organize balances from smallest to largest
+                  for faster payoff momentum.
+                </p>
+
+              </Link>
+
+              <Link
+                href="/debt-avalanche-calculator"
+                className="
+                  bg-slate-50
+                  hover:bg-red-50
+                  border
+                  border-slate-200
+                  hover:border-red-400
+                  rounded-2xl
+                  p-6
+                  transition
+                "
+              >
+
+                <h3 className="text-xl font-black mb-3">
+                  Debt Avalanche Calculator
+                </h3>
+
+                <p className="text-slate-600 leading-7">
+                  Prioritize high-interest balances
+                  to reduce long-term borrowing costs.
+                </p>
+
+              </Link>
+
+              <Link
+                href="/student-loan-calculator"
+                className="
+                  bg-slate-50
+                  hover:bg-red-50
+                  border
+                  border-slate-200
+                  hover:border-red-400
+                  rounded-2xl
+                  p-6
+                  transition
+                "
+              >
+
+                <h3 className="text-xl font-black mb-3">
+                  Student Loan Calculator
+                </h3>
+
+                <p className="text-slate-600 leading-7">
+                  Estimate education loan payments,
+                  interest costs,
+                  and repayment timelines.
+                </p>
+
+              </Link>
+
+              <Link
+                href="/debt-consolidation-calculator"
+                className="
+                  bg-slate-50
+                  hover:bg-red-50
+                  border
+                  border-slate-200
+                  hover:border-red-400
+                  rounded-2xl
+                  p-6
+                  transition
+                "
+              >
+
+                <h3 className="text-xl font-black mb-3">
+                  Debt Consolidation Calculator
+                </h3>
+
+                <p className="text-slate-600 leading-7">
+                  Compare consolidation options
+                  and estimate long-term interest savings.
+                </p>
+
+              </Link>
+
+            </div>
+
           </div>
 
         </section>

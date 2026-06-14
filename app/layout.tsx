@@ -25,6 +25,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     "https://loanformulas.com"
   ),
+  
+  verification: {
+    google:
+      "G_Z6xMUs90IYZy_Jv0pUT1gVwsDucJSEcRCc2gbDdgs",
+  },
 
   openGraph: {
     title: "LoanFormulas",
